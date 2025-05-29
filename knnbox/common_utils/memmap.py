@@ -18,7 +18,7 @@ class Memmap:
         # Create and Write a Memmap
         mmap = Memmap("/home/keys", mode="w+")
         a = torch.rand(10,64)
-        mmap.add(a) 
+        mmap.add(a)
         b = np.random.randn(38, 64)
         mmap.dump() # dump the file to disk
 
@@ -73,7 +73,7 @@ class Memmap:
         # check the memmap read write mode
         assert self.mode == "r+" or self.mode == "w+", \
                 "You can't write to a Memmap with {} mode.".format(self.mode)
-        # allocate the Memmap file on the first time add function is called 
+        # allocate the Memmap file on the first time add function is called
         if self.data is None:
             preallocated_shape = list(data.shape) if data.shape else [1]
 
@@ -86,14 +86,14 @@ class Memmap:
                 shape = preallocated_shape,
                 mode = self.mode,
             )
-        
+
         if isinstance(data, torch.Tensor):
             data = data.detach().cpu().numpy()
 
         assert data.dtype == self.data.dtype, \
             "Inconsistent data types when add to memmap, require %s but add %s" % \
-            (str(self.data.dtype), str(data.dtype)) 
-            
+            (str(self.data.dtype), str(data.dtype))
+
         assert data.shape[1:] == self.data.shape[1:], \
             "Inconsistent data dimension when add to memmap, require %s but add %s" % \
             (str(self.data.shape[1:]), str(data.shape[1:]))
@@ -105,19 +105,19 @@ class Memmap:
         while data_shape[0] + self.size >= new_capacity:
             need_resize = True
             # Take a more aggressive pre allocation strategy when there are fewer entries
-            if new_capacity < 5000000: 
+            if new_capacity < 5000000:
                 new_capacity = 2 * new_capacity
             else:
             # Take a more conservative pre allocation strategy when there are many entries
                 new_capacity = int(new_capacity * 1.5)
-        
+
         if need_resize:
             new_shape = [new_capacity] + list(self.data.shape[1:])
             new_shape = tuple(new_shape)
             new_memory_footprint = self.data.dtype.itemsize
             for x in new_shape:
                 new_memory_footprint *= x
-            
+
             self.data.base.resize(new_memory_footprint)
             self.data.flush()
             self.data = np.memmap(
@@ -139,8 +139,8 @@ class Memmap:
             new_shape = self.shape
             new_memory_footprint = self.data.dtype.itemsize
             for x in new_shape:
-                new_memory_footprint *= x 
-        
+                new_memory_footprint *= x
+
             self.data.base.resize(new_memory_footprint)
             self.data.flush()
             self.data = np.memmap(
@@ -149,16 +149,16 @@ class Memmap:
                 mode = "r+",
                 shape = new_shape,
         )
-        
+
 
     def dump(self):
-        r""" 
+        r"""
         when we dump the Memmap to disk, we dicard redundant preallocated entries.
         It means we trim the memmap to `self.size` entries
         """
         self.drop_redundant()
 
-        
+
     @staticmethod
     def convert_data_type(data_type):
         r""" convert an input data dtype to numpy compatible dtype """
@@ -198,12 +198,20 @@ class Memmap:
             str(torch.int32): int,
             str(torch.int): int,
             "int": int,
+            "int8": np.int8,
+            "int16": np.int16,
+            "int32": np.int32,
+            "int64": np.int64,
+            "uint8": np.uint8,
+            "uint16": np.uint16,
+            "uint32": np.uint32,
+            "uint64": np.uint64,
         }
 
         assert data_type in data_type_convert_dict, \
-                "Unsupported data type when convert dtype for memmap!" 
-        return data_type_convert_dict[data_type] 
+                "Unsupported data type when convert dtype for memmap!"
+        return data_type_convert_dict[data_type]
 
 
-        
-        
+
+

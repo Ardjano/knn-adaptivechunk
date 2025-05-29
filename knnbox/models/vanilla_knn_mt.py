@@ -85,6 +85,7 @@ class VanillaKNNMTDecoder(TransformerDecoder):
             self.combiner = Combiner(lambda_=args.knn_lambda,
                      temperature=args.knn_temperature, probability_dim=len(dictionary))
 
+        # to prevent costly regeneration when unnecessary
         elif args.knn_mode == "existing_datastore":
             if "datastore" not in global_vars():
                 global_vars()["datastore"] = Datastore.load(args.knn_datastore_path, load_list=["keys"])

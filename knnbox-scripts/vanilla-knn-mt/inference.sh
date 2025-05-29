@@ -29,6 +29,5 @@ python $PROJECT_PATH/knnbox-scripts/common/generate.py $DATA_PATH \
 --knn-k 8 \
 --knn-lambda 0.7 \
 --knn-temperature 10.0 \
---build-faiss-index-with-cpu
 
 

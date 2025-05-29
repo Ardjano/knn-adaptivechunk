@@ -19,7 +19,7 @@ from fairseq import checkpoint_utils, distributed_utils, options, utils
 from fairseq.logging import metrics, progress_bar
 
 ## knnbox related code start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-from knnbox.datastore import Datastore, GreedyMergeDatastore, PckDatastore
+from knnbox.datastore import Datastore, GreedyMergeDatastore, PckDatastore, ChunkDatastore
 from knnbox.common_utils import filter_pad_tokens, global_vars
 import numpy as np
 ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
@@ -94,6 +94,12 @@ def main(args, override_args=None):
                 reduction_network_output_dim=args.knn_reduct_dim,
                 dictionary_len=len(task.tgt_dict),
                 )
+        if knn_type == "chunk_knn_mt":
+            global_vars()["datastore"] = ChunkDatastore(
+                path=args.knn_datastore_path,
+                chunk_size=args.max_chunk_size,
+                confidence_threshold=args.confidence_threshold
+                )
     datastore = global_vars()["datastore"]
     ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
@@ -146,6 +152,14 @@ def main(args, override_args=None):
                     datastore.set_pad_mask(mask)
                     datastore.set_target(sample["target"])
 
+                elif knn_type == "chunk_knn_mt":
+                    target = sample["target"] # [B, T]
+                    datastore.set_target(target)
+
+                    pad_idx = task.tgt_dict.pad()
+                    mask = target.ne(pad_idx)
+                    datastore.set_pad_mask(mask)
+
                 elif knn_type == "vanilla_knn_mt_visual":
                     non_pad_tokens, mask = filter_pad_tokens(sample["target"])
                     datastore["vals"].add(non_pad_tokens)
@@ -195,7 +209,7 @@ def main(args, override_args=None):
 
     if args.knn_mode == 'existing_datastore':
          datastore.build_faiss_index("keys", use_gpu=(not args.build_faiss_index_with_cpu))
-    elif knn_type in ["vanilla_knn_mt", "adaptive_knn_mt", "kernel_smoothed_knn_mt", "vanilla_knn_mt_visual", "plac_knn_mt", "robust_knn_mt"]:
+    elif knn_type in ["vanilla_knn_mt", "adaptive_knn_mt", "kernel_smoothed_knn_mt", "vanilla_knn_mt_visual", "plac_knn_mt", "robust_knn_mt", "chunk_knn_mt"]:
         datastore.dump()    # dump to disk
         datastore.build_faiss_index("keys", use_gpu=(not args.build_faiss_index_with_cpu))   # build faiss index
     elif knn_type == "greedy_merge_knn_mt":

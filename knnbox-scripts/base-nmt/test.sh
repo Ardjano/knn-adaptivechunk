@@ -10,15 +10,12 @@ export OMP_WAIT_POLICY=PASSIVE
 PROJECT_PATH=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../..
 DATA_PATH=$PROJECT_PATH/data-bin/it
 BASE_MODEL=$PROJECT_PATH/pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt
-BPE_PATH=$PROJECT_PATH/pretrain-models/wmt19.de-en/ende30k.fastbpe.code
 
 
 CUDA_VISIBLE_DEVICES=0 python $PROJECT_PATH/fairseq_cli/interactive.py $DATA_PATH \
 --task translation \
 --path $BASE_MODEL \
---dataset-impl mmap \
 --beam 4 --lenpen 0.6 --max-len-a 1.2 --max-len-b 10 --source-lang de --target-lang en \
---tokenizer moses --bpe subword_nmt --bpe-codes $BPE_PATH --remove-bpe \
---model-overrides "{'eval_bleu': False, 'required_seq_len_multiple':1, 'load_alignments': False}" \
---max-tokens 2048 \
+--tokenizer moses \
+# --tokenizer moses --remove-bpe \
 

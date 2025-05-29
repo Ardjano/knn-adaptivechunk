@@ -175,10 +175,10 @@ def load_faiss_index(path, n_probe,
     if verbose:
         print("  > reading index took {} s".format(time.time()-start_time))
         # Print all vector transforms
-        if isinstance(index,faiss.swigfaiss_avx2.IndexPreTransform):
-            print(f"    > {index.chain.size()} pre-transform is found")
-            for i in range(index.chain.size()):
-                print(f"    > pre-transform: {index.chain.at(i).d_in} -> {index.chain.at(i).d_out}")
+        # if isinstance(index,faiss.swigfaiss_avx2.IndexPreTransform):
+        #     print(f"    > {index.chain.size()} pre-transform is found")
+        #     for i in range(index.chain.size()):
+        #         print(f"    > pre-transform: {index.chain.at(i).d_in} -> {index.chain.at(i).d_out}")
         print("  > the datastore shape is ", (index.ntotal, index.d))
     index.nprobe = n_probe
     print("[Finish Loading Faiss Index Successfully ^_^]")

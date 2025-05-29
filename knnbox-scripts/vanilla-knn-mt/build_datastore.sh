@@ -23,6 +23,5 @@ CUDA_VISIBLE_DEVICES=0 python $PROJECT_PATH/knnbox-scripts/common/validate.py $D
 --bpe fastbpe \
 --user-dir $PROJECT_PATH/knnbox/models \
 --arch vanilla_knn_mt@transformer_wmt19_de_en \
---knn-mode existing_datastore \
+--knn-mode build_datastore \
 --knn-datastore-path $DATASTORE_SAVE_PATH \
---build-faiss-index-with-cpu

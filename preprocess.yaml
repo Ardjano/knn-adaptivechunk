@@ -1,0 +1,1 @@
+python fairseq_cli/preprocess.py --source-lang de --target-lang en --trainpref domaintext/minitest/processed/train.bpe.filtered --validpref domaintext/minitest/processed/dev.bpe --testpref domaintext/minitest/processed/test.bpe --destdir data-bin/minitest/ --srcdict pretrain-models/wmt19.de-en/dict.de.txt --joined-dictionary

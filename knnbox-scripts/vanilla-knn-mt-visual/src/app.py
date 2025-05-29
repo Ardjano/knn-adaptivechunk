@@ -30,7 +30,7 @@ def knn_main():
     with st.sidebar:
         with st.expander("⚡ About this app", expanded=True):
             st.write(
-        """     
+        """
 -   Powered by [knn-box](https://github.com/NJUNLP/knn-box) toolkit.
 -   Developed by Nanjing University NLP Group.
 	    """
@@ -50,7 +50,7 @@ def knn_main():
                 value="/home/demo/knn-box/data-bin/zh-en-laws/dict.zh.txt",
             )
             path_submit = st.form_submit_button(label="✨ Get me the profile!")
-        
+
         if "has_clicked" not in st.session_state:
             st.session_state.has_clicked = False
         if "last_ds_path" not in st.session_state:
@@ -59,8 +59,8 @@ def knn_main():
             st.session_state.last_dic_path = ""
 
         # we use session here to display the `value frequency chart` when slider changes.
-        if path_submit or (st.session_state.has_clicked and 
-            st.session_state.last_ds_path == path_of_datasotre and 
+        if path_submit or (st.session_state.has_clicked and
+            st.session_state.last_ds_path == path_of_datasotre and
             st.session_state.last_dic_path == path_of_dictionary):
 
             st.session_state.has_clicked = True
@@ -68,7 +68,7 @@ def knn_main():
             st.session_state.last_dic_path = path_of_dictionary
             # progress bar
             with st.spinner('Wait for it...'):
-                records = get_value_frequency(path_of_datasotre, path_of_dictionary) 
+                records = get_value_frequency(path_of_datasotre, path_of_dictionary)
                 datastore_cfgs = get_datastore_cfgs(path_of_datasotre)
                 datastore_entries_size = datastore_cfgs["data_infos"]["keys"]["shape"][0]
                 datastore_word_size = len(records)
@@ -87,11 +87,11 @@ def knn_main():
             with cols[1]:
                 st.metric("Word Counts", datastore_word_size)
                 st.title("Word Frequency")
-                area = st.slider("# frequency top ratio", min_value=0.00, max_value=0.999, value=0.7, 
+                area = st.slider("# frequency top ratio", min_value=0.00, max_value=0.999, value=0.7,
                     help="dispaly partial area")
                 chart = display_partial_records(records, area, 20)
                 st.altair_chart(chart, use_container_width=True)
-    
+
 
     if operation_type == "Translation":
         cfgs = get_config()
@@ -101,7 +101,7 @@ def knn_main():
                 lang_pair = st.selectbox("Choose translation language pair", options=cfgs.keys(),
                 help="choose language pair [with domain]",
                 )
-                
+
                 k = st.number_input(
                     label="K",
                     min_value=1,
@@ -109,26 +109,26 @@ def knn_main():
                     value=8,
                     help="set the K parameter of kNN-MT"
                 )
-                lambda_ = st.slider(label="Lambda", min_value=0.00, max_value=1.00, value=0.7, 
+                lambda_ = st.slider(label="Lambda", min_value=0.00, max_value=1.00, value=0.7,
                     help="set the Lambda parameter of kNN-MT")
-                temperature = st.slider(label="Temperature", min_value=0.01, max_value=100.00, value=10.0, 
+                temperature = st.slider(label="Temperature", min_value=0.01, max_value=100.00, value=10.0,
                     help="set the Temperature parameter of kNN-MT")
-                
+
             with c2:
                 doc = st.text_area("Paste the source language text below (max 500 words)", height=300)
                 submit_botton = st.form_submit_button(label="✨ Get me the translation!")
-        
+
         if submit_botton:
             st.title("Translation")
             # prepare model and generator
-    
+
             resource = get_knn_model_resource(**cfgs[lang_pair])
             # choose tokenizer
             doc = TOKENIZER_FUNCTIONS[cfgs[lang_pair]["tokenizer"]](doc)
             nmt_translation_results = translate_using_knn_model(doc, resource,
                     k = 1, lambda_=0.0, temperature=1.0
             )
-            translation_results = translate_using_knn_model(doc, resource, 
+            translation_results = translate_using_knn_model(doc, resource,
                 k=k, lambda_=lambda_, temperature=temperature)
             nmt_translations = " ".join(nmt_translation_results["hypo_tokens_str"])
             translations = translation_results["hypo_tokens_str"]
@@ -170,7 +170,7 @@ def knn_main():
                         "NMT probability": "{:.3f}",
                         "kNN-MT probability": "{:.3f}"
                     }
-                    
+
                     df = df.format(format_dictionary)
                     st.table(df)
 
@@ -178,7 +178,7 @@ def knn_main():
                     chart = get_neighbors_chart(translation_results, idx)
                     st.altair_chart(chart,use_container_width=True)
 
-            st.info("1. The distance shown in the graph after PCA does not necessarily align with the actual vector distance, you should refer the actual distance (hover your mouse over the point) \n 2. Becasue of beam search, the token with the highest probability in a single step will not necessarily be chosen")       
+            st.info("1. The distance shown in the graph after PCA does not necessarily align with the actual vector distance, you should refer the actual distance (hover your mouse over the point) \n 2. Becasue of beam search, the token with the highest probability in a single step will not necessarily be chosen")
 
 
 def get_neighbors_chart(translation_results, page_idx):
@@ -211,7 +211,7 @@ def get_neighbors_chart(translation_results, page_idx):
         color="value",
         tooltip=["x", "y", "distance"],
     ).interactive()
-    
+
     return chart1 + chart2
 
 

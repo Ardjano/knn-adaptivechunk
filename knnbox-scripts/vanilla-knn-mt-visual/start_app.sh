@@ -1,4 +1,4 @@
-:<<! 
+:<<!
 [script description]: lanuch the web page
 
 note 1. you can config the knn-model of the web page

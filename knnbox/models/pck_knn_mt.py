@@ -39,7 +39,7 @@ class PckKNNMT(AdaptiveKNNMT):
         AdaptiveKNNMT.add_args(parser)
         parser.add_argument("--knn-reduct-dim", type=int, metavar="N", default=64,
                             help="reducted dimension of datastore")
-    
+
     @classmethod
     def build_decoder(cls, args, tgt_dict, embed_tokens):
         r"""
@@ -68,14 +68,14 @@ class PckKNNMTDecoder(TransformerDecoder):
         if args.knn_mode == "build_datastore":
             if "datastore" not in global_vars():
                 # regist the datastore as a global variable if not exist,
-                # because we need access the same datastore in another 
+                # because we need access the same datastore in another
                 # python file (when traverse the dataset and `add value`)
                 global_vars()["datastore"] = PckDatastore(
                         path=args.knn_datastore_path,
                         dictionary_len=len(self.dictionary),
-                    )  
+                    )
             self.datastore = global_vars()["datastore"]
-        
+
         else:
             self.datastore = PckDatastore.load(args.knn_datastore_path, load_list=["vals"], load_network=True)
             self.datastore.load_faiss_index("keys")
@@ -103,7 +103,7 @@ class PckKNNMTDecoder(TransformerDecoder):
     ):
         r"""
         we overwrite this function to do something else besides forward the TransformerDecoder.
-        
+
         when the action mode is `building datastore`, we save keys to datastore.
         when the action mode is `inference`, we retrieve the datastore with hidden state.
         """
@@ -129,9 +129,9 @@ class PckKNNMTDecoder(TransformerDecoder):
                 target_pad_2 = torch.cat((torch.zeros((batch_size, 2, 1), device=x.device, dtype=torch.long), target[:,:-2]), 1)
                 target_pad_3 = torch.cat((torch.zeros((batch_size, 3, 1), device=x.device, dtype=torch.long), target[:,:-3]), 1)
                 return torch.cat((target, target_pad_1, target_pad_2, target_pad_3), -1)
-            
+
             def get_tgt_probs(probs, target):
-                r""" 
+                r"""
                 Args:
                     probs: [B, T, dictionary]
                     target: [B, T]
@@ -157,36 +157,62 @@ class PckKNNMTDecoder(TransformerDecoder):
                 r"""probs: [B, T, dictionary]"""
                 return - (probs * torch.log(probs+1e-7)).sum(-1)
 
+            def log_top_predictions(probs, target_ids, dictionary, k=20):
+                batch_size = probs.size(0)
+                seq_len = probs.size(1)
+
+                for b in range(batch_size):
+                    print(f"Sentence {b} of {batch_size}")
+                    sentence_probs = probs[b]
+                    topk_probs, topk_indices = torch.topk(sentence_probs, k=k, dim=-1)
+
+                    for t in range(seq_len):
+                        actual_target_id = target_ids[b, t].item()
+                        if actual_target_id == dictionary.pad():
+                            continue
+
+                        actual_word = dictionary.string([actual_target_id])
+                        print(f"Step {t}")
+                        print(f"Actual target: {actual_word} (ID: {actual_target_id})")
+                        print(f"Top {k} predictions:")
+                        for i in range(k):
+                            pred_id = topk_indices[t, i].item()
+                            pred_prob = topk_probs[t, i].item()
+                            pred_word = dictionary.string([pred_id])
+                            print(f"      {i+1}. {pred_word:<15} (ID: {pred_id:<5}, Prob: {pred_prob:.4f})")
+
+                    print("-" * 40)
             # calulate probs
-            output_logit = self.output_layer(x) 
+            output_logit = self.output_layer(x)
             output_probs = F.softmax(output_logit, dim=-1)
             # get useful info
             target = self.datastore.get_target()
+            log_top_predictions(output_probs, target, self.dictionary, k=5)
             ids_4_gram = get_4_gram(target) # [B, T, 4]
             target_prob = get_tgt_probs(output_probs, target) # [B, T]
             probs_4_gram = get_4_gram_probs(target_prob) # [B, T, 4]
             entropy = get_entropy(output_probs) # [B, T]
-            # process pad 
+            # process pad
             pad_mask = self.datastore.get_pad_mask()
             keys = select_keys_with_pad_mask(x, pad_mask)
             ids_4_gram = select_keys_with_pad_mask(ids_4_gram, pad_mask)
             probs_4_gram = select_keys_with_pad_mask(probs_4_gram, pad_mask)
-            entropy = entropy.masked_select(pad_mask) 
+            entropy = entropy.masked_select(pad_mask)
             # save infomation to datastore
             self.datastore["keys"].add(keys.half())
             self.datastore["ids_4_gram"].add(ids_4_gram)
             self.datastore["probs_4_gram"].add(probs_4_gram)
-            self.datastore["entropy"].add(entropy) 
+            self.datastore["entropy"].add(entropy)
 
         elif self.args.knn_mode == "train_metak" or self.args.knn_mode == "inference":
-            ## query with x (x needn't to be half precision), 
+            ## query with x (x needn't to be half precision),
             ## save retrieved `vals` and `distances`
             self.retriever.retrieve(self.datastore.vector_reduct(x), return_list=["vals", "distances"])
-        
+
         if not features_only:
             x = self.output_layer(x)
         return x, extra
-    
+
 
     def get_normalized_probs(
         self,
@@ -199,7 +225,7 @@ class PckKNNMTDecoder(TransformerDecoder):
         step 1.
             calculate the knn probability based on retrieve resultes
         step 2.
-            combine the knn probability with NMT's probability 
+            combine the knn probability with NMT's probability
         """
         if self.args.knn_mode == "inference" or self.args.knn_mode == "train_metak":
             knn_prob = self.combiner.get_knn_prob(**self.retriever.results, device=net_output[0].device)
@@ -246,8 +272,8 @@ def transformer_wmt_en_de_big_t2t(args):
 def transformer_wmt19_de_en(args):
     archs.transformer_wmt19_de_en(args)
 
-    
-    
 
-        
+
+
+
 

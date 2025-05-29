@@ -1,7 +1,8 @@
 import os
 import json
+import numpy as np
 from knnbox.common_utils import Memmap, read_config, write_config
-from knnbox.datastore.utils import build_faiss_index, load_faiss_index 
+from knnbox.datastore.utils import build_faiss_index, load_faiss_index
 
 
 class Datastore:
@@ -23,7 +24,7 @@ class Datastore:
                 the dict of inner data
             data_infos(`dict`):
                 The infomations of datastore inner data
-        
+
         """
         self.path = path
         # initialize datas
@@ -31,7 +32,7 @@ class Datastore:
         # create folder if not exist
         if not os.path.exists(path):
             os.makedirs(path)
-    
+
 
     def __getitem__(self, name):
         r""" access  inner data
@@ -62,12 +63,12 @@ class Datastore:
         r""" delete a inner data """
         if name in self.datas:
             del self.datas[name]
-    
+
 
     def set_pad_mask(self, mask):
-        r""" 
-        save the pad mask 
-        """ 
+        r"""
+        save the pad mask
+        """
         self.mask = mask
 
 
@@ -77,7 +78,7 @@ class Datastore:
         """
         assert hasattr(self, "mask"), "You should set pad mask first!"
         return self.mask
-    
+
 
     @classmethod
     def load(cls, path, load_list):
@@ -92,10 +93,10 @@ class Datastore:
         Return:
             Datastore object(`Datastore`)
         """
-        
+
         datas = {}
         config = read_config(path)
-         
+
         for name in load_list:
             assert name in config["data_list"], "You haven't save {} but you list it in load_list".format(name)
             if os.path.exists(os.path.join(path, name+".npy")):
@@ -108,13 +109,13 @@ class Datastore:
                             )
 
         # create Datastore instance
-        return cls(path, datas)
+        return cls(path=path, datas=datas)
 
 
     def dump(self, verbose=True, dump_list=None):
         r"""
         store the datastore files and config file to disk.
-        
+
         Args:
             verbose: whether to display detailed infomation
             dump_list: specify the data names which you want to dump. if dump_list is None, dump all data
@@ -130,7 +131,7 @@ class Datastore:
             config["data_infos"][name] = {
                 "name": name,
                 "shape": self.datas[name].shape,
-                "dtype": str(self.datas[name].dtype),
+                "dtype": np.dtype(self.datas[name].dtype).name,
             }
             if dump_list is None or name in dump_list:
                 # dump the data to disk
@@ -151,7 +152,7 @@ class Datastore:
         index_path = os.path.join(self.path, filename+".faiss_index")
         # we open config file and get the shape
         config = read_config(self.path)
-        
+
         if not hasattr(self, "faiss_index") or self.faiss_index is None:
             self.faiss_index = {}
         self.faiss_index[filename] = load_faiss_index(
@@ -179,7 +180,7 @@ class Datastore:
             os.exit(1)
         # build faiss
         build_faiss_index(
-                    self.datas[name].data, 
+                    self.datas[name].data,
                     self.datas[name].shape,
                     os.path.join(self.path, name+".faiss_index"),
                     do_pca=do_pca,
@@ -189,4 +190,4 @@ class Datastore:
                     )
 
 
- 
+
