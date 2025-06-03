@@ -22,8 +22,9 @@ from knnbox.common_utils import (
 )
 from knnbox.datastore import Datastore, ChunkDatastore
 # need to edit later
-from knnbox.retriever import Retriever
-from knnbox.combiner import Combiner, AdaptiveCombiner
+# from knnbox.retriever import Retriever
+# from knnbox.combiner import Combiner, AdaptiveCombiner
+
 from .adaptive_knn_mt import AdaptiveKNNMT
 
 
@@ -44,6 +45,7 @@ class ChunkKNNMT(AdaptiveKNNMT):
                             help="Maximum dynamic chunk size")
         parser.add_argument("--confidence-threshold", type=float, metavar="F", default=0.9,
                             help="Confidence threshold")
+        parser.add_argument("--max-active-chunks", type=int, default=100, help="Maximum number of active chunks at any point during generation")
 
     @classmethod
     def build_decoder(cls, args, tgt_dict, embed_tokens):
@@ -85,12 +87,21 @@ class ChunkKNNMTDecoder(TransformerDecoder):
             self.datastore = global_vars()["datastore"]
 
         else:
-            self.datastore = ChunkDatastore.load(args.knn_datastore_path, load_list=["vals"], load_network=True)
-            self.datastore.load_faiss_index("keys")
-            self.retriever = Retriever(datastore=self.datastore, k=args.knn_max_k)
+            self.datastore = ChunkDatastore.load(args.knn_datastore_path, load_list=["vals", "real_lens"], load_network=True)
+            if args.build_faiss_index_with_cpu:
+                self.datastore.load_faiss_index("keys", move_to_gpu=False)
+            else:
+                self.datastore.load_faiss_index("keys")
+
+            self.retriever = ChunkRetriever(datastore=self.datastore, k=args.knn_max_k, max_active_chunks=args.max_active_chunks)
+            self.combiner = ChunkCombiner(
+                lambda_=args.knn_lambda,
+                temperature=args.knn_temperature,
+                probability_dim=len(dictionary)
+            )
             # if args.knn_mode == "train_metak":
-            if args.knn_mode == "inference":
-                self.combiner = AdaptiveCombiner.load(args.knn_combiner_path)
+            # if args.knn_mode == "inference":
+            #     self.combiner = AdaptiveCombiner.load(args.knn_combiner_path)
 
     def forward(
         self,

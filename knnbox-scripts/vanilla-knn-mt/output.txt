@@ -1,0 +1,2808 @@
+/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/cuda/__init__.py:843: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+2025-05-29 19:08:14 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2025-05-29 19:08:14 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2025-05-29 19:08:14 | INFO | faiss.loader | Loading faiss.
+2025-05-29 19:08:14 | INFO | faiss.loader | Successfully loaded faiss.
+2025-05-29 19:08:14 | INFO | fairseq_cli.generate | Namespace(activation_dropout=0.0, activation_fn='relu', adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='vanilla_knn_mt@transformer_wmt19_de_en', attention_dropout=0.1, batch_size=None, batch_size_valid=None, beam=4, bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, build_faiss_index_with_cpu=True, checkpoint_shard_count=1, checkpoint_suffix='', constraints=None, cpu=False, criterion='cross_entropy', cross_self_attention=False, curriculum=0, data='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical', data_buffer_size=10, dataset_impl='mmap', ddp_backend='c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=1024, decoding_format=None, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', diverse_beam_groups=-1, diverse_beam_strength=0.5, diversity_rate=-1.0, dropout=0.2, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=8192, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eval_bleu=False, eval_bleu_args=None, eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe=None, eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, gen_subset='test', iter_decode_eos_penalty=0.0, iter_decode_force_max_iter=False, iter_decode_max_iter=10, iter_decode_with_beam=1, iter_decode_with_external_reranker=False, knn_datastore_path='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../datastore/vanilla/test_medical', knn_k=8, knn_lambda=0.7, knn_mode='inference', knn_temperature=10.0, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', lenpen=0.6, lm_path=None, lm_weight=0.0, load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr_scheduler='fixed', lr_shrink=0.1, match_source_len=False, max_len_a=1.2, max_len_b=10, max_source_positions=1024, max_target_positions=1024, max_tokens=2048, max_tokens_valid=2048, memory_efficient_bf16=False, memory_efficient_fp16=False, min_len=1, min_loss_scale=0.0001, model_overrides='{}', model_parallel_size=1, moses_no_dash_splits=False, moses_no_escape=False, moses_source_lang=None, moses_target_lang=None, nbest=1, no_beamable_mm=False, no_cross_attention=False, no_early_stop=False, no_progress_bar=False, no_repeat_ngram_size=0, no_scale_embedding=False, no_seed_provided=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_batch_buckets=0, num_shards=1, num_workers=1, optimizer=None, path='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt', pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, prefix_size=0, print_alignment=False, print_step=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, quiet=False, remove_bpe='@@ ', replace_unk=None, required_batch_size_multiple=8, required_seq_len_multiple=1, results_path=None, retain_dropout=False, retain_dropout_modules=None, retain_iter_history=False, sacrebleu=False, sacrebleu_char_level=False, sacrebleu_lowercase=False, sacrebleu_tokenizer='13a', sampling=False, sampling_topk=-1, sampling_topp=-1.0, score_reference=False, scoring='sacrebleu', seed=1, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='de', target_lang='en', task='translation', temperature=1.0, tensorboard_logdir=None, threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer='moses', tpu=False, train_subset='train', truncate_source=False, unkpen=0, unnormalized=False, upsample_primary=1, user_dir='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox/models', valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=0, zero_sharding='none')
+2025-05-29 19:08:14 | INFO | fairseq.tasks.translation | [de] dictionary: 42024 types
+2025-05-29 19:08:14 | INFO | fairseq.tasks.translation | [en] dictionary: 42024 types
+2025-05-29 19:08:14 | INFO | fairseq.data.data_utils | loaded 2000 examples from: /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical/test.de-en.de
+2025-05-29 19:08:14 | INFO | fairseq.data.data_utils | loaded 2000 examples from: /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical/test.de-en.en
+2025-05-29 19:08:14 | INFO | fairseq.tasks.translation | /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical test de-en 2000 examples
+2025-05-29 19:08:14 | INFO | fairseq_cli.generate | loading model(s) from /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt
+[Start Loading Faiss Index]
+  > reading index took 0.3450450897216797 s
+  > the datastore shape is  (44547, 1024)
+[Finish Loading Faiss Index Successfully ^_^]
+/home/ardjano/knn-adaptivechunk/fairseq/checkpoint_utils.py:236: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+weights 0: tensor([[0.2993, 0.2377, 0.0862, 0.0818, 0.0767, 0.0760, 0.0737, 0.0686]])
+vals: tensor([[  341,  5912,    85,    76,   496, 17030,   258,  2861]])
+distances: tensor([[ 85.4889,  87.7905,  97.9333,  98.4570,  99.1057,  99.1994,  99.4997,
+         100.2184]]) 
+
+
+weights 1: tensor([[0.2993, 0.2377, 0.0862, 0.0818, 0.0767, 0.0760, 0.0737, 0.0686]])
+vals: tensor([[  341,  5912,    85,    76,   496, 17030,   258,  2861]])
+distances: tensor([[ 85.4889,  87.7905,  97.9333,  98.4570,  99.1057,  99.1994,  99.4997,
+         100.2184]]) 
+
+
+weights 2: tensor([[0.2993, 0.2377, 0.0862, 0.0818, 0.0767, 0.0760, 0.0737, 0.0686]])
+vals: tensor([[  341,  5912,    85,    76,   496, 17030,   258,  2861]])
+distances: tensor([[ 85.4889,  87.7905,  97.9333,  98.4570,  99.1057,  99.1994,  99.4997,
+         100.2184]]) 
+
+
+weights 3: tensor([[0.2993, 0.2377, 0.0862, 0.0818, 0.0767, 0.0760, 0.0737, 0.0686]])
+vals: tensor([[  341,  5912,    85,    76,   496, 17030,   258,  2861]])
+distances: tensor([[ 85.4889,  87.7905,  97.9333,  98.4570,  99.1057,  99.1994,  99.4997,
+         100.2184]]) 
+
+
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+weights 0: tensor([[9.9998e-01, 1.8076e-05, 1.9864e-07, 1.2554e-07, 1.0633e-07, 1.0181e-07,
+         5.4711e-08, 2.1393e-08]])
+vals: tensor([[4246, 4246, 4246, 2202, 4246, 4246, 4246, 2202]])
+distances: tensor([[203.2965, 312.5056, 357.6137, 362.2025, 363.8632, 364.2975, 370.5082,
+         379.8981]]) 
+
+
+weights 1: tensor([[0.9821, 0.0027, 0.0027, 0.0026, 0.0025, 0.0025, 0.0024, 0.0024]])
+vals: tensor([[4484,   86,   86,   86,   86,   86,   86,   86]])
+distances: tensor([[ 75.2648, 134.1125, 134.1824, 134.6472, 134.9564, 135.0063, 135.3171,
+         135.4072]]) 
+
+
+weights 2: tensor([[7.2211e-01, 2.7787e-01, 1.0444e-05, 8.6567e-07, 3.1452e-07, 1.5142e-07,
+         2.2347e-08, 2.0261e-08]])
+vals: tensor([[8886,   61,   61,   89,   61,   61, 2098,   61]])
+distances: tensor([[295.6487, 305.1988, 407.0875, 431.9906, 442.1151, 449.4249, 468.5585,
+         469.5389]]) 
+
+
+weights 3: tensor([[9.9979e-01, 1.2267e-04, 6.5810e-05, 1.4834e-05, 1.5791e-06, 3.2255e-07,
+         8.6939e-08, 6.8084e-08]])
+vals: tensor([[  947,   515, 20325,   515,   632,   632,  1335,  1335]])
+distances: tensor([[238.4104, 328.4689, 334.6958, 349.5943, 371.9948, 387.8785, 400.9889,
+         403.4335]]) 
+
+
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+weights 0: tensor([[0.7152, 0.0719, 0.0474, 0.0434, 0.0327, 0.0308, 0.0300, 0.0286]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[67.0526, 90.0257, 94.1885, 95.0751, 97.9069, 98.4892, 98.7625, 99.2586]]) 
+
+
+weights 1: tensor([[1.0000e+00, 2.1622e-09, 8.7629e-10, 5.2745e-10, 2.4864e-10, 1.9794e-10,
+         1.8025e-10, 1.5763e-10]])
+vals: tensor([[  117,     7, 16345,   372,   372, 15276,   372,   372]])
+distances: tensor([[358.4612, 557.9824, 567.0144, 572.0909, 579.6112, 581.8915, 582.8281,
+         584.1686]]) 
+
+
+weights 2: tensor([[0.1816, 0.1771, 0.1588, 0.1109, 0.0979, 0.0946, 0.0925, 0.0867]])
+vals: tensor([[  8,   2,   2,   8, 375,  15,   2,   2]])
+distances: tensor([[315.2609, 315.5102, 316.6010, 320.1909, 321.4376, 321.7809, 322.0102,
+         322.6549]]) 
+
+
+weights 3: tensor([[9.9373e-01, 2.2375e-03, 1.0762e-03, 8.6071e-04, 7.6664e-04, 4.4946e-04,
+         4.4211e-04, 4.3649e-04]])
+vals: tensor([[2020,   62,  479,  138, 4287,  479,  479,  479]])
+distances: tensor([[175.9899, 236.9508, 244.2702, 246.5045, 247.6620, 253.0017, 253.1665,
+         253.2943]]) 
+
+
+weights size: torch.Size([84, 1, 8])
+distances size: torch.Size([84, 1, 8])
+vals size: torch.Size([84, 1, 8]) 
+
+
+weights 0: tensor([[0.3118, 0.1166, 0.1142, 0.1062, 0.1015, 0.0852, 0.0825, 0.0821]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[60.0063, 69.8467, 70.0513, 70.7765, 71.2308, 72.9777, 73.3065, 73.3562]]) 
+
+
+weights 1: tensor([[9.4444e-01, 5.3416e-02, 5.4749e-04, 4.9257e-04, 3.2701e-04, 3.1950e-04,
+         2.4831e-04, 2.1153e-04]])
+vals: tensor([[ 607, 2073,  251,  377,  607,  329,   88,  329]])
+distances: tensor([[306.5597, 335.2845, 381.0897, 382.1469, 386.2432, 386.4756, 388.9964,
+         390.5993]]) 
+
+
+weights 2: tensor([[0.8878, 0.0399, 0.0329, 0.0094, 0.0085, 0.0072, 0.0072, 0.0071]])
+vals: tensor([[   2, 1103,    2,   72,  219,   72,    2,    2]])
+distances: tensor([[120.1721, 151.1938, 153.1352, 165.6032, 166.6251, 168.2867, 168.3802,
+         168.4636]]) 
+
+
+weights 3: tensor([[0.1536, 0.1437, 0.1347, 0.1332, 0.1297, 0.1244, 0.0911, 0.0896]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[52.5114, 53.1784, 53.8250, 53.9386, 54.2041, 54.6238, 57.7410, 57.9026]]) 
+
+
+weights size: torch.Size([44, 1, 8])
+distances size: torch.Size([44, 1, 8])
+vals size: torch.Size([44, 1, 8]) 
+
+
+weights 0: tensor([[0.1262, 0.1261, 0.1260, 0.1256, 0.1252, 0.1246, 0.1238, 0.1225]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.6798, 1.6848, 1.6976, 1.7303, 1.7628, 1.8073, 1.8759, 1.9750]]) 
+
+
+weights 1: tensor([[0.4648, 0.2108, 0.1425, 0.1243, 0.0170, 0.0165, 0.0161, 0.0079]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[ 96.0237, 103.9321, 107.8446, 109.2111, 129.0945, 129.3974, 129.6582,
+         136.7888]]) 
+
+
+weights 2: tensor([[0.2062, 0.1912, 0.1188, 0.1053, 0.1020, 0.0942, 0.0936, 0.0887]])
+vals: tensor([[5, 5, 5, 5, 5, 5, 5, 5]])
+distances: tensor([[40.4213, 41.1753, 45.9312, 47.1385, 47.4602, 48.2554, 48.3153, 48.8514]]) 
+
+
+weights 3: tensor([[0.7379, 0.0455, 0.0448, 0.0435, 0.0403, 0.0367, 0.0272, 0.0241]])
+vals: tensor([[219,   2,   2,   2,   2,   2,   2,   2]])
+distances: tensor([[178.5138, 206.3679, 206.5309, 206.8314, 207.5889, 208.5239, 211.5348,
+         212.7328]]) 
+
+
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+weights 0: tensor([[0.6065, 0.2505, 0.1165, 0.0186, 0.0037, 0.0019, 0.0015, 0.0008]])
+vals: tensor([[ 120,  120,  120, 6609, 6609, 6609, 6609, 6609]])
+distances: tensor([[ 85.8299,  94.6718, 102.3257, 120.6835, 136.8707, 143.4760, 145.6675,
+         152.6668]]) 
+
+
+weights 1: tensor([[0.2454, 0.2262, 0.1956, 0.1025, 0.0828, 0.0507, 0.0493, 0.0475]])
+vals: tensor([[1086,  678,   83, 1086, 1086,  234,   86,   86]])
+distances: tensor([[341.6098, 342.4212, 343.8759, 350.3431, 352.4706, 357.3839, 357.6526,
+         358.0257]]) 
+
+
+weights 2: tensor([[0.1251, 0.1251, 0.1251, 0.1251, 0.1251, 0.1249, 0.1249, 0.1249]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.2400, 2.2400, 2.2400, 2.2400, 2.2400, 2.2544, 2.2551, 2.2571]]) 
+
+
+weights 3: tensor([[0.2056, 0.1980, 0.1744, 0.1530, 0.0947, 0.0701, 0.0525, 0.0518]])
+vals: tensor([[  237,  7662, 16523,   230,   132, 16060,   196,   714]])
+distances: tensor([[197.8170, 198.1941, 199.4633, 200.7731, 205.5677, 208.5780, 211.4754,
+         211.5923]]) 
+
+
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+weights 0: tensor([[0.1796, 0.1218, 0.1207, 0.1169, 0.1168, 0.1157, 0.1146, 0.1139]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[13.4615, 17.3489, 17.4386, 17.7582, 17.7677, 17.8629, 17.9589, 18.0161]]) 
+
+
+weights 1: tensor([[0.5351, 0.4267, 0.0189, 0.0142, 0.0028, 0.0008, 0.0007, 0.0007]])
+vals: tensor([[   5,   14,    2,  487,    8, 8844,    5,  762]])
+distances: tensor([[419.2668, 421.5320, 452.6839, 455.5493, 471.6439, 484.9393, 485.0658,
+         485.5601]]) 
+
+
+weights 2: tensor([[0.1761, 0.1239, 0.1226, 0.1177, 0.1160, 0.1157, 0.1150, 0.1129]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[11.0595, 14.5790, 14.6777, 15.0895, 15.2331, 15.2594, 15.3199, 15.5043]]) 
+
+
+weights 3: tensor([[0.1748, 0.1219, 0.1218, 0.1189, 0.1188, 0.1169, 0.1139, 0.1128]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[15.2772, 18.8791, 18.8873, 19.1270, 19.1357, 19.3032, 19.5594, 19.6542]]) 
+
+
+S-1298	Teeling
+T-1298	Teeling
+H-1298	-1.4466195106506348	rash
+D-1298	-1.4466195106506348	rash
+P-1298	-2.2550 -0.4886 -0.0529
+S-233	19.
+T-233	8 June 2001 Date of last renewal:
+H-233	-2.13848876953125	19 21 19 .
+D-233	-2.13848876953125	19 21 19.
+P-233	-2.0622 -2.4593 -0.8994 -0.1544 -0.0414
+S-146	120 mg
+T-146	80 mg 80 mg 120 mg 120 mg
+H-146	-1.678604006767273	240 mg
+D-146	-1.678604006767273	240 mg
+P-146	-3.1279 -0.0702 -0.0469
+S-1546	........
+T-1546	Structure of the EMEA
+H-1546	-2.0795469284057617	PCI
+D-1546	-2.0795469284057617	PCI
+P-1546	-3.2540 -0.4997 -0.2664
+S-101	12,8
+T-101	8.4 0.5 8.0
+H-101	-2.1454222202301025	PCI
+D-101	-2.1454222202301025	PCI
+P-101	-3.4111 -0.5022 -0.2342
+S-747	Bauchschmerzen
+T-747	abdominal pain
+H-747	-0.5613307952880859	pain in the abdomen
+D-747	-0.5613307952880859	pain in the abdomen
+P-747	-0.8371 -0.3367 -0.1524 -0.3649 -0.0136 -0.0552 -0.0443
+S-1882	Dosierung
+T-1882	16 Posology
+H-1882	-2.048518657684326	Dose
+D-1882	-2.048518657684326	Dose
+P-1882	-3.3018 -0.5923 -0.0661
+S-1893	-0,5
+T-1893	-0.5
+H-1893	-2.1843645572662354	PCI
+D-1893	-2.1843645572662354	PCI
+P-1893	-3.4997 -0.5020 -0.2211
+S-1833	12%
+T-1833	12%
+H-1833	-2.138033151626587	99.4 %
+D-1833	-2.138033151626587	99.4%
+P-1833	-2.0109 -0.9618 -1.6545 -0.9281 -0.0604
+S-1618	Hans Wagner
+T-1618	Hans Wagner
+H-1618	-1.557799220085144	Lisino
+D-1618	-1.557799220085144	Lisino
+P-1618	-2.2728 -0.5148 -0.2239
+S-1611	80 000
+T-1611	80 000
+H-1611	-2.155886173248291	PCI
+D-1611	-2.155886173248291	PCI
+P-1611	-3.4686 -0.5032 -0.1960
+S-1516	44 6
+T-1516	44 6
+H-1516	-2.2127630710601807	PCI
+D-1516	-2.2127630710601807	PCI
+P-1516	-3.5056 -0.5048 -0.2673
+S-1222	5 19
+T-1222	5 19
+H-1222	-2.1348230838775635	240 1A
+D-1222	-2.1348230838775635	240 1A
+P-1222	-3.4506 -0.7095 -0.5108 -0.2336
+S-1018	350 --
+T-1018	350 --
+H-1018	-2.616809368133545	327
+D-1018	-2.616809368133545	327
+P-1018	-3.4287 -0.6401 -0.9899
+S-923	11 Monate
+T-923	11 months
+H-923	-0.9773908257484436	11 months
+D-923	-0.9773908257484436	11 months
+P-923	-1.6961 -0.1482 -0.0452
+S-779	itte
+T-779	M ed
+H-779	-2.0778751373291016	PCI
+D-779	-2.0778751373291016	PCI
+P-779	-3.3548 -0.5029 -0.1592
+S-736	Portugal:
+T-736	Portugal:
+H-736	-0.05938148871064186	Portugal :
+D-736	-0.05938148871064186	Portugal:
+P-736	-0.0343 -0.0400 -0.0405
+S-665	0,06
+T-665	0.06
+H-665	-1.5704262256622314	0.06
+D-665	-1.5704262256622314	0.06
+P-665	-2.5702 -0.4109 -0.0549
+S-626	- Depression
+T-626	- depression
+H-626	-1.8530399799346924	FASLOW
+D-626	-1.8530399799346924	FASLOW
+P-626	-3.4396 -0.5437 -0.5216 -0.2974 -0.0647
+S-546	46%
+T-546	46%
+H-546	-2.138678789138794	PCI
+D-546	-2.138678789138794	PCI
+P-546	-3.4243 -0.5037 -0.2064
+S-371	0,5 g
+T-371	0.5 g
+H-371	-1.8052716255187988	0.45 ml
+D-371	-1.8052716255187988	0.45 ml
+P-371	-1.9076 -1.5066 -0.6801 -0.0532
+S-287	8.000
+T-287	8,000
+H-287	-2.06443190574646	PCI
+D-287	-2.06443190574646	PCI
+P-287	-3.2557 -0.5026 -0.2327
+S-1459	Versicherungen
+T-1459	Insurance
+H-1459	-2.1303248405456543	PCI
+D-1459	-2.1303248405456543	PCI
+P-1459	-3.3617 -0.4941 -0.2625
+S-1648	39
+T-1648	39 Other side effects which have occurred in the days or weeks after vaccination with ordinary flu vaccines include:
+H-1648	-2.436678647994995	99.4
+D-1648	-2.436678647994995	99.4
+P-1648	-2.5247 -0.9172 -1.7388 -0.4174
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.1412, 0.1309, 0.1283, 0.1218, 0.1213, 0.1199, 0.1195, 0.1170]])
+vals: tensor([[3384,  252, 2692,  194,  326,   85,  496, 8339]])
+distances: tensor([[ 9.3532, 10.1127, 10.3121, 10.8324, 10.8763, 10.9942, 11.0248, 11.2353]]) 
+
+
+weights 1: tensor([[0.1412, 0.1309, 0.1283, 0.1218, 0.1213, 0.1199, 0.1195, 0.1170]])
+vals: tensor([[3384,  252, 2692,  194,  326,   85,  496, 8339]])
+distances: tensor([[ 9.3532, 10.1127, 10.3121, 10.8324, 10.8763, 10.9942, 11.0248, 11.2353]]) 
+
+
+weights 2: tensor([[0.1412, 0.1309, 0.1283, 0.1218, 0.1213, 0.1199, 0.1195, 0.1170]])
+vals: tensor([[3384,  252, 2692,  194,  326,   85,  496, 8339]])
+distances: tensor([[ 9.3532, 10.1127, 10.3121, 10.8324, 10.8763, 10.9942, 11.0248, 11.2353]]) 
+
+
+weights 3: tensor([[0.1412, 0.1309, 0.1283, 0.1218, 0.1213, 0.1199, 0.1195, 0.1170]])
+vals: tensor([[3384,  252, 2692,  194,  326,   85,  496, 8339]])
+distances: tensor([[ 9.3532, 10.1127, 10.3121, 10.8324, 10.8763, 10.9942, 11.0248, 11.2353]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.9618, 0.0246, 0.0047, 0.0034, 0.0017, 0.0015, 0.0013, 0.0010]])
+vals: tensor([[  23, 1539,    2, 5874,    2,    8,    2,    2]])
+distances: tensor([[183.8605, 220.5335, 237.0838, 240.2558, 247.0157, 248.8268, 249.5806,
+         252.8239]]) 
+
+
+weights 1: tensor([[9.9530e-01, 1.8115e-03, 1.2460e-03, 3.9725e-04, 3.7605e-04, 3.5618e-04,
+         2.5898e-04, 2.5583e-04]])
+vals: tensor([[ 5228,  1004,   113,  1752,   815, 11086,   815,  1380]])
+distances: tensor([[139.1330, 202.2217, 205.9642, 217.3952, 217.9437, 218.4868, 221.6736,
+         221.7959]]) 
+
+
+weights 2: tensor([[9.9973e-01, 1.1907e-04, 5.1403e-05, 3.3461e-05, 1.7162e-05, 1.6029e-05,
+         1.5474e-05, 1.4970e-05]])
+vals: tensor([[  62,  138,  946, 2020, 5230,  479,  479,  479]])
+distances: tensor([[117.2498, 207.6052, 216.0053, 220.2983, 226.9755, 227.6584, 228.0108,
+         228.3417]]) 
+
+
+weights 3: tensor([[9.6013e-01, 1.0296e-02, 8.6912e-03, 7.9070e-03, 6.0156e-03, 4.5386e-03,
+         1.9034e-03, 5.1378e-04]])
+vals: tensor([[  113,  1522, 11086,   815,   815,  1752,   635,  1380]])
+distances: tensor([[ 75.1013, 120.4540, 122.1490, 123.0945, 125.8284, 128.6459, 137.3356,
+         150.4315]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[9.7299e-01, 1.8901e-02, 3.1872e-03, 1.3841e-03, 1.3356e-03, 7.7970e-04,
+         7.3362e-04, 6.8949e-04]])
+vals: tensor([[    2, 25156,  3376,    88,     2,  6676,    72,  2596]])
+distances: tensor([[212.9740, 252.3856, 270.1863, 278.5273, 278.8839, 284.2662, 284.8753,
+         285.4958]]) 
+
+
+weights 1: tensor([[0.4375, 0.1390, 0.1346, 0.1294, 0.0437, 0.0399, 0.0388, 0.0372]])
+vals: tensor([[1379,  118, 2920,  210,   36, 1004,   65, 3074]])
+distances: tensor([[167.1537, 178.6176, 178.9427, 179.3354, 190.1929, 191.0990, 191.3780,
+         191.8110]]) 
+
+
+weights 2: tensor([[9.9163e-01, 1.8263e-03, 1.7187e-03, 1.4644e-03, 1.0596e-03, 9.0350e-04,
+         7.8697e-04, 6.0672e-04]])
+vals: tensor([[   2,    2,    2,    2,    2,    2,    2, 6152]])
+distances: tensor([[ 74.4171, 137.3876, 137.9951, 139.5963, 142.8317, 144.4254, 145.8063,
+         148.4075]]) 
+
+
+weights 3: tensor([[9.9158e-01, 7.3949e-03, 6.0131e-04, 1.5202e-04, 1.3951e-04, 5.5929e-05,
+         4.2904e-05, 3.2720e-05]])
+vals: tensor([[ 1380, 11086,   113,   815,   815,  1752,   363,   794]])
+distances: tensor([[139.4232, 188.4082, 213.5027, 227.2539, 228.1126, 237.2530, 239.9041,
+         242.6138]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.3116, 0.2025, 0.1350, 0.1223, 0.0878, 0.0617, 0.0443, 0.0347]])
+vals: tensor([[ 118, 3074,   65,   36,   33,  170,   49,   36]])
+distances: tensor([[54.5190, 58.8275, 62.8810, 63.8681, 67.1799, 70.7142, 74.0145, 76.4535]]) 
+
+
+weights 1: tensor([[0.4587, 0.1874, 0.1274, 0.0857, 0.0415, 0.0371, 0.0326, 0.0297]])
+vals: tensor([[2792,  210, 3074, 2920,   65,  342,  118,   36]])
+distances: tensor([[109.6777, 118.6286, 122.4913, 126.4580, 133.7128, 134.8302, 136.1237,
+         137.0523]]) 
+
+
+weights 2: tensor([[0.4766, 0.4170, 0.0673, 0.0303, 0.0039, 0.0026, 0.0011, 0.0011]])
+vals: tensor([[  149,   363,  1522, 11086,  1217,   107,   113,  1004]])
+distances: tensor([[212.5453, 213.8812, 232.1149, 240.0846, 260.5604, 264.5962, 273.3806,
+         273.6784]]) 
+
+
+weights 3: tensor([[0.4356, 0.1210, 0.1125, 0.0807, 0.0770, 0.0688, 0.0621, 0.0421]])
+vals: tensor([[  2,   2, 920,   2,   2,   2,  18,   2]])
+distances: tensor([[119.3414, 132.1478, 132.8774, 136.2050, 136.6651, 137.7919, 138.8139,
+         142.7031]]) 
+
+
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+weights 0: tensor([[9.8816e-01, 6.7292e-03, 4.5783e-03, 5.3590e-04, 5.6075e-08, 4.7895e-08,
+         4.7092e-08, 3.1897e-08]])
+vals: tensor([[  149,  1522,   363, 11086,   815,   815,  1217,  1380]])
+distances: tensor([[130.4033, 180.2972, 184.1484, 205.5997, 297.2499, 298.8266, 298.9958,
+         302.8916]]) 
+
+
+weights 1: tensor([[0.4581, 0.1173, 0.1025, 0.1017, 0.0680, 0.0541, 0.0504, 0.0480]])
+vals: tensor([[  2,   2, 920,   2,   2,   2,   2,  18]])
+distances: tensor([[116.0777, 129.7004, 131.0464, 131.1327, 135.1553, 137.4432, 138.1438,
+         138.6461]]) 
+
+
+weights 2: tensor([[0.3401, 0.2495, 0.1393, 0.1375, 0.1138, 0.0082, 0.0073, 0.0043]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[ 92.7250,  95.8206, 101.6487, 101.7778, 103.6707, 129.9778, 131.1615,
+         136.4308]]) 
+
+
+weights 3: tensor([[0.4851, 0.2253, 0.1066, 0.0921, 0.0277, 0.0238, 0.0198, 0.0196]])
+vals: tensor([[  2,   2,   2,   2, 118, 294, 406, 294]])
+distances: tensor([[ 68.3773,  76.0452,  83.5295,  84.9939,  97.0134,  98.5388, 100.3444,
+         100.4672]]) 
+
+
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+weights 0: tensor([[0.1528, 0.1365, 0.1232, 0.1182, 0.1180, 0.1176, 0.1169, 0.1169]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[15.4959, 16.6244, 17.6452, 18.0653, 18.0820, 18.1178, 18.1721, 18.1747]]) 
+
+
+weights 1: tensor([[0.2349, 0.1606, 0.1492, 0.1335, 0.1308, 0.0684, 0.0632, 0.0593]])
+vals: tensor([[  4,   4,   4,   4,   2,   4,   4, 168]])
+distances: tensor([[32.9468, 36.7479, 37.4878, 38.5958, 38.8003, 45.2877, 46.0835, 46.7112]]) 
+
+
+weights 2: tensor([[0.2254, 0.2090, 0.1270, 0.1234, 0.1068, 0.0706, 0.0690, 0.0689]])
+vals: tensor([[4, 4, 4, 2, 4, 4, 4, 4]])
+distances: tensor([[19.9006, 20.6581, 25.6417, 25.9232, 27.3749, 31.5096, 31.7383, 31.7557]]) 
+
+
+weights 3: tensor([[0.2380, 0.1620, 0.1401, 0.1283, 0.1211, 0.0734, 0.0712, 0.0659]])
+vals: tensor([[4, 4, 4, 4, 2, 4, 4, 4]])
+distances: tensor([[34.3937, 38.2373, 39.6888, 40.5708, 41.1502, 46.1561, 46.4627, 47.2414]]) 
+
+
+S-404	enhance the
+T-404	failure
+H-404	-2.1937577724456787	PCI
+D-404	-2.1937577724456787	PCI
+P-404	-3.4766 -0.4981 -0.2662
+S-1396	N e ue
+T-1396	New
+H-1396	-1.853284239768982	FASLOW
+D-1396	-1.853284239768982	FASLOW
+P-1396	-3.3885 -0.5146 -0.5271 -0.3416 -0.0958
+S-82	Augenschmerzen,
+T-82	Flushing
+H-82	-0.9307734370231628	Ear pain ,
+D-82	-0.9307734370231628	Ear pain,
+P-82	-1.2510 -0.5201 -0.1603 -0.4723 -0.0411
+S-448	Primäre
+T-448	Trial
+H-448	-2.1006505489349365	PCI
+D-448	-2.1006505489349365	PCI
+P-448	-3.4153 -0.4985 -0.1471
+S-722	9 b.
+T-722	b.
+H-722	-1.4570783376693726	9b .
+D-722	-1.4570783376693726	9b.
+P-722	-0.8932 -2.2290 -0.1841 -0.0411
+S-130	0, 0
+T-130	0.21 *
+H-130	-1.9874968528747559	FASLOW
+D-130	-1.9874968528747559	FASLOW
+P-130	-3.4563 -0.5145 -0.5245 -0.5216 -0.2033
+S-263	unter 15 *
+T-263	below 15 *
+H-263	-1.5727362632751465	below 15 *
+D-263	-1.5727362632751465	below 15 *
+P-263	-3.4657 -0.0533 -0.0489 -0.0453
+S-357	16 / 18
+T-357	16 / 18
+H-357	-2.010978937149048	01.08.97
+D-357	-2.010978937149048	01.08.97
+P-357	-3.2210 -0.5123 -0.5432 -0.8784 -0.1270
+S-363	89,3
+T-363	89.3
+H-363	-1.8665610551834106	99.4
+D-363	-1.8665610551834106	99.4
+P-363	-1.8378 -0.4718 -1.5643 -0.4142
+S-408	9 / 69
+T-408	8 / 61
+H-408	-1.5995001792907715	12 / 61
+D-408	-1.5995001792907715	12 / 61
+P-408	-2.2931 -0.0959 -0.7455 -0.5401
+S-500	49 7.
+T-500	42 7.
+H-500	-1.2219318151474	45 1 .
+D-500	-1.2219318151474	45 1.
+P-500	-1.6533 -0.8362 -0.2758 -0.0420
+S-503	95,7
+T-503	95.7
+H-503	-2.2604424953460693	PCI
+D-503	-2.2604424953460693	PCI
+P-503	-3.6511 -0.5028 -0.2159
+S-614	Dezember 1996
+T-614	Adopted by the Management Board on 4 December 1996
+H-614	-1.407874345779419	17 December 1996
+D-614	-1.407874345779419	17 December 1996
+P-614	-0.7113 -0.4682 -2.0116 -0.0433
+S-423	Stürze
+T-423	Injury, poisoning and procedural complications Common: fall
+H-423	-1.5526437759399414	rash
+D-423	-1.5526437759399414	rash
+P-423	-2.5239 -0.3793 -0.0984
+S-137	Möglicherweise wird
+T-137	If your liver or kidneys do not function well speak to your doctor, who may advise that you use lower insulin doses.
+H-137	-2.1389763355255127	PCI
+D-137	-2.1389763355255127	PCI
+P-137	-3.2977 -0.5004 -0.3369
+S-1904	Ziele:
+T-1904	Shire will conduct a Post Authorisation Safety Study (PASS) Study SPD422-401 A non- interventional, post authorisation safety study, to continuously monitor safety and pregnancy outcomes in a cohort of at-risk Essential Thrombocythaemia (ET) subjects exposed to Xagrid compared to other conventional cytoreductive treatments.
+H-1904	-1.1422815322875977	Goals :
+D-1904	-1.1422815322875977	Goals:
+P-1904	-2.3875 -0.1422 -0.0497 -0.0448
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.1782, 0.1371, 0.1282, 0.1214, 0.1145, 0.1096, 0.1063, 0.1046]])
+vals: tensor([[210, 239, 107, 459, 118, 323, 308, 419]])
+distances: tensor([[109.2987, 111.9191, 112.5938, 113.1342, 113.7177, 114.1543, 114.4628,
+         114.6207]]) 
+
+
+weights 1: tensor([[0.1782, 0.1371, 0.1282, 0.1214, 0.1145, 0.1096, 0.1063, 0.1046]])
+vals: tensor([[210, 239, 107, 459, 118, 323, 308, 419]])
+distances: tensor([[109.2987, 111.9191, 112.5938, 113.1342, 113.7177, 114.1543, 114.4628,
+         114.6207]]) 
+
+
+weights 2: tensor([[0.1782, 0.1371, 0.1282, 0.1214, 0.1145, 0.1096, 0.1063, 0.1046]])
+vals: tensor([[210, 239, 107, 459, 118, 323, 308, 419]])
+distances: tensor([[109.2987, 111.9191, 112.5938, 113.1342, 113.7177, 114.1543, 114.4628,
+         114.6207]]) 
+
+
+weights 3: tensor([[0.1782, 0.1371, 0.1282, 0.1214, 0.1145, 0.1096, 0.1063, 0.1046]])
+vals: tensor([[210, 239, 107, 459, 118, 323, 308, 419]])
+distances: tensor([[109.2987, 111.9191, 112.5938, 113.1342, 113.7177, 114.1543, 114.4628,
+         114.6207]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.1580, 0.1358, 0.1299, 0.1211, 0.1195, 0.1138, 0.1111, 0.1108]])
+vals: tensor([[2, 8, 8, 2, 2, 2, 2, 2]])
+distances: tensor([[151.4127, 152.9235, 153.3734, 154.0704, 154.2055, 154.6966, 154.9298,
+         154.9643]]) 
+
+
+weights 1: tensor([[0.4376, 0.3854, 0.0734, 0.0337, 0.0284, 0.0159, 0.0139, 0.0116]])
+vals: tensor([[1798, 1576,   15, 1410,   15,   20,  419,   72]])
+distances: tensor([[ 88.9248,  90.1936, 106.7727, 114.5475, 116.2698, 122.0555, 123.4136,
+         125.2365]]) 
+
+
+weights 2: tensor([[0.4750, 0.3353, 0.0539, 0.0503, 0.0346, 0.0250, 0.0139, 0.0120]])
+vals: tensor([[1798, 1576,   15, 1410,   15,   72,   20,  419]])
+distances: tensor([[ 92.2257,  95.7085, 113.9813, 114.6801, 118.4067, 121.6859, 127.5219,
+         129.0456]]) 
+
+
+weights 3: tensor([[0.4029, 0.3418, 0.0658, 0.0529, 0.0470, 0.0361, 0.0297, 0.0238]])
+vals: tensor([[1798, 1576, 1410,   15,   15,   72,   20,   20]])
+distances: tensor([[121.4330, 123.0771, 139.5481, 141.7310, 142.9218, 145.5553, 147.5199,
+         149.7198]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.6931, 0.1189, 0.0451, 0.0441, 0.0300, 0.0239, 0.0233, 0.0214]])
+vals: tensor([[267, 342, 426,  33, 113, 942, 407, 194]])
+distances: tensor([[113.7326, 131.3582, 141.0513, 141.2714, 145.1190, 147.4022, 147.6568,
+         148.5043]]) 
+
+
+weights 1: tensor([[0.4009, 0.3430, 0.1599, 0.0618, 0.0108, 0.0085, 0.0081, 0.0071]])
+vals: tensor([[1022, 3363, 1096,  596,    2,    2,    2,    2]])
+distances: tensor([[109.4924, 111.0539, 118.6844, 128.1982, 145.6301, 148.0233, 148.5727,
+         149.8101]]) 
+
+
+weights 2: tensor([[0.4389, 0.2881, 0.1736, 0.0597, 0.0107, 0.0099, 0.0095, 0.0095]])
+vals: tensor([[1022, 3363, 1096,  596,    2,    2,    2,    2]])
+distances: tensor([[107.1052, 111.3159, 116.3823, 127.0501, 144.2083, 145.0078, 145.4209,
+         145.4509]]) 
+
+
+weights 3: tensor([[0.4225, 0.3227, 0.1584, 0.0683, 0.0086, 0.0069, 0.0067, 0.0061]])
+vals: tensor([[1022, 3363, 1096,  596,    2,    2, 2792,    2]])
+distances: tensor([[107.9903, 110.6851, 117.8006, 126.2120, 146.9837, 149.1634, 149.4757,
+         150.3713]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.2827, 0.2442, 0.1273, 0.1219, 0.1157, 0.0410, 0.0358, 0.0314]])
+vals: tensor([[219, 219, 219, 219, 219, 219, 258, 258]])
+distances: tensor([[59.0209, 60.4870, 66.9998, 67.4346, 67.9551, 78.3375, 79.6823, 81.0044]]) 
+
+
+weights 1: tensor([[0.1975, 0.1554, 0.1442, 0.1036, 0.1035, 0.1021, 0.0977, 0.0961]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[ 98.6529, 101.0525, 101.7996, 105.1064, 105.1169, 105.2506, 105.6926,
+         105.8588]]) 
+
+
+weights 2: tensor([[0.2168, 0.1573, 0.1510, 0.1190, 0.0930, 0.0896, 0.0876, 0.0858]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[ 99.5991, 102.8094, 103.2138, 105.5985, 108.0667, 108.4368, 108.6610,
+         108.8679]]) 
+
+
+weights 3: tensor([[0.2178, 0.1366, 0.1307, 0.1144, 0.1041, 0.1017, 0.0977, 0.0971]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[104.4369, 109.1031, 109.5438, 110.8764, 111.8166, 112.0504, 112.4564,
+         112.5195]]) 
+
+
+weights size: torch.Size([104, 1, 8])
+distances size: torch.Size([104, 1, 8])
+vals size: torch.Size([104, 1, 8]) 
+
+
+weights 0: tensor([[0.2317, 0.1447, 0.1264, 0.1229, 0.1140, 0.0876, 0.0874, 0.0852]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[172.9368, 177.6427, 178.9980, 179.2749, 180.0273, 182.6579, 182.6818,
+         182.9404]]) 
+
+
+weights 1: tensor([[0.7972, 0.1733, 0.0155, 0.0044, 0.0040, 0.0034, 0.0015, 0.0008]])
+vals: tensor([[ 52,  52, 194, 100, 155,   2,  65,   2]])
+distances: tensor([[127.1937, 142.4565, 166.5826, 179.2659, 180.2224, 181.7634, 190.1961,
+         196.2243]]) 
+
+
+weights 2: tensor([[0.3268, 0.2753, 0.2513, 0.0564, 0.0248, 0.0227, 0.0217, 0.0210]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[ 90.4019,  92.1186,  93.0277, 107.9769, 116.2034, 117.0591, 117.5265,
+         117.8382]]) 
+
+
+weights 3: tensor([[0.1520, 0.1480, 0.1291, 0.1206, 0.1200, 0.1179, 0.1076, 0.1049]])
+vals: tensor([[   2,    2,    2,    2,    2,    2,    2, 1789]])
+distances: tensor([[77.0787, 77.3445, 78.7079, 79.3942, 79.4421, 79.6179, 80.5321, 80.7862]]) 
+
+
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+weights 0: tensor([[0.2036, 0.1890, 0.1423, 0.1214, 0.1027, 0.0907, 0.0771, 0.0732]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[135.0641, 135.8108, 138.6446, 140.2319, 141.9126, 143.1512, 144.7783,
+         145.2937]]) 
+
+
+weights 1: tensor([[9.9997e-01, 7.2461e-06, 6.3105e-06, 3.7673e-06, 3.3806e-06, 2.6779e-06,
+         2.5298e-06, 2.5072e-06]])
+vals: tensor([[14321,   272,  2123,   272,   612,    13,    13,   272]])
+distances: tensor([[197.3242, 315.6744, 317.0569, 322.2153, 323.2985, 325.6286, 326.1977,
+         326.2874]]) 
+
+
+weights 2: tensor([[0.2153, 0.1942, 0.1271, 0.1029, 0.1011, 0.0955, 0.0948, 0.0690]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[151.1866, 152.2178, 156.4567, 158.5671, 158.7448, 159.3161, 159.3904,
+         162.5706]]) 
+
+
+weights 3: tensor([[0.1742, 0.1364, 0.1358, 0.1226, 0.1203, 0.1069, 0.1025, 0.1014]])
+vals: tensor([[   2,    2, 3624,    2,    2,    2,    2,    2]])
+distances: tensor([[53.2275, 55.6767, 55.7200, 56.7367, 56.9300, 58.1087, 58.5339, 58.6402]]) 
+
+
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+weights 0: tensor([[0.1386, 0.1350, 0.1277, 0.1270, 0.1229, 0.1200, 0.1158, 0.1131]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[73.9231, 74.1843, 74.7434, 74.7998, 75.1236, 75.3678, 75.7244, 75.9546]]) 
+
+
+weights 1: tensor([[0.1379, 0.1347, 0.1265, 0.1246, 0.1242, 0.1206, 0.1172, 0.1142]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[73.8031, 74.0341, 74.6644, 74.8187, 74.8486, 75.1393, 75.4278, 75.6900]]) 
+
+
+weights 2: tensor([[9.8410e-01, 1.5177e-02, 3.9170e-04, 3.0072e-04, 2.8862e-05, 2.7240e-06,
+         1.0440e-06, 7.4026e-07]])
+vals: tensor([[ 465,  599, 1176,  624,  912, 9639,  551,  173]])
+distances: tensor([[155.8289, 197.5483, 234.1189, 236.7618, 260.1984, 283.8027, 293.3928,
+         296.8313]]) 
+
+
+weights 3: tensor([[0.1797, 0.1304, 0.1273, 0.1194, 0.1151, 0.1140, 0.1137, 0.1004]])
+vals: tensor([[1491, 1491, 1491, 1491, 1491, 1491, 1491, 1491]])
+distances: tensor([[40.4712, 43.6742, 43.9176, 44.5545, 44.9203, 45.0213, 45.0511, 46.2939]]) 
+
+
+S-1362	Schweden 10966
+T-1362	Sweden 10966
+H-1362	-1.7697757482528687	Sweden
+D-1362	-1.7697757482528687	Sweden
+P-1362	-1.8657 -0.8168
+S-1590	Vorsitzende (r)
+T-1590	Chairperson
+H-1590	-1.2281603813171387	EMEA
+D-1590	-1.2281603813171387	EMEA
+P-1590	-1.4981 -0.5146 -0.0227 -0.7862
+S-261	10 Transferadapter
+T-261	Transfer adapter
+H-261	-1.7722299098968506	10 July 1998
+D-261	-1.7722299098968506	10 July 1998
+P-261	-0.5738 -2.1923 -1.2495 -0.0560
+S-710	B. an 118
+T-710	118 Travel
+H-710	-2.2693097591400146	140 B .
+D-710	-2.2693097591400146	140 B.
+P-710	-3.4641 -1.0324 -0.6757 -0.0414
+S-806	5.1 5.2
+T-806	5.1.
+H-806	-2.1548991203308105	240 1A
+D-806	-2.1548991203308105	240 1A
+P-806	-3.4505 -0.7495 -0.5115 -0.2392
+S-1669	• Kältegefühl
+T-1669	• feeling cold
+H-1669	-1.3815088272094727	EMEA
+D-1669	-1.3815088272094727	EMEA
+P-1669	-1.9439 -0.8627 -0.1615 -0.2058
+S-174	43,2%
+T-174	43.2%
+H-174	-1.3418912887573242	93.2 %
+D-174	-1.3418912887573242	93.2%
+P-174	-1.4152 -1.1480 -0.8691 -0.0474 -0.0448
+S-246	400 q12h
+T-246	400 q12h
+H-246	-1.6455018520355225	800 q12h
+D-246	-1.6455018520355225	800 q12h
+P-246	-3.3630 -0.3623 -0.5135 -0.0364 -0.0468
+S-326	RENAGEL
+T-326	RENAGEL
+H-326	-1.7673954963684082	FASLOW
+D-326	-1.7673954963684082	FASLOW
+P-326	-3.0792 -0.5139 -0.5237 -0.4245 -0.1008
+S-341	16 (3)
+T-341	16 (3)
+H-341	-1.4864188432693481	21 ( 1 )
+D-341	-1.4864188432693481	21 (1)
+P-341	-2.4950 -0.1962 -1.1170 -0.0420 -0.0538
+S-629	71.9%
+T-629	71.9%
+H-629	-1.495357871055603	71.9 %
+D-629	-1.495357871055603	71.9%
+P-629	-2.6238 -0.9384 -0.2785 -0.0458 -0.0411
+S-771	50 mg / kg
+T-771	50 mg / kg
+H-771	-0.08641201257705688	50 mg / kg
+D-771	-0.08641201257705688	50 mg / kg
+P-771	-0.1051 -0.0103 -0.0487 -0.0176 -0.0452
+S-1215	SUSTIVA
+T-1215	SUSTIVA
+H-1215	-1.8823060989379883	FASLOW
+D-1215	-1.8823060989379883	FASLOW
+P-1215	-3.4292 -0.5132 -0.5258 -0.3723 -0.1033
+S-1232	7 (7)
+T-1232	7 (7)
+H-1232	-1.669304370880127	14 ( 1 )
+D-1232	-1.669304370880127	14 (1)
+P-1232	-3.1953 -0.2822 -0.7963 -0.0429 -0.0678
+S-1259	35,1%
+T-1259	35.1%
+H-1259	-2.16060471534729	PCI
+D-1259	-2.16060471534729	PCI
+P-1259	-3.4688 -0.4995 -0.2085
+S-1349	Phase III Vc
+T-1349	Phase III Vc
+H-1349	-2.232573986053467	240 1A
+D-1349	-2.232573986053467	240 1A
+P-1349	-3.4592 -0.9299 -0.5057 -0.2344
+S-888	Dermatitits
+T-888	Skin and subcutaneous tissue disorders Rare: rash Very rare: dermatitis
+H-888	-1.593347191810608	Common Syndrome
+D-888	-1.593347191810608	Common Syndrome
+P-888	-3.3131 -0.0505 -0.5337 -0.0499 -0.2378
+S-1072	Am 3.
+T-1072	The Reference Member State for this MRP was Ireland with Austria, Belgium, Denmark, Germany, Greece, Finland, Iceland, Italy, Luxembourg, Norway, Portugal, Spain, and Sweden as Concerned Member States.
+H-1072	-1.9761466979980469	FASLOW
+D-1072	-1.9761466979980469	FASLOW
+P-1072	-3.5465 -0.5150 -0.5294 -0.3401 -0.2593
+S-1405	99%.
+T-1405	Rosiglitazone Absorption Absolute bioavailability of rosiglitazone following both a 4 and an 8 mg oral dose is approximately 99%.
+H-1405	-1.5088605880737305	140 % .
+D-1405	-1.5088605880737305	140%.
+P-1405	-3.0336 -0.3016 -0.0893 -0.0420
+S-891	Weiße Kappe
+T-891	Open the prefilled syringe by breaking the seal of the closure and remove the white cap together with the rubber tip cap inside.
+H-891	-1.7015082836151123	EMEA
+D-891	-1.7015082836151123	EMEA
+P-891	-2.9524 -0.5161 -0.1258 -0.3147
+S-1919	100,6
+T-1919	100.6
+H-1919	-2.1514766216278076	PCI
+D-1919	-2.1514766216278076	PCI
+P-1919	-3.4612 -0.5027 -0.1953
+S-877	65 65 66
+T-877	65 65 66
+H-877	-2.185420274734497	PCI
+D-877	-2.185420274734497	PCI
+P-877	-3.4784 -0.5061 -0.2403
+S-962	1,10 ml
+T-962	1.10 ml
+H-962	-2.1307756900787354	0.12 ml
+D-962	-2.1307756900787354	0.12 ml
+P-962	-2.4695 -2.2842 -0.0900 -0.0515
+S-1081	57 B.
+T-1081	54 B.
+H-1081	-1.5887254476547241	57 A .
+D-1081	-1.5887254476547241	57 A.
+P-1081	-1.8369 -1.3818 -0.3899 -0.0413
+S-1200	für 4 Wochen
+T-1200	for 4 weeks
+H-1200	-0.5314792990684509	for 4 weeks
+D-1200	-0.5314792990684509	for 4 weeks
+P-1200	-1.0757 -0.0555 -0.0402 -0.0495
+S-1429	103 10.
+T-1429	96 10.
+H-1429	-2.118617296218872	140 9 .
+D-1429	-2.118617296218872	140 9.
+P-1429	-3.5152 -0.9787 -0.3311 -0.0422
+S-1457	5.2.
+T-1457	5.2.
+H-1457	-2.1435539722442627	01.08.97
+D-1457	-2.1435539722442627	01.08.97
+P-1457	-3.3459 -0.5107 -0.9126 -0.7434 -0.1175
+S-1758	23 15.
+T-1758	23 15.
+H-1758	-2.044391393661499	Applicant
+D-1758	-2.044391393661499	Applicant
+P-1758	-3.4029 -0.4774 -0.6303 -0.1862
+S-1815	370 58 59
+T-1815	370 58 59
+H-1815	-2.1902711391448975	PCI
+D-1815	-2.1902711391448975	PCI
+P-1815	-3.5001 -0.5009 -0.2332
+S-1910	Emadine
+T-1910	Emadine
+H-1910	-0.6187890768051147	Emadin
+D-1910	-0.6187890768051147	Emadin
+P-1910	-0.6280 -0.0296 -0.7119 -0.0521
+S-816	100 mg:
+T-816	100 mg:
+H-816	-1.2370250225067139	40 mg :
+D-816	-1.2370250225067139	40 mg:
+P-816	-2.6504 -0.0576 -0.0922 -0.0418
+S-365	• Erwachsene:
+T-365	• Adults:
+H-365	-1.751838207244873	-adults :
+D-365	-1.751838207244873	-adults:
+P-365	-3.4828 -0.4199 -0.0783 -0.0437
+S-557	Andreas Pott
+T-557	Dossier assessment
+H-557	-1.8065218925476074	Felcam
+D-557	-1.8065218925476074	Felcam
+P-557	-2.8148 -0.5146 -0.1630
+S-623	- 0,2
+T-623	- 0 .2
+H-623	-1.9776833057403564	0.2
+D-623	-1.9776833057403564	0.2
+P-623	-2.4925 -1.0659 -0.2648
+S-823	260 10.
+T-823	244 10.
+H-823	-1.5913363695144653	140 9 .
+D-823	-1.5913363695144653	140 9.
+P-823	-2.2590 -1.1360 -0.2187 -0.0423
+S-1304	Bereichsleiterin
+T-1304	Head of Sector
+H-1304	-0.910203218460083	Head of Sector
+D-1304	-0.910203218460083	Head of Sector
+P-1304	-1.4981 -0.0418 -0.5567 -0.1401 -0.1541
+S-1592	(Tage)
+T-1592	Haemorrhage
+H-1592	-0.43229007720947266	( days )
+D-1592	-0.43229007720947266	(days)
+P-1592	-0.7617 -0.1439 -0.0442 -0.0432
+S-409	(mg)
+T-409	Valsartan (mg)
+H-409	-1.0107132196426392	( mg )
+D-409	-1.0107132196426392	(mg)
+P-409	-2.2008 -0.0333 -0.0435 -0.0443
+S-714	29.03.2001
+T-714	• 18.07.2000 • 29.03.2001
+H-714	-2.104095697402954	01.08.97
+D-714	-2.104095697402954	01.08.97
+P-714	-3.3261 -0.4753 -0.6324 -0.9686 -0.1240
+S-1561	(2007)
+T-1561	Marcelin et al (2007)
+H-1561	-1.5690953731536865	( 2007 )
+D-1561	-1.5690953731536865	(2007)
+P-1561	-1.8193 -1.6831 -0.0454 -0.0570
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+weights 0: tensor([[0.4086, 0.2373, 0.2131, 0.0374, 0.0313, 0.0309, 0.0271, 0.0143]])
+vals: tensor([[239, 202, 107, 326, 202, 242, 323, 210]])
+distances: tensor([[39.8010, 45.2344, 46.3110, 63.7027, 65.5038, 65.6265, 66.9168, 73.3355]]) 
+
+
+weights 1: tensor([[0.4086, 0.2373, 0.2131, 0.0374, 0.0313, 0.0309, 0.0271, 0.0143]])
+vals: tensor([[239, 202, 107, 326, 202, 242, 323, 210]])
+distances: tensor([[39.8010, 45.2344, 46.3110, 63.7027, 65.5038, 65.6265, 66.9168, 73.3355]]) 
+
+
+weights 2: tensor([[0.4086, 0.2373, 0.2131, 0.0374, 0.0313, 0.0309, 0.0271, 0.0143]])
+vals: tensor([[239, 202, 107, 326, 202, 242, 323, 210]])
+distances: tensor([[39.8010, 45.2344, 46.3110, 63.7027, 65.5038, 65.6265, 66.9168, 73.3355]]) 
+
+
+weights 3: tensor([[0.4086, 0.2373, 0.2131, 0.0374, 0.0313, 0.0309, 0.0271, 0.0143]])
+vals: tensor([[239, 202, 107, 326, 202, 242, 323, 210]])
+distances: tensor([[39.8010, 45.2344, 46.3110, 63.7027, 65.5038, 65.6265, 66.9168, 73.3355]]) 
+
+
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+weights 0: tensor([[0.2336, 0.1690, 0.1253, 0.1205, 0.0978, 0.0854, 0.0851, 0.0833]])
+vals: tensor([[20, 20, 20, 20, 20, 20, 20, 20]])
+distances: tensor([[19.2852, 22.5270, 25.5129, 25.9097, 27.9927, 29.3526, 29.3841, 29.5982]]) 
+
+
+weights 1: tensor([[0.1854, 0.1648, 0.1416, 0.1292, 0.1041, 0.0926, 0.0915, 0.0909]])
+vals: tensor([[20, 20, 20, 20, 20, 20, 20, 20]])
+distances: tensor([[18.3200, 19.5009, 21.0186, 21.9345, 24.0872, 25.2627, 25.3837, 25.4491]]) 
+
+
+weights 2: tensor([[0.2562, 0.2085, 0.1458, 0.1316, 0.0783, 0.0602, 0.0601, 0.0592]])
+vals: tensor([[20, 20, 20, 20, 20, 20, 20, 20]])
+distances: tensor([[38.1827, 40.2439, 43.8228, 44.8457, 50.0402, 52.6608, 52.6862, 52.8265]]) 
+
+
+weights 3: tensor([[0.2281, 0.1737, 0.1243, 0.1133, 0.1042, 0.0863, 0.0857, 0.0844]])
+vals: tensor([[20, 20, 20, 20, 20, 20, 20, 20]])
+distances: tensor([[21.0751, 23.7996, 27.1480, 28.0733, 28.9142, 30.7979, 30.8684, 31.0145]]) 
+
+
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+weights 0: tensor([[0.4348, 0.1085, 0.1046, 0.0782, 0.0757, 0.0734, 0.0663, 0.0585]])
+vals: tensor([[242, 595, 419, 419, 419, 419, 419, 419]])
+distances: tensor([[51.6220, 65.5049, 65.8702, 68.7827, 69.1071, 69.4099, 70.4315, 71.6771]]) 
+
+
+weights 1: tensor([[0.1871, 0.1384, 0.1370, 0.1338, 0.1212, 0.1158, 0.0880, 0.0788]])
+vals: tensor([[419, 419, 419, 419, 419, 419, 419, 419]])
+distances: tensor([[50.9868, 53.9970, 54.0978, 54.3409, 55.3275, 55.7846, 58.5251, 59.6378]]) 
+
+
+weights 2: tensor([[0.4838, 0.2299, 0.0656, 0.0603, 0.0435, 0.0392, 0.0390, 0.0386]])
+vals: tensor([[ 242,  595, 2493,  419,  419,  419, 1511,  419]])
+distances: tensor([[51.3431, 58.7829, 71.3191, 72.1663, 75.4253, 76.4789, 76.5228, 76.6221]]) 
+
+
+weights 3: tensor([[0.3966, 0.1211, 0.0886, 0.0855, 0.0821, 0.0795, 0.0774, 0.0692]])
+vals: tensor([[242, 419, 419, 419, 419, 595, 419, 419]])
+distances: tensor([[51.9270, 63.7881, 66.9132, 67.2728, 67.6814, 67.9937, 68.2639, 69.3834]]) 
+
+
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+weights 0: tensor([[9.3128e-01, 2.4421e-02, 1.7151e-02, 1.3960e-02, 1.0979e-02, 1.8898e-03,
+         2.9131e-04, 2.9864e-05]])
+vals: tensor([[317, 170,   2, 239,   2,   2,   2,   2]])
+distances: tensor([[ 37.1774,  73.5887,  77.1222,  79.1809,  81.5835,  99.1784, 117.8766,
+         140.6541]]) 
+
+
+weights 1: tensor([[9.3073e-01, 2.5069e-02, 1.6999e-02, 1.3698e-02, 1.1144e-02, 2.0189e-03,
+         3.0573e-04, 3.1591e-05]])
+vals: tensor([[317, 170,   2, 239,   2,   2,   2,   2]])
+distances: tensor([[ 35.6283,  71.7718,  75.6565,  77.8157,  79.8790,  96.9623, 115.8385,
+         138.5368]]) 
+
+
+weights 2: tensor([[9.3261e-01, 2.4795e-02, 1.6540e-02, 1.3141e-02, 1.0697e-02, 1.9085e-03,
+         2.7733e-04, 2.9095e-05]])
+vals: tensor([[317, 170,   2, 239,   2,   2,   2,   2]])
+distances: tensor([[ 36.2545,  72.5279,  76.5766,  78.8774,  80.9352,  98.1710, 117.4599,
+         140.0063]]) 
+
+
+weights 3: tensor([[9.1964e-01, 2.4796e-02, 2.2882e-02, 1.6331e-02, 1.3238e-02, 2.7437e-03,
+         3.2504e-04, 4.2076e-05]])
+vals: tensor([[317, 170,   2,   2, 239,   2,   2,   2]])
+distances: tensor([[ 28.7317,  64.8646,  65.6678,  69.0407,  71.1408,  86.8784, 108.2097,
+         128.6543]]) 
+
+
+weights size: torch.Size([172, 1, 8])
+distances size: torch.Size([172, 1, 8])
+vals size: torch.Size([172, 1, 8]) 
+
+
+weights 0: tensor([[9.2903e-01, 3.7179e-02, 3.3191e-02, 5.4016e-04, 2.1513e-05, 1.6650e-05,
+         1.2302e-05, 1.1343e-05]])
+vals: tensor([[5, 5, 5, 2, 2, 5, 5, 5]])
+distances: tensor([[ 24.0216,  56.2057,  57.3401,  98.5219, 130.7538, 133.3167, 136.3426,
+         137.1543]]) 
+
+
+weights 1: tensor([[9.3504e-01, 3.3947e-02, 3.0439e-02, 5.3092e-04, 1.6602e-05, 1.1512e-05,
+         7.8634e-06, 7.5246e-06]])
+vals: tensor([[5, 5, 5, 2, 2, 5, 5, 5]])
+distances: tensor([[ 22.8297,  55.9874,  57.0783,  97.5669, 132.2181, 135.8790, 139.6910,
+         140.1313]]) 
+
+
+weights 2: tensor([[9.4182e-01, 3.2880e-02, 2.4869e-02, 4.0415e-04, 7.7189e-06, 6.2207e-06,
+         4.3116e-06, 4.0486e-06]])
+vals: tensor([[5, 5, 5, 2, 2, 5, 5, 5]])
+distances: tensor([[ 24.3184,  57.8678,  60.6602, 101.8563, 141.4375, 143.5952, 147.2609,
+         147.8903]]) 
+
+
+weights 3: tensor([[9.4704e-01, 2.9267e-02, 2.3143e-02, 5.3054e-04, 8.3394e-06, 4.5391e-06,
+         3.3773e-06, 3.3014e-06]])
+vals: tensor([[5, 5, 5, 2, 2, 5, 5, 5]])
+distances: tensor([[ 23.1679,  57.9368,  60.2845,  98.0399, 139.5689, 145.6516, 148.6080,
+         148.8354]]) 
+
+
+weights size: torch.Size([112, 1, 8])
+distances size: torch.Size([112, 1, 8])
+vals size: torch.Size([112, 1, 8]) 
+
+
+weights 0: tensor([[0.1265, 0.1263, 0.1253, 0.1253, 0.1246, 0.1245, 0.1243, 0.1233]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.6324, 1.6475, 1.7224, 1.7283, 1.7812, 1.7878, 1.8035, 1.8872]]) 
+
+
+weights 1: tensor([[0.1261, 0.1259, 0.1257, 0.1252, 0.1247, 0.1246, 0.1240, 0.1238]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.7010, 1.7155, 1.7347, 1.7711, 1.8115, 1.8198, 1.8725, 1.8856]]) 
+
+
+weights 2: tensor([[0.1262, 0.1260, 0.1258, 0.1252, 0.1246, 0.1244, 0.1240, 0.1237]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.7715, 1.7886, 1.8025, 1.8495, 1.8993, 1.9171, 1.9453, 1.9743]]) 
+
+
+weights 3: tensor([[0.1270, 0.1258, 0.1257, 0.1251, 0.1246, 0.1243, 0.1240, 0.1234]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.8191, 1.9115, 1.9179, 1.9654, 2.0074, 2.0290, 2.0541, 2.1069]]) 
+
+
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+weights 0: tensor([[9.9727e-01, 5.5410e-04, 5.1944e-04, 4.1934e-04, 3.5170e-04, 3.4011e-04,
+         2.7818e-04, 2.6901e-04]])
+vals: tensor([[125,   2,   2,   2,   2,   2,   2,   2]])
+distances: tensor([[216.9198, 291.8741, 292.5200, 294.6608, 296.4196, 296.7548, 298.7648,
+         299.0999]]) 
+
+
+weights 1: tensor([[0.1326, 0.1284, 0.1280, 0.1255, 0.1241, 0.1238, 0.1189, 0.1186]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[14.6492, 14.9689, 15.0014, 15.1937, 15.3076, 15.3324, 15.7346, 15.7592]]) 
+
+
+weights 2: tensor([[0.1306, 0.1304, 0.1303, 0.1269, 0.1251, 0.1235, 0.1171, 0.1162]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[15.5453, 15.5614, 15.5672, 15.8368, 15.9802, 16.1080, 16.6417, 16.7180]]) 
+
+
+weights 3: tensor([[0.1566, 0.1521, 0.1385, 0.1317, 0.1187, 0.1056, 0.1046, 0.0921]])
+vals: tensor([[122, 122, 122, 122, 122, 122, 122, 122]])
+distances: tensor([[151.9607, 152.2549, 153.1872, 153.6949, 154.7289, 155.8990, 155.9921,
+         157.2641]]) 
+
+
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+weights 0: tensor([[0.2935, 0.1211, 0.1019, 0.1001, 0.0998, 0.0970, 0.0941, 0.0926]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[25.8199, 34.6773, 36.4030, 36.5790, 36.6132, 36.8918, 37.1959, 37.3592]]) 
+
+
+weights 1: tensor([[0.2058, 0.1951, 0.1385, 0.1285, 0.1115, 0.0825, 0.0818, 0.0562]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[130.5236, 131.0543, 134.4854, 135.2310, 136.6506, 139.6650, 139.7430,
+         143.4949]]) 
+
+
+weights 2: tensor([[0.2584, 0.1450, 0.1442, 0.1339, 0.1006, 0.0819, 0.0740, 0.0620]])
+vals: tensor([[ 2,  2,  2, 23,  2,  2,  2,  5]])
+distances: tensor([[193.3680, 199.1436, 199.1985, 199.9425, 202.8017, 204.8582, 205.8677,
+         207.6437]]) 
+
+
+weights 3: tensor([[0.1387, 0.1295, 0.1286, 0.1223, 0.1223, 0.1207, 0.1207, 0.1172]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[55.0457, 55.7316, 55.7997, 56.3045, 56.3048, 56.4329, 56.4388, 56.7293]]) 
+
+
+S-627	14 / 21 B.
+T-627	14 / 21 B.
+H-627	-0.9574365019798279	14 / 21 B .
+D-627	-0.9574365019798279	14 / 21 B.
+P-627	-2.0209 -0.0490 -0.0364 -0.1947 -0.4631 -0.0413
+S-1042	1 mg) erhältlich.
+T-1042	1 mg).
+H-1042	-0.21180471777915955	1 mg ) .
+D-1042	-0.21180471777915955	1 mg).
+P-1042	-0.3162 -0.0170 -0.0531 -0.1275 -0.0425
+S-1104	19 Abbildung C:
+T-1104	Figure C:
+H-1104	-0.6278725862503052	19 Table C :
+D-1104	-0.6278725862503052	19 Table C:
+P-1104	-0.5360 -0.5590 -0.0330 -0.4789 -0.0423
+S-1336	- 0, 0 5
+T-1336	INH Washout
+H-1336	-0.89654141664505	- 0 , 0 5
+D-1336	-0.89654141664505	- 0, 0 5
+P-1336	-1.8110 -0.0691 -0.0496 -0.0469 -0.6053 -0.0451
+S-16	Belivon Consta
+T-16	Belivon Consta
+H-16	-2.071817636489868	Belivione Consta
+D-16	-2.071817636489868	Belivione Consta
+P-16	-2.1699 -0.0293 -0.9528 -1.9703 -1.3901 -0.1016 -0.0449
+S-34	Micardis 20 mg
+T-34	Micardis 20 mg
+H-34	-0.479254812002182	Micardis 20 mg
+D-34	-0.479254812002182	Micardis 20 mg
+P-34	-0.0798 -0.0537 -0.0490 -1.1638 -0.0135 -0.0445
+S-228	Vorläufig eingesetzte Mittel
+T-228	Provisional appropriation
+H-228	-1.7785463333129883	Provisional resources
+D-228	-1.7785463333129883	Provisional resources
+P-228	-2.5512 -0.1004 -0.0398 -1.3282 -0.6519
+S-447	n = 170 12%
+T-447	N = 170 12%
+H-447	-0.4916154146194458	n = 170 12 %
+D-447	-0.4916154146194458	n = 170 12%
+P-447	-0.0257 -0.0411 -0.4369 -0.8523 -0.0419 -0.0427
+S-482	Henlutamide
+T-482	Henlutamide
+H-482	-1.7842257022857666	Sanelto
+D-482	-1.7842257022857666	Sanelto
+P-482	-2.9271 -0.5194 -0.5219 -0.1307
+S-527	Was ist Evra?
+T-527	What is Evra?
+H-527	-0.8767833709716797	What is Evra ?
+D-527	-0.8767833709716797	What is Evra?
+P-527	-0.1600 -0.5089 -1.7749 -0.0236 -0.0597 -0.0420
+S-544	Venta-Neb
+T-544	Venta-Neb
+H-544	-1.793142318725586	Preclinical
+D-544	-1.793142318725586	Preclinical
+P-544	-2.9821 -0.5947 -0.5130 -0.0244 -0.5955
+S-547	12 / 02 / 2009
+T-547	12 / 02 / 2009
+H-547	-1.1841349601745605	31 / 01 / 2006
+D-547	-1.1841349601745605	31 / 01 / 2006
+P-547	-1.4303 -0.1536 -1.1568 -0.0551 -0.6298 -0.0441
+S-973	Ch.-B.: ne
+T-973	Lot dic
+H-973	-1.6937505006790161	G03AX
+D-973	-1.6937505006790161	G03AX
+P-973	-2.2166 -0.5176 -0.8516 -0.5321 -0.3308
+S-646	Schweres OHSS
+T-646	Severe OHSS
+H-646	-0.8476636409759521	Severe OHSS
+D-646	-0.8476636409759521	Severe OHSS
+P-646	-1.5593 -0.0357 -0.7698 -0.0334 -0.0392 -0.0463
+S-713	España:
+T-713	España:
+H-713	-0.8388643860816956	España :
+D-713	-0.8388643860816956	España:
+P-713	-2.2420 -0.0577 -0.0228 -0.0423 -0.0507 -0.0424
+S-936	Equibactin vet.
+T-936	Equibactin vet.
+H-936	-2.4203073978424072	QD6 .
+D-936	-2.4203073978424072	QD6.
+P-936	-2.9007 -0.5142 -1.0322 -1.8674 -0.0424
+S-1066	↑ 3-7fach
+T-1066	↑ 3-7 fold
+H-1066	-2.21079421043396	Preclinical
+D-1066	-2.21079421043396	Preclinical
+P-1066	-3.4060 -0.8031 -0.5113 -0.0427 -1.0437
+S-1082	1 (1,3%)
+T-1082	1 (1.3%)
+H-1082	-0.7021721601486206	1 ( 18 % )
+D-1082	-0.7021721601486206	1 (18%)
+P-1082	-0.0468 -0.0429 -1.8224 -0.0537 -0.0440 -0.0475
+S-1243	0,14 mg / ml
+T-1243	0.14 mg / ml
+H-1243	-0.13377724587917328	0.14 mg / ml
+D-1243	-0.13377724587917328	0.14 mg / ml
+P-1243	-0.1294 -0.1322 -0.0116 -0.0464 -0.0270 -0.0454
+S-1398	Was Aclasta enthält
+T-1398	What Aclasta contains
+H-1398	-0.8312418460845947	What GCP contains
+D-1398	-0.8312418460845947	What GCP contains
+P-1398	-0.1596 -0.8898 -0.6643 -0.5134 -0.1561 -0.0526
+S-1528	29% 35 / 120
+T-1528	29% 35 / 120
+H-1528	-2.283503293991089	29 % ( 18 % )
+D-1528	-2.283503293991089	29% (18%)
+P-1528	-2.6862 -0.0809 -1.7125 -1.4280 -1.1965 -0.0471 -0.1883
+S-1587	Feldene Cremadol
+T-1587	Feldene Cremadol
+H-1587	-1.6364293098449707	Busuttil
+D-1587	-1.6364293098449707	Busuttil
+P-1587	-2.4510 -0.5237 -0.5177 -0.2671
+S-1616	10 (2,8)
+T-1616	10 (2.8)
+H-1616	-1.6554131507873535	21 ( 1 )
+D-1616	-1.6554131507873535	21 (1)
+P-1616	-3.0440 -0.1566 -1.0428 -0.0438 -0.0608
+S-1672	36 Ultratard
+T-1672	34 Ultratard
+H-1672	-1.7796183824539185	36 / 61
+D-1672	-1.7796183824539185	36 / 61
+P-1672	-1.8823 -0.7228 -0.7962 -0.6872
+S-1256	Weitere Informationen er 1.
+T-1256	Further Information
+H-1256	-1.8941617012023926	EMEA 1 .
+D-1256	-1.8941617012023926	EMEA 1.
+P-1256	-0.9445 -0.5145 -0.0498 -3.9346 -0.0636 -0.0430
+S-200	3,2 Minuten 6,5 Minuten
+T-200	6.5 min
+H-200	-1.46996009349823	3.2 minutes , 18 minutes
+D-200	-1.46996009349823	3.2 minutes, 18 minutes
+P-200	-1.1813 -0.0700 -0.2862 -0.6157 -1.8506 -0.5182 -0.2026
+S-1472	Konzentrat:
+T-1472	Concentrate:
+H-1472	-0.9731965661048889	Concentrate :
+D-1472	-0.9731965661048889	Concentrate:
+P-1472	-1.9315 -0.3850 -0.1411 -0.0562 -0.0423
+S-1364	96 Systemorgan-
+T-1364	84 System Organ
+H-1364	-2.8243799209594727	51.2 49.79
+D-1364	-2.8243799209594727	51.2 49.79
+P-1364	-3.5243 -0.8749 -1.0257 -0.5172 -1.9699 -0.3639
+S-1490	IMPRIDA
+T-1490	IMPRIDA
+H-1490	-2.0787181854248047	PCI
+D-1490	-2.0787181854248047	PCI
+P-1490	-3.3348 -0.4972 -0.1866
+S-1544	SANDOZ
+T-1544	SANDOZ
+H-1544	-1.347089409828186	Sanelto
+D-1544	-1.347089409828186	Sanelto
+P-1544	-1.9858 -0.5192 -0.5147 -0.0750
+S-1681	2 (1)
+T-1681	15 (7)
+H-1681	-1.5853756666183472	14 ( 1 )
+D-1681	-1.5853756666183472	14 (1)
+P-1681	-3.2243 -0.3177 -0.5077 -0.0421 -0.0722
+S-1745	↔ 1,00 *
+T-1745	↔ 1.00 *
+H-1745	-2.2930731773376465	51.2 *
+D-1745	-2.2930731773376465	51.2 *
+P-1745	-3.5281 -0.6102 -1.0799 -0.0499
+S-1748	REVASC
+T-1748	REVASC
+H-1748	-2.0628416538238525	PCI
+D-1748	-2.0628416538238525	PCI
+P-1748	-3.3092 -0.5027 -0.1759
+S-1755	Teve u.
+T-1755	Teve u.
+H-1755	-1.1384902000427246	EMEA
+D-1755	-1.1384902000427246	EMEA
+P-1755	-1.6006 -0.5149 -0.0698 -0.4303
+S-1762	3 Pipetten
+T-1762	3 pipettes
+H-1762	-2.01408052444458	11 ( 1 )
+D-1762	-2.01408052444458	11 (1)
+P-1762	-2.6002 -1.4443 -0.6857 -0.0501 -0.5097
+S-1788	183 191
+T-1788	183 191
+H-1788	-2.1881253719329834	PCI
+D-1788	-2.1881253719329834	PCI
+P-1788	-3.5059 -0.5017 -0.2225
+S-1917	74,7%
+T-1917	74.7%
+H-1917	-1.5597310066223145	74.7 %
+D-1917	-1.5597310066223145	74.7%
+P-1917	-2.9102 -0.4345 -0.6599 -0.0511 -0.0409
+S-1990	100 mg / g
+T-1990	100 mg / g
+H-1990	-0.880552351474762	100 mg / g
+D-1990	-0.880552351474762	100 mg / g
+P-1990	-2.1635 -0.0106 -0.0480 -0.0449 -0.0458
+S-1991	- Lactose
+T-1991	- Lactose
+H-1991	-0.8193966150283813	- Lactose
+D-1991	-0.8193966150283813	- Lactose
+P-1991	-0.5184 -1.5260 -0.0411 -0.0202 -0.0465
+S-52	Laboratories
+T-52	Glaxo Group UK
+H-52	-1.940075397491455	PCI
+D-52	-1.940075397491455	PCI
+P-52	-3.1366 -0.5048 -0.1091
+S-674	Innerer Karton
+T-674	Inner carton text
+H-674	-1.6556082963943481	rash
+D-674	-1.6556082963943481	rash
+P-674	-2.5023 -0.5007 -0.1975
+S-98	rascher Herzschlag
+T-98	blood pressure dropping heart beating fast
+H-98	-1.3223313093185425	Sudden heart beat
+D-98	-1.3223313093185425	Sudden heart beat
+P-98	-1.4209 -0.2502 -0.5734 -1.1831 -0.0456
+S-1010	Transparenz und Offenheit
+T-1010	Transparency and openness
+H-1010	-1.5816401243209839	Common Syndrome
+D-1010	-1.5816401243209839	Common Syndrome
+P-1010	-2.8858 -0.0358 -0.5220 -0.3336 -0.3770
+S-1343	≥ 1: 8
+T-1343	≥ 1 micrograms / ml
+H-1343	-2.1568830013275146	51.2 49.79
+D-1343	-2.1568830013275146	51.2 49.79
+P-1343	-2.5370 -0.5621 -0.7315 -0.5107 -1.7134 -0.2653
+S-1282	= 5,93 Monate
+T-1282	Median OS = 5.93 months
+H-1282	-0.30144840478897095	= 5.93 months
+D-1282	-0.30144840478897095	= 5.93 months
+P-1282	-0.0345 -0.0698 -0.5046 -0.1377 -0.0451
+S-131	London, 18.
+T-131	London, 18 October 2006 Doc.
+H-131	-1.1184709072113037	London , 18 .
+D-131	-1.1184709072113037	London, 18.
+P-131	-1.8843 -0.0675 -0.7828 -0.1612 -0.0418
+S-30	100 SR80
+T-30	at least 100 SR801 at least 100 SR80 at least 100 SR80 at least 100 SR80 at least 100 SR80
+H-30	-2.339221954345703	250 1A
+D-30	-2.339221954345703	250 1A
+P-30	-3.4745 -1.1840 -0.5116 -0.2040
+S-506	Darüber hinaus sollte die
+T-506	Until additional data become available, Zerit should be given during pregnancy only after special consideration; there is insufficient information to recommend Zerit for prevention of mother-to-child transmission of HIV.
+H-506	-2.0668113231658936	Committee for Medicinal Products
+D-506	-2.0668113231658936	Committee for Medicinal Products
+P-506	-3.2689 -0.5786 -1.8635 -0.2969 -0.1268 -0.0380 -0.4702
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+weights 0: tensor([[0.3785, 0.1874, 0.1581, 0.0871, 0.0541, 0.0520, 0.0452, 0.0376]])
+vals: tensor([[1750, 2033, 1143, 2033,  622,  466, 2389,   72]])
+distances: tensor([[191.8586, 198.8899, 200.5858, 206.5503, 211.3116, 211.6986, 213.1183,
+         214.9504]]) 
+
+
+weights 1: tensor([[0.3785, 0.1874, 0.1581, 0.0871, 0.0541, 0.0520, 0.0452, 0.0376]])
+vals: tensor([[1750, 2033, 1143, 2033,  622,  466, 2389,   72]])
+distances: tensor([[191.8586, 198.8899, 200.5858, 206.5503, 211.3116, 211.6986, 213.1183,
+         214.9504]]) 
+
+
+weights 2: tensor([[0.3785, 0.1874, 0.1581, 0.0871, 0.0541, 0.0520, 0.0452, 0.0376]])
+vals: tensor([[1750, 2033, 1143, 2033,  622,  466, 2389,   72]])
+distances: tensor([[191.8586, 198.8899, 200.5858, 206.5503, 211.3116, 211.6986, 213.1183,
+         214.9504]]) 
+
+
+weights 3: tensor([[0.3785, 0.1874, 0.1581, 0.0871, 0.0541, 0.0520, 0.0452, 0.0376]])
+vals: tensor([[1750, 2033, 1143, 2033,  622,  466, 2389,   72]])
+distances: tensor([[191.8586, 198.8899, 200.5858, 206.5503, 211.3116, 211.6986, 213.1183,
+         214.9504]]) 
+
+
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+weights 0: tensor([[9.1215e-01, 8.7725e-02, 1.2059e-04, 1.8043e-06, 6.8409e-07, 4.3242e-07,
+         3.1375e-07, 2.6909e-07]])
+vals: tensor([[307, 307, 110, 273, 146, 307, 307, 307]])
+distances: tensor([[216.0085, 239.4244, 305.3201, 347.3422, 357.0407, 361.6277, 364.8358,
+         366.3713]]) 
+
+
+weights 1: tensor([[6.5654e-01, 3.3834e-01, 1.8884e-03, 1.3237e-03, 9.7897e-04, 6.3014e-04,
+         1.5376e-04, 1.4909e-04]])
+vals: tensor([[ 2641,  2641, 22099,   102,  2641, 22099,   694,   694]])
+distances: tensor([[322.0292, 328.6587, 380.5418, 384.0948, 387.1116, 391.5172, 405.6227,
+         405.9313]]) 
+
+
+weights 2: tensor([[0.2845, 0.2476, 0.1147, 0.0802, 0.0727, 0.0680, 0.0672, 0.0651]])
+vals: tensor([[  470,  1932,  3797,   580,   315,  6464, 19090,   855]])
+distances: tensor([[438.0809, 439.4681, 447.1608, 450.7372, 451.7283, 452.3929, 452.5162,
+         452.8346]]) 
+
+
+weights 3: tensor([[2.5413e-01, 2.2054e-01, 1.9025e-01, 1.4353e-01, 1.2009e-01, 7.1436e-02,
+         1.7445e-05, 1.1457e-05]])
+vals: tensor([[1640, 1640, 1640,  515, 1640, 1640,  515,  515]])
+distances: tensor([[ 52.3609,  53.7785,  55.2562,  58.0739,  59.8566,  65.0513, 148.2263,
+         152.4311]]) 
+
+
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+weights 0: tensor([[0.1435, 0.1286, 0.1279, 0.1256, 0.1229, 0.1226, 0.1160, 0.1129]])
+vals: tensor([[890, 890, 890, 890, 890, 890, 890, 890]])
+distances: tensor([[40.5775, 41.6749, 41.7283, 41.9104, 42.1257, 42.1520, 42.7034, 42.9729]]) 
+
+
+weights 1: tensor([[9.9986e-01, 1.4296e-04, 5.0835e-07, 1.5259e-07, 9.3003e-08, 9.2258e-08,
+         7.1318e-08, 6.2583e-08]])
+vals: tensor([[ 1123,   373,    26, 22276,    53, 15233,    20,    53]])
+distances: tensor([[288.2088, 376.7369, 433.1282, 445.1627, 450.1137, 450.1942, 452.7686,
+         454.0752]]) 
+
+
+weights 2: tensor([[0.3434, 0.1531, 0.1394, 0.1268, 0.0809, 0.0682, 0.0458, 0.0424]])
+vals: tensor([[   2, 2130,  294,  233,   14,   99, 1748,    8]])
+distances: tensor([[279.9333, 288.0089, 288.9509, 289.8937, 294.3853, 296.1044, 300.0842,
+         300.8524]]) 
+
+
+weights 3: tensor([[0.8054, 0.0771, 0.0425, 0.0298, 0.0141, 0.0113, 0.0107, 0.0091]])
+vals: tensor([[   68,     9, 13189,   110,   110, 13189, 13189, 13189]])
+distances: tensor([[223.8407, 247.2963, 253.2591, 256.8122, 264.2791, 266.5050, 267.0866,
+         268.6675]]) 
+
+
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+weights 0: tensor([[0.3535, 0.1403, 0.0934, 0.0903, 0.0891, 0.0855, 0.0840, 0.0638]])
+vals: tensor([[  2, 294,   8,   5,   8, 918,  14,   2]])
+distances: tensor([[266.5356, 275.7776, 279.8486, 280.1820, 280.3129, 280.7280, 280.9013,
+         283.6577]]) 
+
+
+weights 1: tensor([[0.5120, 0.1744, 0.1360, 0.0441, 0.0381, 0.0358, 0.0338, 0.0257]])
+vals: tensor([[  470,   246,    26,   311,  1754, 15233,   244,   268]])
+distances: tensor([[401.3411, 412.1086, 414.5999, 425.8594, 427.3129, 427.9318, 428.5168,
+         431.2700]]) 
+
+
+weights 2: tensor([[2.2787e-01, 1.7054e-01, 1.6837e-01, 1.5012e-01, 1.4829e-01, 1.3480e-01,
+         7.8685e-06, 7.7968e-06]])
+vals: tensor([[1640, 1640, 1640,  515, 1640, 1640,  515,  515]])
+distances: tensor([[ 68.6114,  71.5094,  71.6375,  72.7852,  72.9079,  73.8616, 171.3481,
+         171.4397]]) 
+
+
+weights 3: tensor([[0.1584, 0.1492, 0.1311, 0.1310, 0.1301, 0.1091, 0.0973, 0.0939]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[139.6931, 140.2919, 141.5829, 141.5896, 141.6580, 143.4206, 144.5655,
+         144.9229]]) 
+
+
+weights size: torch.Size([120, 1, 8])
+distances size: torch.Size([120, 1, 8])
+vals size: torch.Size([120, 1, 8]) 
+
+
+weights 0: tensor([[0.1671, 0.1391, 0.1360, 0.1274, 0.1192, 0.1183, 0.1034, 0.0894]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[164.2545, 166.0891, 166.3130, 166.9667, 167.6310, 167.7113, 169.0610,
+         170.5136]]) 
+
+
+weights 1: tensor([[9.6878e-01, 1.9307e-02, 1.0972e-02, 5.8591e-04, 1.1764e-04, 1.1736e-04,
+         1.1424e-04, 6.2654e-06]])
+vals: tensor([[20598,  4890,  4890,  4890, 10223,  4890, 10223, 23229]])
+distances: tensor([[157.9990, 197.1544, 202.8057, 232.1053, 248.1608, 248.1841, 248.4539,
+         277.4864]]) 
+
+
+weights 2: tensor([[0.2756, 0.1402, 0.1369, 0.1060, 0.0996, 0.0955, 0.0734, 0.0727]])
+vals: tensor([[   2,    2,    2, 1103,    2,    2,    2,    2]])
+distances: tensor([[170.4871, 177.2428, 177.4871, 180.0426, 180.6621, 181.0887, 183.7122,
+         183.8092]]) 
+
+
+weights 3: tensor([[0.6399, 0.1615, 0.0997, 0.0308, 0.0263, 0.0171, 0.0125, 0.0123]])
+vals: tensor([[   2,    2,    2,  622, 1534,    8, 2130,    7]])
+distances: tensor([[250.6429, 264.4103, 269.2350, 280.9826, 282.5702, 286.8739, 289.9631,
+         290.1881]]) 
+
+
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+weights 0: tensor([[0.1911, 0.1865, 0.1790, 0.1613, 0.0773, 0.0716, 0.0680, 0.0654]])
+vals: tensor([[104, 104, 104, 104, 104, 104, 104, 104]])
+distances: tensor([[16.4921, 16.7357, 17.1464, 18.1835, 25.5423, 26.3135, 26.8298, 27.2182]]) 
+
+
+weights 1: tensor([[0.2711, 0.2251, 0.0914, 0.0891, 0.0856, 0.0826, 0.0776, 0.0776]])
+vals: tensor([[132, 132, 132, 132, 132, 132, 132, 132]])
+distances: tensor([[22.6752, 24.5363, 33.5448, 33.8060, 34.2032, 34.5647, 35.1798, 35.1896]]) 
+
+
+weights 2: tensor([[0.1713, 0.1422, 0.1407, 0.1398, 0.1248, 0.1042, 0.0898, 0.0871]])
+vals: tensor([[ 22,  22,  22,  65, 104,  65, 104, 127]])
+distances: tensor([[114.9628, 116.8267, 116.9307, 116.9940, 118.1316, 119.9317, 121.4257,
+         121.7218]]) 
+
+
+weights 3: tensor([[0.1275, 0.1260, 0.1253, 0.1253, 0.1246, 0.1240, 0.1239, 0.1233]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[4.7941, 4.9078, 4.9628, 4.9665, 5.0199, 5.0675, 5.0781, 5.1230]]) 
+
+
+weights size: torch.Size([76, 1, 8])
+distances size: torch.Size([76, 1, 8])
+vals size: torch.Size([76, 1, 8]) 
+
+
+weights 0: tensor([[0.1259, 0.1258, 0.1254, 0.1250, 0.1248, 0.1246, 0.1243, 0.1242]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.3100, 1.3195, 1.3484, 1.3859, 1.4005, 1.4144, 1.4363, 1.4475]]) 
+
+
+weights 1: tensor([[5.9865e-01, 3.9795e-01, 1.0163e-03, 5.8163e-04, 4.7283e-04, 4.6033e-04,
+         4.5361e-04, 4.1864e-04]])
+vals: tensor([[7014, 7014, 7014, 1310, 1310, 1310, 1310, 1310]])
+distances: tensor([[ 60.3505,  64.4339, 124.1356, 129.7164, 131.7875, 132.0553, 132.2025,
+         133.0047]]) 
+
+
+weights 2: tensor([[0.2284, 0.2188, 0.2063, 0.1802, 0.0534, 0.0409, 0.0368, 0.0352]])
+vals: tensor([[ 36,  36,  36,  36, 104, 104,  65,   2]])
+distances: tensor([[62.2847, 62.7138, 63.3000, 64.6542, 76.8177, 79.4785, 80.5487, 80.9752]]) 
+
+
+weights 3: tensor([[0.1271, 0.1269, 0.1260, 0.1252, 0.1249, 0.1240, 0.1230, 0.1229]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.2983, 2.3109, 2.3796, 2.4494, 2.4677, 2.5398, 2.6224, 2.6313]]) 
+
+
+weights size: torch.Size([44, 1, 8])
+distances size: torch.Size([44, 1, 8])
+vals size: torch.Size([44, 1, 8]) 
+
+
+weights 0: tensor([[0.2197, 0.2073, 0.1948, 0.1768, 0.0599, 0.0494, 0.0473, 0.0447]])
+vals: tensor([[104, 104, 104, 104, 104, 104, 104, 104]])
+distances: tensor([[30.5890, 31.1683, 31.7888, 32.7589, 43.5759, 45.5046, 45.9434, 46.5177]]) 
+
+
+weights 1: tensor([[0.2470, 0.2420, 0.2004, 0.1085, 0.0825, 0.0608, 0.0487, 0.0102]])
+vals: tensor([[   5,    5,    5,    5,    5, 5904,    5,    5]])
+distances: tensor([[ 84.2204,  84.4276,  86.3139,  92.4481,  95.1900,  98.2463, 100.4496,
+         116.1314]]) 
+
+
+weights 2: tensor([[0.1271, 0.1263, 0.1258, 0.1258, 0.1254, 0.1235, 0.1234, 0.1227]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.1948, 2.2579, 2.2925, 2.2992, 2.3247, 2.4809, 2.4871, 2.5441]]) 
+
+
+weights 3: tensor([[0.2831, 0.2481, 0.1583, 0.1074, 0.0757, 0.0593, 0.0573, 0.0108]])
+vals: tensor([[   5,    5,    5,    5,    5,    5, 5904,    5]])
+distances: tensor([[ 88.8621,  90.1822,  94.6738,  98.5535, 102.0560, 104.4960, 104.8437,
+         121.5135]]) 
+
+
+weights size: torch.Size([8, 1, 8])
+distances size: torch.Size([8, 1, 8])
+vals size: torch.Size([8, 1, 8]) 
+
+
+weights 0: tensor([[9.9987e-01, 9.4873e-05, 1.4619e-05, 8.5667e-06, 5.5156e-06, 4.5517e-06,
+         2.5695e-06, 2.0023e-06]])
+vals: tensor([[ 127,  149,  523,  904, 5839,  327,   36,  368]])
+distances: tensor([[108.9089, 201.5373, 220.2397, 225.5839, 229.9869, 231.9077, 237.6257,
+         240.1198]]) 
+
+
+weights 1: tensor([[0.1610, 0.1587, 0.1477, 0.1302, 0.1180, 0.1023, 0.0922, 0.0898]])
+vals: tensor([[1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601]])
+distances: tensor([[91.6673, 91.8165, 92.5320, 93.7954, 94.7734, 96.2007, 97.2405, 97.5063]]) 
+
+
+weights 2: tensor([[0.2332, 0.1926, 0.1441, 0.1419, 0.1244, 0.0612, 0.0538, 0.0489]])
+vals: tensor([[372, 372, 372, 372, 372, 372, 372, 372]])
+distances: tensor([[343.8492, 345.7575, 348.6612, 348.8182, 350.1338, 357.2244, 358.5162,
+         359.4692]]) 
+
+
+weights 3: tensor([[0.1578, 0.1575, 0.1468, 0.1277, 0.1206, 0.1044, 0.0954, 0.0897]])
+vals: tensor([[1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601]])
+distances: tensor([[93.3746, 93.3928, 94.0940, 95.4912, 96.0597, 97.5047, 98.4088, 99.0219]]) 
+
+
+weights size: torch.Size([8, 1, 8])
+distances size: torch.Size([8, 1, 8])
+vals size: torch.Size([8, 1, 8]) 
+
+
+weights 0: tensor([[0.2186, 0.1732, 0.1600, 0.1244, 0.0850, 0.0818, 0.0796, 0.0773]])
+vals: tensor([[    2,     2,     2, 15181,     2,     5,   549,    16]])
+distances: tensor([[108.3801, 110.7076, 111.5057, 114.0211, 117.8322, 118.2089, 118.4788,
+         118.7727]]) 
+
+
+weights 1: tensor([[0.2100, 0.1692, 0.1493, 0.1110, 0.1082, 0.0879, 0.0867, 0.0776]])
+vals: tensor([[  372,   372,  1815,   372,   372, 15276,   372,  5436]])
+distances: tensor([[386.0498, 388.2080, 389.4593, 392.4234, 392.6817, 394.7640, 394.8979,
+         396.0049]]) 
+
+
+weights 2: tensor([[0.1376, 0.1323, 0.1308, 0.1275, 0.1213, 0.1183, 0.1163, 0.1159]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[13.5699, 13.9619, 14.0812, 14.3366, 14.8319, 15.0864, 15.2539, 15.2840]]) 
+
+
+weights 3: tensor([[0.2075, 0.1264, 0.1158, 0.1136, 0.1128, 0.1111, 0.1077, 0.1051]])
+vals: tensor([[372,   7,   7,   7,   7,   7,   7,   7]])
+distances: tensor([[72.5188, 77.4725, 78.3496, 78.5435, 78.6181, 78.7697, 79.0789, 79.3211]]) 
+
+
+S-1481	Dosisunterbrechung
+T-1481	Dose Interruption
+H-1481	-1.7636644840240479	Treatment
+D-1481	-1.7636644840240479	Treatment
+P-1481	-1.9140 -0.3427 -0.0314 -1.7637
+S-1402	Was ist Tarceva?
+T-1402	What is Tarceva?
+H-1402	-0.23847006261348724	What is Tarceva ?
+D-1402	-0.23847006261348724	What is Tarceva?
+P-1402	-0.0533 -0.4781 -0.1035 -0.0369 -0.0096 -0.0425 -0.0426
+S-1374	VECTIBIX
+T-1374	VECTIBIX
+H-1374	-1.7984840869903564	FASLOW
+D-1374	-1.7984840869903564	FASLOW
+P-1374	-3.1286 -0.5134 -0.5197 -0.3935 -0.1686
+S-1335	24,8 ± 59,7
+T-1335	24.8 ± 59.7
+H-1335	-2.2611987590789795	51.2 49.2 -2.0
+D-1335	-2.2611987590789795	51.2 49.2 -2.0
+P-1335	-2.1846 -0.7920 -0.6080 -0.4147 -2.4344 -0.7965 -0.5330 -0.1108
+S-1163	Was ist Abseamed?
+T-1163	What is Abseamed?
+H-1163	-0.9782575964927673	What is EMEA ?
+D-1163	-0.9782575964927673	What is EMEA?
+P-1163	-0.1605 -0.4267 -1.9254 -0.5185 -0.0203 -0.0504 -0.0424
+S-1154	Was ist Orfadin?
+T-1154	What is Orfadin?
+H-1154	-0.6330821514129639	What is Orfadin ?
+D-1154	-0.6330821514129639	What is Orfadin?
+P-1154	-0.0525 -0.4589 -0.9678 -0.4416 -0.0272 -0.0440 -0.0428
+S-1153	20131 Milano, Italy
+T-1153	20131 Milano, Italy
+H-1153	-1.858813762664795	20131 Milan , Italy
+D-1153	-1.858813762664795	20131 Milan, Italy
+P-1153	-1.8584 -0.4785 -2.8068 -0.0427 -0.0840 -0.1762
+S-1069	Pharmacia Ltd.
+T-1069	Pharmacia Ltd.
+H-1069	-0.4970890283584595	Pharmacia Ltd .
+D-1069	-0.4970890283584595	Pharmacia Ltd.
+P-1069	-1.2240 -0.0146 -0.0313 -0.1401 -0.0846 -0.0615 -0.0416
+S-854	Masitinib 50 mg
+T-854	Masitinib 50 mg
+H-854	-0.6261658668518066	Masitinib 50 mg
+D-854	-0.6261658668518066	Masitinib 50 mg
+P-854	-1.8418 -0.0081 -0.0049 -0.0361 -0.0606 -0.0163 -0.0448
+S-667	CLOMICALM
+T-667	CLOMICALM
+H-667	-2.144015073776245	FASLOW
+D-667	-2.144015073776245	FASLOW
+P-667	-3.1027 -0.5137 -0.5205 -0.8651 -0.6292
+S-598	94,1 100,0
+T-598	94.1 100.0
+H-598	-2.535961627960205	93.1
+D-598	-2.535961627960205	93.1
+P-598	-1.7850 -1.3519 -2.0775 -0.6116
+S-76	Dickflüssiges Paraffin
+T-76	Liquid paraffin
+H-76	-1.3716320991516113	Viscous parafine
+D-76	-1.3716320991516113	Viscous parafine
+P-76	-2.2505 -0.2423 -0.0205 -0.8944 -0.5118 -0.4421 -0.0469
+S-53	1 Durchstechflasche +
+T-53	1.0 ml (1 million
+H-53	-0.4260992705821991	1 vial +
+D-53	-0.4260992705821991	1 vial +
+P-53	-0.2168 -0.1786 -0.0349 -0.0621 -0.6266
+S-36	Scholtzstr.
+T-36	Scholtzstr.
+H-36	-1.1158674955368042	Busuttil Str .
+D-36	-1.1158674955368042	Busuttil Str.
+P-36	-1.6026 -0.5174 -0.5258 -0.8032 -0.0431 -0.0513 -0.0430
+S-1431	Siehe Abbildung 1.
+T-1431	See Figure 1.
+H-1431	-0.1754046082496643	See Figure 1 .
+D-1431	-0.1754046082496643	See Figure 1.
+P-1431	-0.1479 -0.1794 -0.0414 -0.0452 -0.0569 -0.0431
+S-1034	- grippeähnliche Symptome
+T-1034	- flu-like symptoms
+H-1034	-0.27816492319107056	- influenza @-@ like symptoms
+D-1034	-0.27816492319107056	- influenza-like symptoms
+P-1034	-0.0519 -0.5159 -0.0093 -0.0406 -0.1448 -0.0778 -0.0790 -0.0492
+S-1067	0 1 2 ≥ 3 1
+T-1067	≥ 3
+H-1067	-0.09131168574094772	0 1 2 ≥ 3 1
+D-1067	-0.09131168574094772	0 1 2 ≥ 3 1
+P-1067	-0.0520 -0.0517 -0.0551 -0.0056 -0.0412 -0.0450 -0.0429
+S-1725	511 70 K.
+T-1725	511 70 K.
+H-1725	-1.8115895986557007	EMEA
+D-1725	-1.8115895986557007	EMEA
+P-1725	-3.0481 -0.5146 -0.0591 -0.5401
+S-1036	Die entsprechenden t lä
+T-1036	The corresponding incidences in patients receiving the recommended regimen of enoxaparin in the treatment of DVT were 2.3% (13 / 559), 4.6% (17 / 368), 9.7% (14 / 145)
+H-1036	-2.2077503204345703	PCI
+D-1036	-2.2077503204345703	PCI
+P-1036	-3.4122 -0.5033 -0.3525
+S-788	Quartal 2007 vorliegen muss.
+T-788	This should include a proposal to assess the efficacy and safety of Yondelis in a sub-group of patients with myxoid liposarcoma and will be submitted to the EMEA by 4Q 2007.
+H-788	-1.6691871881484985	another ( Uncommon ) .
+D-788	-1.6691871881484985	another (Uncommon).
+P-788	-1.4667 -1.1316 -1.4681 -0.5125 -0.0765 -0.6658 -0.0438
+S-852	Wenn während der zn
+T-852	These agents include desirudin, fibrinolytic agents, GP IIb / IIIa receptor antagonists, na
+H-852	-2.253967761993408	PCI
+D-852	-2.253967761993408	PCI
+P-852	-3.4697 -0.5043 -0.3833
+S-1857	Die Bildung von Ar
+T-1857	The production of erythropoietin primarily occurs in and is regulated by the M
+H-1857	-2.0323855876922607	240 1A
+D-1857	-2.0323855876922607	240 1A
+P-1857	-3.4530 -0.5892 -0.5145 -0.1125
+S-1653	8 mg / kg +
+T-1653	TCZ MTX TCZ PBO TCZ PBO TCZ
+H-1653	-0.4109088182449341	8 mg / kg +
+D-1653	-0.4109088182449341	8 mg / kg +
+P-1653	-1.0423 -0.0076 -0.0470 -0.0195 -0.0430 -0.0447
+S-1223	"Probenzeit:
+T-1223	Fill up the second sample tube (Label <<unk>> Sampling time:
+H-1223	-1.3245571851730347	Vaccination :
+D-1223	-1.3245571851730347	Vaccination:
+P-1223	-2.3050 -0.5039 -0.1792 -0.4472 -0.0437
+S-1752	XELOX oder
+T-1752	or XELOX + Avastin
+H-1752	-1.01637864112854	XELOX or
+D-1752	-1.01637864112854	XELOX or
+P-1752	-1.9582 -0.0298 -0.0414 -0.0352 -0.7347 -0.1788
+S-699	(LDPE)
+T-699	Bottle (LDPE)
+H-699	-2.0243942737579346	FASLOW
+D-699	-2.0243942737579346	FASLOW
+P-699	-3.6896 -0.5124 -0.5188 -0.3397 -0.2566
+S-1771	ge Kinder und Jugendliche:
+T-1771	ed Children and adolescents:
+H-1771	-1.3441978693008423	Adults and adolescents :
+D-1771	-1.3441978693008423	Adults and adolescents:
+P-1771	-2.5522 -0.3391 -0.3652 -1.2660 -0.0214 -0.0212 -0.0722 -0.0435
+S-837	Studie 2301:
+T-837	Study 2301:
+H-837	-1.225283145904541	EMEA
+D-837	-1.225283145904541	EMEA
+P-837	-0.8941 -0.9273 -0.0151 -0.9785
+S-407	Wie wirkt Intelence?
+T-407	How does Intelence work?
+H-407	-1.0046489238739014	How does Intelence work ?
+D-407	-1.0046489238739014	How does Intelence work?
+P-407	-0.5329 -0.2058 -2.1921 -0.1001 -0.1091 -0.0464 -0.0425
+S-133	5 mg Hartkapseln
+T-133	5 mg hard capsules
+H-133	-0.6886329650878906	5 mg hard capsules
+D-133	-0.6886329650878906	5 mg hard capsules
+P-133	-1.7803 -0.0204 -0.1719 -0.1230 -0.0212 -0.0530 -0.0435
+S-73	5 kg / t *
+T-73	5 kg / tonne *
+H-73	-0.19959266483783722	5 kg / t *
+D-73	-0.19959266483783722	5 kg / t *
+P-73	-0.2724 -0.0321 -0.0460 -0.1508 -0.0393 -0.0442
+S-1912	Emselex 7,5 mg
+T-1912	Emselex 7.5 mg
+H-1912	-1.1912343502044678	EMEA 7.5 mg
+D-1912	-1.1912343502044678	EMEA 7.5 mg
+P-1912	-0.8800 -0.6292 -0.3166 -1.6031 -0.0180 -0.0436
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.2359, 0.1577, 0.1208, 0.1143, 0.1135, 0.0973, 0.0874, 0.0731]])
+vals: tensor([[  65,  107,  107,  107, 5826,  242,   65,  226]])
+distances: tensor([[140.4224, 144.4461, 147.1117, 147.6682, 147.7391, 149.2731, 150.3539,
+         152.1317]]) 
+
+
+weights 1: tensor([[0.2359, 0.1577, 0.1208, 0.1143, 0.1135, 0.0973, 0.0874, 0.0731]])
+vals: tensor([[  65,  107,  107,  107, 5826,  242,   65,  226]])
+distances: tensor([[140.4224, 144.4461, 147.1117, 147.6682, 147.7391, 149.2731, 150.3539,
+         152.1317]]) 
+
+
+weights 2: tensor([[0.2359, 0.1577, 0.1208, 0.1143, 0.1135, 0.0973, 0.0874, 0.0731]])
+vals: tensor([[  65,  107,  107,  107, 5826,  242,   65,  226]])
+distances: tensor([[140.4224, 144.4461, 147.1117, 147.6682, 147.7391, 149.2731, 150.3539,
+         152.1317]]) 
+
+
+weights 3: tensor([[0.2359, 0.1577, 0.1208, 0.1143, 0.1135, 0.0973, 0.0874, 0.0731]])
+vals: tensor([[  65,  107,  107,  107, 5826,  242,   65,  226]])
+distances: tensor([[140.4224, 144.4461, 147.1117, 147.6682, 147.7391, 149.2731, 150.3539,
+         152.1317]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.2016, 0.1992, 0.1318, 0.1164, 0.1038, 0.0832, 0.0823, 0.0817]])
+vals: tensor([[10, 18, 18, 10, 18, 18, 10, 10]])
+distances: tensor([[136.0711, 136.1921, 140.3227, 141.5594, 142.7077, 144.9175, 145.0251,
+         145.1036]]) 
+
+
+weights 1: tensor([[0.2311, 0.1386, 0.1377, 0.1189, 0.1035, 0.0977, 0.0965, 0.0760]])
+vals: tensor([[18, 10, 18, 18, 18, 18, 10, 18]])
+distances: tensor([[129.4382, 134.5539, 134.6160, 136.0871, 137.4671, 138.0451, 138.1753,
+         140.5546]]) 
+
+
+weights 2: tensor([[0.1537, 0.1392, 0.1357, 0.1282, 0.1177, 0.1133, 0.1076, 0.1047]])
+vals: tensor([[16, 16, 16, 16, 16, 16, 16, 16]])
+distances: tensor([[21.1377, 22.1261, 22.3814, 22.9526, 23.8025, 24.1855, 24.6982, 24.9786]]) 
+
+
+weights 3: tensor([[0.2024, 0.1800, 0.1693, 0.1161, 0.1054, 0.0962, 0.0655, 0.0652]])
+vals: tensor([[19521,   377,  3527,   940, 13882,  1491,    16,  1491]])
+distances: tensor([[229.3830, 230.5594, 231.1714, 234.9428, 235.9066, 236.8224, 240.6729,
+         240.7154]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.3936, 0.1401, 0.1223, 0.0737, 0.0703, 0.0689, 0.0682, 0.0629]])
+vals: tensor([[1176,  271,  271,  271,  271,   92,  107,  107]])
+distances: tensor([[68.4507, 78.7813, 80.1418, 85.2027, 85.6711, 85.8718, 85.9784, 86.7823]]) 
+
+
+weights 1: tensor([[0.2840, 0.1539, 0.1168, 0.1166, 0.0954, 0.0852, 0.0744, 0.0738]])
+vals: tensor([[1176,  107,  107,  271,  107,  202,   92, 1097]])
+distances: tensor([[131.2143, 137.3438, 140.1021, 140.1204, 142.1251, 143.2593, 144.6143,
+         144.6871]]) 
+
+
+weights 2: tensor([[0.2723, 0.1316, 0.1294, 0.1242, 0.1225, 0.0839, 0.0683, 0.0678]])
+vals: tensor([[1176,  107,  107,  271,  107, 1097,   92,  107]])
+distances: tensor([[118.4791, 125.7512, 125.9216, 126.3327, 126.4648, 130.2534, 132.3154,
+         132.3787]]) 
+
+
+weights 3: tensor([[0.1726, 0.1710, 0.1501, 0.1418, 0.1171, 0.0952, 0.0842, 0.0679]])
+vals: tensor([[107, 271, 107, 107, 363, 202, 202, 107]])
+distances: tensor([[177.8018, 177.8948, 179.1973, 179.7666, 181.6855, 183.7500, 184.9774,
+         187.1355]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.1481, 0.1319, 0.1278, 0.1250, 0.1243, 0.1185, 0.1137, 0.1107]])
+vals: tensor([[5525, 5525, 5525, 5525, 5525, 5525, 5525, 5525]])
+distances: tensor([[19.3173, 20.4798, 20.7957, 21.0115, 21.0700, 21.5524, 21.9580, 22.2288]]) 
+
+
+weights 1: tensor([[0.1527, 0.1433, 0.1371, 0.1295, 0.1139, 0.1102, 0.1081, 0.1052]])
+vals: tensor([[5525, 5525, 5525, 5525, 5525, 5525, 5525, 5525]])
+distances: tensor([[21.7451, 22.3807, 22.8265, 23.3977, 24.6807, 25.0060, 25.1981, 25.4752]]) 
+
+
+weights 2: tensor([[0.1555, 0.1399, 0.1353, 0.1302, 0.1274, 0.1096, 0.1029, 0.0993]])
+vals: tensor([[5525, 5525, 5525, 5525, 5525, 5525, 5525, 5525]])
+distances: tensor([[47.6871, 48.7441, 49.0792, 49.4571, 49.6741, 51.1834, 51.8176, 52.1659]]) 
+
+
+weights 3: tensor([[0.4126, 0.0978, 0.0890, 0.0872, 0.0823, 0.0821, 0.0796, 0.0693]])
+vals: tensor([[5525, 5525, 5525, 5525, 5525, 5525, 5525, 5525]])
+distances: tensor([[149.9888, 164.3857, 165.3312, 165.5289, 166.1102, 166.1308, 166.4424,
+         167.8230]]) 
+
+
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+weights 0: tensor([[0.3993, 0.3524, 0.0736, 0.0697, 0.0366, 0.0272, 0.0245, 0.0166]])
+vals: tensor([[14734, 14734,     5, 17978, 14734,    19, 14734, 14734]])
+distances: tensor([[62.3484, 63.5985, 79.2544, 79.8063, 86.2527, 89.2146, 90.2572, 94.1229]]) 
+
+
+weights 1: tensor([[0.3935, 0.3487, 0.0722, 0.0698, 0.0412, 0.0319, 0.0258, 0.0170]])
+vals: tensor([[14734, 14734, 17978,     5, 14734,    19, 14734, 14734]])
+distances: tensor([[ 80.2376,  81.4437,  97.1935,  97.5363, 102.7995, 105.3607, 107.5028,
+         111.6676]]) 
+
+
+weights 2: tensor([[0.3879, 0.3619, 0.0712, 0.0705, 0.0398, 0.0289, 0.0222, 0.0176]])
+vals: tensor([[14734, 14734,     5, 17978, 14734,    19, 14734, 14734]])
+distances: tensor([[64.3867, 65.0782, 81.3447, 81.4364, 87.1587, 90.3436, 92.9806, 95.3100]]) 
+
+
+weights 3: tensor([[0.4515, 0.2350, 0.0693, 0.0574, 0.0556, 0.0534, 0.0426, 0.0353]])
+vals: tensor([[14734, 14734, 14734,    19, 17978,     5,     4, 14734]])
+distances: tensor([[119.6168, 126.1465, 138.3590, 140.2481, 140.5557, 140.9635, 143.2225,
+         145.1046]]) 
+
+
+weights size: torch.Size([60, 1, 8])
+distances size: torch.Size([60, 1, 8])
+vals size: torch.Size([60, 1, 8]) 
+
+
+weights 0: tensor([[0.2255, 0.1493, 0.1239, 0.1208, 0.1179, 0.1040, 0.0888, 0.0698]])
+vals: tensor([[  19, 4394, 4394,   19, 4394, 4394, 4394, 4394]])
+distances: tensor([[20.5537, 24.6728, 26.5438, 26.7953, 27.0353, 28.2912, 29.8678, 32.2733]]) 
+
+
+weights 1: tensor([[0.2381, 0.1506, 0.1248, 0.1185, 0.1138, 0.0979, 0.0875, 0.0688]])
+vals: tensor([[  19, 4394, 4394, 4394,   19, 4394, 4394, 4394]])
+distances: tensor([[22.3280, 26.9046, 28.7895, 29.3023, 29.7048, 31.2116, 32.3426, 34.7440]]) 
+
+
+weights 2: tensor([[0.2310, 0.1530, 0.1221, 0.1184, 0.1177, 0.1004, 0.0888, 0.0685]])
+vals: tensor([[  19, 4394, 4394,   19, 4394, 4394, 4394, 4394]])
+distances: tensor([[22.8271, 26.9475, 29.2017, 29.5113, 29.5706, 31.1644, 32.3929, 34.9837]]) 
+
+
+weights 3: tensor([[0.2542, 0.1547, 0.1246, 0.1139, 0.1099, 0.0887, 0.0855, 0.0685]])
+vals: tensor([[  19, 4394, 4394, 4394,   19, 4394, 4394, 4394]])
+distances: tensor([[31.4358, 36.4044, 38.5641, 39.4614, 39.8237, 41.9622, 42.3327, 44.5514]]) 
+
+
+weights size: torch.Size([48, 1, 8])
+distances size: torch.Size([48, 1, 8])
+vals size: torch.Size([48, 1, 8]) 
+
+
+weights 0: tensor([[0.1452, 0.1322, 0.1234, 0.1224, 0.1201, 0.1200, 0.1200, 0.1167]])
+vals: tensor([[2, 2, 2, 2, 4, 2, 2, 2]])
+distances: tensor([[21.6584, 22.5965, 23.2837, 23.3625, 23.5572, 23.5608, 23.5609, 23.8447]]) 
+
+
+weights 1: tensor([[0.1845, 0.1429, 0.1245, 0.1145, 0.1126, 0.1126, 0.1067, 0.1017]])
+vals: tensor([[574, 574, 574, 574, 574, 574, 574, 574]])
+distances: tensor([[11.6366, 14.1923, 15.5683, 16.4054, 16.5775, 16.5781, 17.1104, 17.5876]]) 
+
+
+weights 2: tensor([[0.1629, 0.1468, 0.1330, 0.1128, 0.1126, 0.1121, 0.1101, 0.1097]])
+vals: tensor([[2, 2, 2, 2, 2, 4, 2, 2]])
+distances: tensor([[33.5114, 34.5494, 35.5351, 37.1867, 37.2006, 37.2480, 37.4271, 37.4597]]) 
+
+
+weights 3: tensor([[0.1479, 0.1430, 0.1329, 0.1228, 0.1202, 0.1138, 0.1104, 0.1090]])
+vals: tensor([[2, 2, 2, 2, 2, 4, 2, 2]])
+distances: tensor([[28.5153, 28.8498, 29.5830, 30.3695, 30.5852, 31.1303, 31.4357, 31.5653]]) 
+
+
+weights size: torch.Size([24, 1, 8])
+distances size: torch.Size([24, 1, 8])
+vals size: torch.Size([24, 1, 8]) 
+
+
+weights 0: tensor([[0.1466, 0.1330, 0.1292, 0.1217, 0.1197, 0.1195, 0.1159, 0.1144]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[16.8386, 17.8059, 18.0997, 18.7006, 18.8614, 18.8762, 19.1846, 19.3204]]) 
+
+
+weights 1: tensor([[0.1661, 0.1600, 0.1421, 0.1322, 0.1124, 0.0960, 0.0957, 0.0955]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[71.3332, 71.7039, 72.8917, 73.6102, 75.2377, 76.8084, 76.8405, 76.8689]]) 
+
+
+weights 2: tensor([[0.1587, 0.1518, 0.1376, 0.1365, 0.1187, 0.1004, 0.0995, 0.0968]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[81.1563, 81.5984, 82.5800, 82.6617, 84.0621, 85.7345, 85.8264, 86.0997]]) 
+
+
+weights 3: tensor([[0.1574, 0.1461, 0.1358, 0.1195, 0.1153, 0.1136, 0.1104, 0.1018]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[93.2992, 94.0463, 94.7783, 96.0545, 96.4120, 96.5572, 96.8447, 97.6541]]) 
+
+
+weights size: torch.Size([8, 1, 8])
+distances size: torch.Size([8, 1, 8])
+vals size: torch.Size([8, 1, 8]) 
+
+
+weights 0: tensor([[0.1662, 0.1365, 0.1317, 0.1241, 0.1165, 0.1107, 0.1091, 0.1054]])
+vals: tensor([[5, 5, 5, 2, 5, 5, 5, 5]])
+distances: tensor([[59.1958, 61.1598, 61.5248, 62.1193, 62.7501, 63.2601, 63.4068, 63.7517]]) 
+
+
+weights 1: tensor([[0.1539, 0.1467, 0.1214, 0.1177, 0.1156, 0.1154, 0.1152, 0.1142]])
+vals: tensor([[5, 5, 5, 5, 5, 5, 5, 5]])
+distances: tensor([[112.5836, 113.0664, 114.9590, 115.2660, 115.4516, 115.4696, 115.4861,
+         115.5743]]) 
+
+
+weights 2: tensor([[0.1424, 0.1405, 0.1276, 0.1272, 0.1224, 0.1185, 0.1114, 0.1100]])
+vals: tensor([[5, 5, 2, 5, 5, 5, 5, 5]])
+distances: tensor([[23.8165, 23.9458, 24.9122, 24.9465, 25.3265, 25.6488, 26.2670, 26.3981]]) 
+
+
+weights 3: tensor([[0.1516, 0.1331, 0.1303, 0.1285, 0.1169, 0.1162, 0.1156, 0.1078]])
+vals: tensor([[5, 5, 5, 5, 2, 5, 5, 5]])
+distances: tensor([[37.8189, 39.1207, 39.3284, 39.4724, 40.4210, 40.4763, 40.5289, 41.2263]]) 
+
+
+weights size: torch.Size([8, 1, 8])
+distances size: torch.Size([8, 1, 8])
+vals size: torch.Size([8, 1, 8]) 
+
+
+weights 0: tensor([[0.1274, 0.1271, 0.1270, 0.1270, 0.1264, 0.1246, 0.1230, 0.1176]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.1164, 2.1405, 2.1469, 2.1481, 2.1934, 2.3346, 2.4676, 2.9153]]) 
+
+
+weights 1: tensor([[0.1270, 0.1266, 0.1264, 0.1263, 0.1260, 0.1240, 0.1230, 0.1208]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.8089, 1.8391, 1.8609, 1.8656, 1.8924, 2.0483, 2.1305, 2.3141]]) 
+
+
+weights 2: tensor([[0.1274, 0.1270, 0.1269, 0.1268, 0.1266, 0.1248, 0.1224, 0.1180]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[1.7962, 1.8270, 1.8346, 1.8414, 1.8584, 2.0038, 2.1937, 2.5596]]) 
+
+
+weights 3: tensor([[0.1273, 0.1271, 0.1270, 0.1270, 0.1266, 0.1248, 0.1227, 0.1177]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.0803, 2.0953, 2.1021, 2.1034, 2.1352, 2.2781, 2.4452, 2.8567]]) 
+
+
+S-946	bis 500 mg 2-mal täglich
+T-946	daily to 500 mg
+H-946	-1.52842378616333	up to 500 mg twice daily
+D-946	-1.52842378616333	up to 500 mg twice daily
+P-946	-2.4080 -0.0415 -0.8821 -0.0277 -0.6497 -0.7152 -0.1882
+S-1172	Einzeldosisbehältnis
+T-1172	Single-dose container
+H-1172	-1.0545340776443481	Single dose reservoir
+D-1172	-1.0545340776443481	Single dose reservoir
+P-1172	-1.9162 -0.2639 -0.8060 -0.0116 -0.0480 -0.0443
+S-1534	L01XX05.
+T-1534	L01XX05.
+H-1534	-1.5885008573532104	G03AX .
+D-1534	-1.5885008573532104	G03AX.
+P-1534	-1.5383 -0.5187 -0.8798 -0.5810 -1.0947 -0.0420
+S-1581	4,23% 0,71%
+T-1581	4.23% 0.71%
+H-1581	-1.5065298080444336	4.23 %
+D-1581	-1.5065298080444336	4.23%
+P-1581	-2.4572 -0.1968 -0.0482 -0.7589
+S-1828	Selamectin 120 mg
+T-1828	Selamectin 120 mg
+H-1828	-1.1994521617889404	Selamectin 125 mg
+D-1828	-1.1994521617889404	Selamectin 125 mg
+P-1828	-1.9750 -0.0672 -0.0273 -0.0398 -1.6879 -0.0136 -0.0444
+S-1907	Genfarma B.V.
+T-1907	Genfarma B. V.
+H-1907	-1.8713197708129883	EMEA
+D-1907	-1.8713197708129883	EMEA
+P-1907	-1.8157 -0.5147 -0.0690 -1.8997
+S-1956	8 (10,0%)
+T-1956	8 (10.0%)
+H-1956	-1.075554609298706	8 ( 10.0 % )
+D-1956	-1.075554609298706	8 (10.0%)
+P-1956	-1.3547 -0.0456 -1.8670 -0.0564 -0.0462 -0.0424 -0.0446
+S-284	Beilegung von Streitfällen.
+T-284	Contact addresses of the national competent
+H-284	-2.613802671432495	To harmonise disposal .
+D-284	-2.613802671432495	To harmonise disposal.
+P-284	-2.3033 -2.0470 -0.1929 -2.1492 -0.2040 -1.4625 -0.0420
+S-334	Systemische Nebenwirkungen:
+T-334	Systemic undesirable effects:
+H-334	-0.7079223990440369	Systemic side effects :
+D-334	-0.7079223990440369	Systemic side effects:
+P-334	-1.8319 -0.0170 -0.0262 -0.2123 -0.0844 -0.0609 -0.0426
+S-658	Erwachsene unter Hämodialyse
+T-658	Adults receiving haemodialysis
+H-658	-0.571500301361084	Adults receiving haemodialysis
+D-658	-0.571500301361084	Adults receiving haemodialysis
+P-658	-0.4421 -0.0265 -1.0515 -0.4668 -0.0202 -0.0238 -0.0143 -0.0360 -0.0546
+S-1536	UCB Pharma Ltd.
+T-1536	United Kingdom UCB Pharma Ltd.
+H-1536	-0.6742237210273743	UCB Pharma Ltd .
+D-1536	-0.6742237210273743	UCB Pharma Ltd.
+P-1536	-1.7917 -0.0447 -0.1099 -0.0277 -0.0915 -0.0597 -0.0418
+S-1038	22.08.97 17.11.97
+T-1038	a) 22.08.97 b) 17.11.97
+H-1038	-2.1262454986572266	436.4224
+D-1038	-2.1262454986572266	436.4224
+P-1038	-3.0648 -0.9131 -0.5169 -1.1590 -0.4780 -0.5255 -0.1765
+S-1711	Nespo 130 µg
+T-1711	Nespo 130 µg Darbepoetin alfa IV / SC
+H-1711	-0.8995319604873657	Nespo 130 µg
+D-1711	-0.8995319604873657	Nespo 130 µg
+P-1711	-0.7808 -0.0614 -0.0459 -1.9031 -0.0261 -0.0300 -0.0439
+S-491	Dyskinesien, häufiger
+T-491	- In clinical studies, undesirable dopaminergic effects, e. g. dyskinesia, were more common in
+H-491	-1.5318069458007812	Dyspinesia , more frequent
+D-491	-1.5318069458007812	Dyspinesia, more frequent
+P-491	-1.8257 -1.0811 -0.0223 -0.1269 -0.1554 -1.1521 -0.9243 -0.0462
+S-1424	Systemorganklass Sehr häufig
+T-1424	61 Table 1 shows the categorized incidence of the adverse reactions, which occurred in the clinical trials statistically significantly more frequently during treatment with Remeron than with placebo, added with adverse reactions from spontaneous reporting.
+H-1424	-1.1731594800949097	EMEA
+D-1424	-1.1731594800949097	EMEA
+P-1424	-1.2865 -0.6739 -0.1353 -0.5995
+S-420	Als Begleittherapie erhielten 79
+T-420	ge Trudexa 40 mg every other week was assessed in 393 patients in two randomised, 24 week double − blind, placebo − controlled studies in patients with active ankylosing spondylitis (mean lon baseline score of disease activity [Bath Ankylosing Spondylitis Disease Activity Index (BASDAI)] was 6.3 in all groups) who have had an inadequate response to conventional therapy.
+H-420	-2.438314199447632	Treatment Read :
+D-420	-2.438314199447632	Treatment Read:
+P-420	-3.1985 -0.0574 -0.0567 -2.1318 -1.2130 -0.4872
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.3350, 0.1361, 0.1306, 0.0861, 0.0819, 0.0784, 0.0764, 0.0756]])
+vals: tensor([[33, 33, 33, 33, 33, 33, 33, 33]])
+distances: tensor([[51.6681, 60.6745, 61.0895, 65.2606, 65.7580, 66.1960, 66.4553, 66.5555]]) 
+
+
+weights 1: tensor([[0.3350, 0.1361, 0.1306, 0.0861, 0.0819, 0.0784, 0.0764, 0.0756]])
+vals: tensor([[33, 33, 33, 33, 33, 33, 33, 33]])
+distances: tensor([[51.6681, 60.6745, 61.0895, 65.2606, 65.7580, 66.1960, 66.4553, 66.5555]]) 
+
+
+weights 2: tensor([[0.3350, 0.1361, 0.1306, 0.0861, 0.0819, 0.0784, 0.0764, 0.0756]])
+vals: tensor([[33, 33, 33, 33, 33, 33, 33, 33]])
+distances: tensor([[51.6681, 60.6745, 61.0895, 65.2606, 65.7580, 66.1960, 66.4553, 66.5555]]) 
+
+
+weights 3: tensor([[0.3350, 0.1361, 0.1306, 0.0861, 0.0819, 0.0784, 0.0764, 0.0756]])
+vals: tensor([[33, 33, 33, 33, 33, 33, 33, 33]])
+distances: tensor([[51.6681, 60.6745, 61.0895, 65.2606, 65.7580, 66.1960, 66.4553, 66.5555]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.6582, 0.1018, 0.0775, 0.0593, 0.0567, 0.0173, 0.0147, 0.0146]])
+vals: tensor([[6797, 6797, 6797, 6797, 6797, 6797, 6797, 6797]])
+distances: tensor([[45.0315, 63.7007, 66.4294, 69.0950, 69.5505, 81.3933, 83.0611, 83.1165]]) 
+
+
+weights 1: tensor([[0.6584, 0.1285, 0.0708, 0.0572, 0.0398, 0.0198, 0.0192, 0.0063]])
+vals: tensor([[6797, 6797, 6797, 6797, 6797, 6797, 6797, 6797]])
+distances: tensor([[ 71.0211,  87.3568,  93.3265,  95.4535,  99.0807, 106.0847, 106.3504,
+         117.5800]]) 
+
+
+weights 2: tensor([[0.4789, 0.1303, 0.1301, 0.1046, 0.0684, 0.0342, 0.0292, 0.0243]])
+vals: tensor([[6797, 6797, 6797, 6797, 6797, 6797, 6797, 6797]])
+distances: tensor([[53.9303, 66.9451, 66.9652, 69.1409, 73.3868, 80.3360, 81.9116, 83.7543]]) 
+
+
+weights 3: tensor([[0.3042, 0.1939, 0.1787, 0.1159, 0.0734, 0.0530, 0.0513, 0.0295]])
+vals: tensor([[6797, 6797, 6797, 6797, 6797, 6797, 6797, 6797]])
+distances: tensor([[57.3854, 61.8879, 62.7072, 67.0317, 71.6017, 74.8560, 75.1934, 80.7061]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.1513, 0.1366, 0.1290, 0.1244, 0.1221, 0.1213, 0.1200, 0.0954]])
+vals: tensor([[10, 10, 10, 10, 10, 10, 10, 10]])
+distances: tensor([[ 7.6903,  8.7148,  9.2844,  9.6467,  9.8383,  9.9022, 10.0107, 12.3043]]) 
+
+
+weights 1: tensor([[0.3922, 0.2746, 0.0864, 0.0701, 0.0638, 0.0478, 0.0448, 0.0202]])
+vals: tensor([[7068, 7068, 7068, 7068, 7068, 7068, 7068, 7068]])
+distances: tensor([[173.0528, 176.6182, 188.1756, 190.2660, 191.2159, 194.1009, 194.7464,
+         202.7056]]) 
+
+
+weights 2: tensor([[0.1480, 0.1400, 0.1387, 0.1298, 0.1173, 0.1119, 0.1102, 0.1042]])
+vals: tensor([[10, 10, 10, 10, 10, 10, 10, 10]])
+distances: tensor([[163.9447, 164.4943, 164.5896, 165.2548, 166.2687, 166.7385, 166.8908,
+         167.4552]]) 
+
+
+weights 3: tensor([[0.1852, 0.1285, 0.1279, 0.1241, 0.1141, 0.1124, 0.1101, 0.0976]])
+vals: tensor([[322, 322, 322, 322, 322, 322, 322, 322]])
+distances: tensor([[24.2540, 27.9105, 27.9528, 28.2570, 29.0960, 29.2440, 29.4584, 30.6594]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.3261, 0.2574, 0.0908, 0.0791, 0.0767, 0.0738, 0.0665, 0.0297]])
+vals: tensor([[7068, 7068, 7068, 7068, 7068, 7068, 7068, 7068]])
+distances: tensor([[36.1733, 38.5388, 48.9627, 50.3404, 50.6434, 51.0349, 52.0743, 60.1337]]) 
+
+
+weights 1: tensor([[0.2711, 0.1881, 0.1512, 0.1254, 0.0802, 0.0653, 0.0606, 0.0579]])
+vals: tensor([[2217, 2217, 2217, 2217, 2217, 2217, 2217, 2217]])
+distances: tensor([[45.5173, 49.1692, 51.3552, 53.2225, 57.6898, 59.7445, 60.4921, 60.9511]]) 
+
+
+weights 2: tensor([[0.6177, 0.1093, 0.0706, 0.0619, 0.0424, 0.0409, 0.0360, 0.0211]])
+vals: tensor([[7068, 7068, 7068, 7068, 7068, 7068, 7068, 7068]])
+distances: tensor([[295.3170, 312.6327, 317.0100, 318.3218, 322.1094, 322.4586, 323.7291,
+         329.0706]]) 
+
+
+weights 3: tensor([[0.1946, 0.1746, 0.1649, 0.1378, 0.1332, 0.0667, 0.0648, 0.0633]])
+vals: tensor([[4936, 4936, 4936, 4936, 4936, 4936, 4936, 4936]])
+distances: tensor([[22.7374, 23.8196, 24.3918, 26.1880, 26.5269, 33.4375, 33.7360, 33.9668]]) 
+
+
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+weights 0: tensor([[0.2167, 0.1947, 0.1587, 0.1160, 0.0910, 0.0842, 0.0738, 0.0650]])
+vals: tensor([[2217, 2217, 2217, 2217, 2217, 2217, 2217, 2217]])
+distances: tensor([[48.9158, 49.9850, 52.0279, 55.1649, 57.5916, 58.3723, 59.6907, 60.9615]]) 
+
+
+weights 1: tensor([[0.1672, 0.1265, 0.1217, 0.1207, 0.1191, 0.1178, 0.1165, 0.1104]])
+vals: tensor([[322, 322, 322, 322, 322, 322, 322, 322]])
+distances: tensor([[20.9755, 23.7674, 24.1569, 24.2355, 24.3661, 24.4777, 24.5878, 25.1325]]) 
+
+
+weights 2: tensor([[0.2726, 0.2069, 0.1443, 0.0977, 0.0836, 0.0737, 0.0628, 0.0583]])
+vals: tensor([[   30, 12173,    15,     9,     9,     4,     9,   345]])
+distances: tensor([[127.7507, 130.5086, 134.1134, 138.0093, 139.5672, 140.8315, 142.4275,
+         143.1806]]) 
+
+
+weights 3: tensor([[0.2070, 0.1859, 0.1628, 0.1145, 0.1066, 0.0888, 0.0716, 0.0629]])
+vals: tensor([[2217, 2217, 2217, 2217, 2217, 2217, 2217, 2217]])
+distances: tensor([[51.6041, 52.6827, 54.0085, 57.5305, 58.2425, 60.0734, 62.2238, 63.5254]]) 
+
+
+weights size: torch.Size([152, 1, 8])
+distances size: torch.Size([152, 1, 8])
+vals size: torch.Size([152, 1, 8]) 
+
+
+weights 0: tensor([[0.1658, 0.1301, 0.1220, 0.1206, 0.1184, 0.1171, 0.1151, 0.1108]])
+vals: tensor([[322, 322, 322, 322, 322, 322, 322, 322]])
+distances: tensor([[21.6487, 24.0746, 24.7160, 24.8333, 25.0179, 25.1276, 25.2993, 25.6818]]) 
+
+
+weights 1: tensor([[0.2068, 0.1897, 0.1706, 0.1331, 0.1173, 0.0637, 0.0631, 0.0556]])
+vals: tensor([[4936, 4936, 4936, 4936, 4936, 4936, 4936, 4936]])
+distances: tensor([[16.1639, 17.0264, 18.0885, 20.5722, 21.8324, 27.9426, 28.0296, 29.3031]]) 
+
+
+weights 2: tensor([[0.1650, 0.1276, 0.1237, 0.1205, 0.1204, 0.1173, 0.1146, 0.1109]])
+vals: tensor([[322, 322, 322, 322, 322, 322, 322, 322]])
+distances: tensor([[22.2333, 24.8031, 25.1175, 25.3776, 25.3869, 25.6511, 25.8848, 26.2078]]) 
+
+
+weights 3: tensor([[0.3677, 0.2473, 0.2436, 0.0425, 0.0365, 0.0316, 0.0178, 0.0130]])
+vals: tensor([[11125, 11125, 11125, 11125, 11125, 11125, 11125, 11125]])
+distances: tensor([[58.4355, 62.4016, 62.5525, 80.0240, 81.5228, 82.9821, 88.7414, 91.8823]]) 
+
+
+weights size: torch.Size([148, 1, 8])
+distances size: torch.Size([148, 1, 8])
+vals size: torch.Size([148, 1, 8]) 
+
+
+weights 0: tensor([[0.2126, 0.1968, 0.1659, 0.1326, 0.1132, 0.0600, 0.0596, 0.0593]])
+vals: tensor([[4936, 4936, 4936, 4936, 4936, 4936, 4936, 4936]])
+distances: tensor([[15.4716, 16.2409, 17.9515, 20.1920, 21.7714, 28.1165, 28.1791, 28.2380]]) 
+
+
+weights 1: tensor([[0.5322, 0.1164, 0.0772, 0.0723, 0.0643, 0.0554, 0.0413, 0.0409]])
+vals: tensor([[   30, 12173,   345,     4,    15, 11125,     9,    30]])
+distances: tensor([[114.0172, 129.2177, 133.3237, 133.9779, 135.1551, 136.6496, 139.5703,
+         139.6830]]) 
+
+
+weights 2: tensor([[0.2005, 0.1928, 0.1668, 0.1284, 0.1098, 0.0710, 0.0703, 0.0604]])
+vals: tensor([[4936, 4936, 4936, 4936, 4936, 4936, 4936, 4936]])
+distances: tensor([[16.5440, 16.9364, 18.3831, 21.0019, 22.5626, 26.9237, 27.0282, 28.5339]]) 
+
+
+weights 3: tensor([[0.1831, 0.1618, 0.1338, 0.1300, 0.1225, 0.0969, 0.0933, 0.0784]])
+vals: tensor([[1650, 1650, 1650, 1650, 1650, 1650, 1650, 1650]])
+distances: tensor([[12.7049, 13.9414, 15.8426, 16.1307, 16.7236, 19.0682, 19.4476, 21.1936]]) 
+
+
+weights size: torch.Size([124, 1, 8])
+distances size: torch.Size([124, 1, 8])
+vals size: torch.Size([124, 1, 8]) 
+
+
+weights 0: tensor([[0.6356, 0.0932, 0.0655, 0.0546, 0.0426, 0.0416, 0.0355, 0.0315]])
+vals: tensor([[   30, 12173, 11125,   345,     4,    15, 11125,     9]])
+distances: tensor([[118.4595, 137.6595, 141.1870, 143.0093, 145.4795, 145.7352, 147.3167,
+         148.5159]]) 
+
+
+weights 1: tensor([[0.3056, 0.2611, 0.2044, 0.0781, 0.0691, 0.0385, 0.0302, 0.0131]])
+vals: tensor([[11125, 11125, 11125, 11125, 11125, 11125, 11125, 11125]])
+distances: tensor([[54.9881, 56.5625, 59.0076, 68.6361, 69.8514, 75.7162, 78.1223, 86.5031]]) 
+
+
+weights 2: tensor([[0.6435, 0.0906, 0.0638, 0.0588, 0.0403, 0.0365, 0.0353, 0.0312]])
+vals: tensor([[   30, 12173, 11125,   345,     4,    15, 11125,     9]])
+distances: tensor([[118.8783, 138.4769, 141.9866, 142.7999, 146.5863, 147.5871, 147.8998,
+         149.1503]]) 
+
+
+weights 3: tensor([[0.2226, 0.1594, 0.1288, 0.1210, 0.0955, 0.0944, 0.0917, 0.0865]])
+vals: tensor([[    2,     2,     2,     2,     2, 15181,     2,     2]])
+distances: tensor([[68.2457, 71.5834, 73.7142, 74.3389, 76.7099, 76.8286, 77.1136, 77.7014]]) 
+
+
+weights size: torch.Size([88, 1, 8])
+distances size: torch.Size([88, 1, 8])
+vals size: torch.Size([88, 1, 8]) 
+
+
+weights 0: tensor([[0.3058, 0.2407, 0.1922, 0.0880, 0.0794, 0.0510, 0.0325, 0.0104]])
+vals: tensor([[11125, 11125, 11125, 11125, 11125, 11125, 11125,    33]])
+distances: tensor([[55.7054, 58.1005, 60.3486, 68.1589, 69.1879, 73.6196, 78.1096, 89.5164]]) 
+
+
+weights 1: tensor([[0.1998, 0.1781, 0.1470, 0.1193, 0.1010, 0.0932, 0.0813, 0.0803]])
+vals: tensor([[1650, 1650, 1650, 1650, 1650, 1650, 1650, 1650]])
+distances: tensor([[13.3438, 14.4912, 16.4077, 18.5007, 20.1653, 20.9655, 22.3355, 22.4546]]) 
+
+
+weights 2: tensor([[0.2711, 0.2190, 0.1706, 0.1176, 0.0930, 0.0598, 0.0577, 0.0112]])
+vals: tensor([[11125, 11125, 11125, 11125, 11125, 11125, 11125,    33]])
+distances: tensor([[59.6070, 61.7406, 64.2366, 67.9571, 70.3075, 74.7230, 75.0773, 91.4634]]) 
+
+
+weights 3: tensor([[0.1986, 0.1806, 0.1296, 0.1244, 0.1127, 0.0863, 0.0860, 0.0818]])
+vals: tensor([[1650, 1650, 1650, 1650, 1650, 1650, 1650, 1650]])
+distances: tensor([[13.0738, 14.0219, 17.3411, 17.7524, 18.7410, 21.4123, 21.4477, 21.9445]]) 
+
+
+weights size: torch.Size([48, 1, 8])
+distances size: torch.Size([48, 1, 8])
+vals size: torch.Size([48, 1, 8]) 
+
+
+weights 0: tensor([[0.2023, 0.1900, 0.1291, 0.1189, 0.1083, 0.0882, 0.0828, 0.0805]])
+vals: tensor([[1650, 1650, 1650, 1650, 1650, 1650, 1650, 1650]])
+distances: tensor([[14.0876, 14.7145, 18.5794, 19.4019, 20.3304, 22.3895, 23.0241, 23.2960]]) 
+
+
+weights 1: tensor([[0.1942, 0.1831, 0.1409, 0.1235, 0.1090, 0.0931, 0.0859, 0.0703]])
+vals: tensor([[1650, 1650, 1650, 1650, 1650, 1650, 1650, 1650]])
+distances: tensor([[14.0354, 14.6241, 17.2430, 18.5588, 19.8132, 21.3893, 22.1896, 24.1890]]) 
+
+
+weights 2: tensor([[0.1492, 0.1342, 0.1264, 0.1263, 0.1192, 0.1172, 0.1139, 0.1135]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[15.5072, 16.5616, 17.1643, 17.1683, 17.7534, 17.9161, 18.2038, 18.2380]]) 
+
+
+weights 3: tensor([[0.1456, 0.1378, 0.1319, 0.1292, 0.1248, 0.1108, 0.1106, 0.1093]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[16.6404, 17.1858, 17.6234, 17.8376, 18.1838, 19.3667, 19.3885, 19.5081]]) 
+
+
+weights size: torch.Size([28, 1, 8])
+distances size: torch.Size([28, 1, 8])
+vals size: torch.Size([28, 1, 8]) 
+
+
+weights 0: tensor([[0.1349, 0.1340, 0.1263, 0.1260, 0.1238, 0.1214, 0.1169, 0.1167]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[16.5273, 16.5931, 17.1817, 17.2118, 17.3857, 17.5775, 17.9599, 17.9739]]) 
+
+
+weights 1: tensor([[0.1408, 0.1342, 0.1280, 0.1241, 0.1240, 0.1172, 0.1172, 0.1144]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[16.5648, 17.0435, 17.5145, 17.8266, 17.8318, 18.4000, 18.4037, 18.6393]]) 
+
+
+weights 2: tensor([[0.9861, 0.0043, 0.0026, 0.0020, 0.0014, 0.0013, 0.0012, 0.0010]])
+vals: tensor([[229, 198, 198, 198, 198, 198, 198, 198]])
+distances: tensor([[207.4759, 261.7394, 266.7462, 269.5567, 272.8839, 273.6012, 274.6988,
+         276.2554]]) 
+
+
+weights 3: tensor([[0.1278, 0.1277, 0.1247, 0.1244, 0.1242, 0.1242, 0.1240, 0.1230]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[5.0296, 5.0313, 5.2726, 5.2968, 5.3114, 5.3149, 5.3297, 5.4121]]) 
+
+
+weights size: torch.Size([24, 1, 8])
+distances size: torch.Size([24, 1, 8])
+vals size: torch.Size([24, 1, 8]) 
+
+
+weights 0: tensor([[0.1265, 0.1251, 0.1247, 0.1247, 0.1247, 0.1247, 0.1247, 0.1246]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.3996, 2.5110, 2.5405, 2.5405, 2.5405, 2.5405, 2.5405, 2.5491]]) 
+
+
+weights 1: tensor([[0.1268, 0.1251, 0.1247, 0.1247, 0.1247, 0.1247, 0.1247, 0.1247]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.4381, 2.5655, 2.5995, 2.6033, 2.6033, 2.6033, 2.6033, 2.6033]]) 
+
+
+weights 2: tensor([[0.1268, 0.1251, 0.1247, 0.1247, 0.1247, 0.1247, 0.1247, 0.1246]])
+vals: tensor([[2, 2, 2, 2, 2, 2, 2, 2]])
+distances: tensor([[2.7192, 2.8512, 2.8857, 2.8857, 2.8857, 2.8857, 2.8857, 2.8901]]) 
+
+
+weights 3: tensor([[0.6603, 0.2310, 0.0673, 0.0269, 0.0047, 0.0042, 0.0037, 0.0020]])
+vals: tensor([[    6, 20334,   288,     6, 17577,    55,  1235, 13440]])
+distances: tensor([[197.6882, 208.1913, 220.5201, 229.6959, 247.0684, 248.3709, 249.5246,
+         255.8414]]) 
+
+
+S-711	1 Fertigspritze mit 0,5 ml
+T-711	1 pre-filled syringe with 0.5 ml
+H-711	-0.3973390758037567	1 pre @-@ filled syringe with 0.5 ml
+D-711	-0.3973390758037567	1 pre-filled syringe with 0.5 ml
+P-711	-0.0378 -0.3707 -0.0425 -0.2551 -0.0161 -0.0092 -0.0061 -0.5192 -0.3561 -0.0163 -0.0459
+S-578	Wie wurde Sifrol untersucht?
+T-578	How has Sifrol been studied?
+H-578	-1.154634714126587	How has Corticosteroids been studied ?
+D-578	-1.154634714126587	How has Corticosteroids been studied?
+P-578	-0.0450 -0.4760 -2.7339 -0.6471 -0.3029 -0.0397 -0.3807 -0.0167 -0.0463 -0.3553 -0.0428 -0.0417
+S-607	Katzen älter als 8 Wochen.
+T-607	Cats over 8 weeks of age.
+H-607	-1.1570743322372437	Cats over 8 weeks .
+D-607	-1.1570743322372437	Cats over 8 weeks.
+P-607	-1.1061 -0.0471 -1.0312 -0.3418 -0.0316 -1.1181 -0.0430
+S-1146	Wie wurde Cystadane untersucht?
+T-1146	How has Cystadane been studied?
+H-1146	-0.9469544291496277	How has Corticosteroids been studied ?
+D-1146	-0.9469544291496277	How has Corticosteroids been studied?
+P-1146	-0.0432 -0.4928 -1.8626 -0.7396 -0.2567 -0.0042 -0.3621 -0.0222 -0.0420 -0.2968 -0.0418 -0.0416
+S-1292	Das Trockenmittel nicht entfernen.
+T-1292	Do not remove the desiccant.
+H-1292	-0.7543037533760071	Do not remove the desiccant .
+D-1292	-0.7543037533760071	Do not remove the desiccant.
+P-1292	-0.5823 -0.0427 -0.0462 -0.1724 -1.8244 -0.0100 -0.0327 -0.0648 -0.0434
+S-1400	Warum wurde Hycamtin zugelassen?
+T-1400	Why has Hycamtin been approved?
+H-1400	-0.6645405888557434	Why has Hycamtin been approved ?
+D-1400	-0.6645405888557434	Why has Hycamtin been approved?
+P-1400	-0.2386 -0.3919 -1.2413 -0.0227 -0.0164 -0.0399 -0.4461 -0.0442 -0.0424
+S-1630	Warum wurde Erbitux zugelassen?
+T-1630	Why has Erbitux been approved?
+H-1630	-0.8615871667861938	Why has Erbitux been approved ?
+D-1630	-0.8615871667861938	Why has Erbitux been approved?
+P-1630	-0.2740 -0.4175 -1.8759 -0.0445 -0.0326 -0.0461 -0.4411 -0.0460 -0.0423
+S-1978	Kapitel 2 Humanarzneimittel
+T-1978	Chapter 2 Medicines for human use
+H-1978	-0.7382516860961914	Chapter 2 Medicinal Products for Human Use
+D-1978	-0.7382516860961914	Chapter 2 Medicinal Products for Human Use
+P-1978	-1.7798 -0.0352 -0.0477 -0.1464 -0.1718 -0.2959 -0.0334 -0.0406 -0.3628 -0.0242 -0.1743
+S-460	Ein DSMB sollte eingerichtet werden.
+T-460	A DSMB should be set-up.
+H-460	-1.3189098834991455	A DSMB should be commenced .
+D-460	-1.3189098834991455	A DSMB should be commenced.
+P-460	-1.5412 -1.8266 -0.0998 -0.0730 -0.0515 -1.1724 -0.0693 -0.0532 -0.0421
+S-757	Pharmakovigilanzsystem:
+T-757	Pharmacovigilance system:
+H-757	-0.37318897247314453	Pharmacovigilance :
+D-757	-0.37318897247314453	Pharmacovigilance:
+P-757	-0.6305 -0.0170 -0.0332 -0.0242 -0.0088 -0.0192 -0.0311 -0.5893 -0.0414
+S-465	Warum wurde Reconcile zugelassen?
+T-465	Why has Reconcile been approved?
+H-465	-0.8595728278160095	Why has Corticosteroids been approved ?
+D-465	-0.8595728278160095	Why has Corticosteroids been approved?
+P-465	-0.2454 -0.4299 -0.8605 -0.9180 -0.2571 -0.0052 -0.4165 -0.0197 -0.0402 -0.5337 -0.0499 -0.0414
+S-986	WARTEZEITEN
+T-986	WITHDRAWAL PERIODS
+H-986	-1.5688637495040894	EVALUATION
+D-986	-1.5688637495040894	EVALUATION
+P-986	-1.7983 -0.4537 -0.5135 -0.2064 -0.0983 -1.4711 -0.5011
+S-1557	Weitere Informationen über Tysabri:
+T-1557	2 / 3 Other information about Tysabri:
+H-1557	-1.313178300857544	Other information about Trifold :
+D-1557	-1.313178300857544	Other information about Trifold:
+P-1557	-0.5181 -0.0758 -0.2878 -2.4915 -0.6160 -0.1889 -0.0425
+S-1620	(1,89; 5,24)
+T-1620	3.57% (1.89, 5.24)
+H-1620	-0.7761664986610413	( 1.89 ; 5.24 )
+D-1620	-0.7761664986610413	(1.89; 5.24)
+P-1620	-0.0823 -1.2670 -0.0506 -0.9141 -0.1351 -0.1676 -0.0423 -0.0436
+S-157	Alternative Injektionsstellen sind die
+T-157	Alternate sites are the abdomen or outer
+H-157	-1.1527272462844849	Alternative injection sites are :
+D-157	-1.1527272462844849	Alternative injection sites are:
+P-157	-1.9316 -0.7974 -0.1805 -0.1216 -0.0889 -0.5382 -0.0469
+S-1421	33.45% 1.91%
+T-1421	33.45% 1.91% 2.44% 39.80%
+H-1421	-1.0184576511383057	33.45 % 1.91 %
+D-1421	-1.0184576511383057	33.45% 1.91%
+P-1421	-2.1242 -0.2272 -0.1243 -0.0449 -0.7081 -0.2330 -0.0427 -0.0421
+S-1776	Vedaprofen Equiden
+T-1776	7 Hydrochloric acid Propylene glycol2
+H-1776	-0.5765812993049622	Vedaprofen
+D-1776	-0.5765812993049622	Vedaprofen
+P-1776	-0.5858 -0.3645 -0.0323 -0.0505 -0.0542 -0.6021
+S-1972	Wie wirkt Thymanax?
+T-1972	Reproduction is authorised provided the source is acknowledged. control of mood.
+H-1972	-0.9486477971076965	How does Thymanax work ?
+D-1972	-0.9486477971076965	How does Thymanax work?
+P-1972	-0.1098 -1.1751 -1.8881 -0.0423 -0.1512 -0.0274 -0.0639 -0.0451 -0.0424
+S-977	16.000 ATE / mg.
+T-977	The specific activity of lepirudin is approximately 16,000 ATU / mg.
+H-977	-1.3583056926727295	16000 MIU / mg .
+D-977	-1.3583056926727295	16000 MIU / mg.
+P-977	-2.1196 -0.5014 -1.6374 -0.1233 -0.0508 -0.0324 -0.2219 -0.0430
+S-1377	Februar 2000 vom Verwaltungsrat verabschiedet.
+T-1377	(*) Preliminary draft budget for 2001 adopted by the Management Board 22 February 2000.
+H-1377	-1.185294508934021	It is available in all official EU languages .
+D-1377	-1.185294508934021	It is available in all official EU languages.
+P-1377	-1.3061 -0.4828 -0.5169 -0.4629 -0.4881 -0.5135 -0.5113 -0.3182 -0.0766 -0.0424
+S-554	Weitere Informationen über Crixivan:
+T-554	Other information about Crixivan:
+H-554	-0.6406871676445007	Other information about Crixivan :
+D-554	-0.6406871676445007	Other information about Crixivan:
+P-554	-0.5173 -0.0876 -0.2389 -1.2038 -0.0185 -0.0269 -0.0954 -0.0426
+S-1541	Verschlimmerung der Wunde
+T-1541	Wound complication
+H-1541	-2.373277425765991	Sufficient :
+D-1541	-2.373277425765991	Sufficient:
+P-1541	-3.5541 -0.7169 -0.5331 -1.0456 -0.3838
+S-1735	Blaue Tinte, enthält:
+T-1735	Blue ink containing:
+H-1735	-1.0654882192611694	White ink , contains :
+D-1735	-1.0654882192611694	White ink, contains:
+P-1735	-1.1474 -0.9205 -0.5863 -0.3792 -0.0437 -0.0450
+S-652	Cis + 5-FU
+T-652	+ 5-FU
+H-652	-1.3162646293640137	C + 5 @-@ FU
+D-652	-1.3162646293640137	C + 5-FU
+P-652	-2.7136 -1.1185 -0.0965 -0.0716 -0.1030 -0.0600 -0.0674
+S-1016	((Innenseite 2))
+T-1016	((Inside 2))
+H-1016	-0.9783265590667725	( ( inside 2 ) )
+D-1016	-0.9783265590667725	((inside 2))
+P-1016	-0.1253 -0.4490 -2.3264 -0.1037 -0.0448 -0.0467 -0.0487
+S-1792	zentralen Verfahren erfaßt wurden.
+T-1792	the centralised procedure.
+H-1792	-1.6506356000900269	EMEA / CVMP
+D-1792	-1.6506356000900269	EMEA / CVMP
+P-1792	-1.6474 -0.5148 -0.0244 -0.6462 -0.4753 -0.5144 -0.5149 -1.4106
+S-143	Lorastad 1 mg / ml
+T-143	Lorastad 1 mg / ml
+H-143	-0.7265226244926453	Lorastate 10 mg / ml
+D-143	-0.7265226244926453	Lorastate 10 mg / ml
+P-143	-0.1308 -0.0193 -0.9352 -1.3112 -0.0114 -0.0489 -0.0251 -0.0482
+S-308	Weitere Informationen über Mycamine:
+T-308	Other information about Mycamine:
+H-308	-0.6316401362419128	Other information about mycamine :
+D-308	-0.6316401362419128	Other information about mycamine:
+P-308	-0.5180 -0.0939 -0.2753 -0.8339 -0.0185 -0.3252 -0.0923 -0.0423
+S-343	10 U Reteplase
+T-343	10 U reteplase
+H-343	-1.2939257621765137	10 ( 1 )
+D-343	-1.2939257621765137	10 (1)
+P-343	-0.0476 -1.6677 -0.6342 -0.1967 -0.8524
+S-381	(0,84; 1,49)
+T-381	(0.84, 1.49)
+H-381	-0.38935866951942444	( 0.84 ; 1.49 )
+D-381	-0.38935866951942444	(0.84; 1.49)
+P-381	-0.0799 -0.1656 -0.0467 -0.9197 -0.0385 -0.0186 -0.0431 -0.0438
+S-1333	Patienten mit niedrigem Körpergewicht:
+T-1333	d Low body weight
+H-1333	-0.7129754424095154	Patients with low body weight :
+D-1333	-0.7129754424095154	Patients with low body weight:
+P-1333	-1.0314 -0.0310 -0.2466 -0.8700 -0.1741 -0.0333 -0.0538 -0.0426
+S-651	Injektion der Dosis:
+T-651	Injecting the Dose:
+H-651	-0.9779238104820251	Injection of the dose :
+D-651	-0.9779238104820251	Injection of the dose:
+P-651	-1.2324 -0.0402 -0.1849 -1.3995 -0.1826 -0.0609 -0.0427
+S-694	Nur zur intravenösen Anwendung
+T-694	For intravenous use only
+H-694	-0.9154902100563049	For intravenous use only
+D-694	-0.9154902100563049	For intravenous use only
+P-694	-1.9931 -0.2948 -0.0346 -0.0145 -0.0317 -0.5194 -0.0697 -0.2301
+S-1174	5 mg Tacrolimus
+T-1174	5 mg tacrolimus.
+H-1174	-1.5620399713516235	10 mg dispersible .
+D-1174	-1.5620399713516235	10 mg dispersible.
+P-1174	-2.2383 -0.0369 -0.8947 -0.3419 -0.5493 -0.9163 -0.0432
+S-1357	51 (65 / 127)
+T-1357	51 (65 / 127)
+H-1357	-0.5272677540779114	51 ( 65 / 127 )
+D-1357	-0.5272677540779114	51 (65 / 127)
+P-1357	-0.4578 -0.0432 -1.0205 -0.0476 -0.1399 -0.0399 -0.0437 -0.0434
+S-1660	Nalion comprimidos
+T-1660	Nalion comprimidos
+H-1660	-1.4345674514770508	Nalion
+D-1660	-1.4345674514770508	Nalion
+P-1660	-2.9750 -0.0717 -0.0417 -0.2073
+S-1763	Weitere Informationen über Siklos:
+T-1763	Other information about Siklos:
+H-1763	-0.5257865786552429	Other information about Siklos :
+D-1763	-0.5257865786552429	Other information about Siklos:
+P-1763	-0.5180 -0.0836 -0.2594 -0.6804 -0.1215 -0.0359 -0.0898 -0.0423
+S-1836	Hippotrim Vet
+T-1836	Hippotrim Vet
+H-1836	-1.9398691654205322	rash
+D-1836	-1.9398691654205322	rash
+P-1836	-2.8142 -0.5135 -0.4224
+S-63	Wie wurde NovoMix untersucht?
+T-63	How has NovoMix been studied?
+H-63	-0.4134604036808014	How has NovoMix been studied ?
+D-63	-0.4134604036808014	How has NovoMix been studied?
+P-63	-0.0439 -0.4833 -0.3058 -0.0256 -0.0209 -0.0445 -0.5339 -0.0449 -0.0424
+S-120	Einnahmen aus der Veranstaltung von Seminaren
+T-120	Revenue from the organisation of seminars
+H-120	-2.2892138957977295	Duration of Batch
+D-120	-2.2892138957977295	Duration of Batch
+P-120	-3.3098 -0.0814 -0.0957 -1.6516 -0.4439 -1.1255
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+weights 0: tensor([[0.2275, 0.2216, 0.1809, 0.1511, 0.1293, 0.0443, 0.0249, 0.0205]])
+vals: tensor([[6122,  226,   33,   33,   33,   33, 5826,   33]])
+distances: tensor([[59.7900, 60.0532, 62.0806, 63.8837, 65.4424, 76.1530, 81.9145, 83.8753]]) 
+
+
+weights 1: tensor([[0.2275, 0.2216, 0.1809, 0.1511, 0.1293, 0.0443, 0.0249, 0.0205]])
+vals: tensor([[6122,  226,   33,   33,   33,   33, 5826,   33]])
+distances: tensor([[59.7900, 60.0532, 62.0806, 63.8837, 65.4424, 76.1530, 81.9145, 83.8753]]) 
+
+
+weights 2: tensor([[0.2275, 0.2216, 0.1809, 0.1511, 0.1293, 0.0443, 0.0249, 0.0205]])
+vals: tensor([[6122,  226,   33,   33,   33,   33, 5826,   33]])
+distances: tensor([[59.7900, 60.0532, 62.0806, 63.8837, 65.4424, 76.1530, 81.9145, 83.8753]]) 
+
+
+weights 3: tensor([[0.2275, 0.2216, 0.1809, 0.1511, 0.1293, 0.0443, 0.0249, 0.0205]])
+vals: tensor([[6122,  226,   33,   33,   33,   33, 5826,   33]])
+distances: tensor([[59.7900, 60.0532, 62.0806, 63.8837, 65.4424, 76.1530, 81.9145, 83.8753]]) 
+
+
+Traceback (most recent call last):
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 403, in <module>
+    cli_main()
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 400, in cli_main
+    main(args, override_args)
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 38, in main
+    return _main(args, override_args, sys.stdout)
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 194, in _main
+    hypos = task.inference_step(
+  File "/home/ardjano/knn-adaptivechunk/fairseq/tasks/fairseq_task.py", line 433, in inference_step
+    return generator.generate(
+  File "/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 177, in generate
+    return self._generate(sample, **kwargs)
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 312, in _generate
+    lprobs, avg_attn_scores = self.model.forward_decoder(
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 851, in forward_decoder
+    probs = model.get_normalized_probs(
+  File "/home/ardjano/knn-adaptivechunk/fairseq/models/transformer.py", line 290, in get_normalized_probs
+    return self.get_normalized_probs_scriptable(net_output, log_probs, sample)
+  File "/home/ardjano/knn-adaptivechunk/fairseq/models/fairseq_model.py", line 70, in get_normalized_probs_scriptable
+    return self.decoder.get_normalized_probs(net_output, log_probs, sample)
+  File "/home/ardjano/knn-adaptivechunk/knnbox/models/vanilla_knn_mt.py", line 151, in get_normalized_probs
+    combined_prob, _ = self.combiner.get_combined_prob(knn_prob, net_output[0], log_probs=log_probs)
+  File "/home/ardjano/knn-adaptivechunk/knnbox/combiner/combiner.py", line 32, in get_combined_prob
+    return calculate_combined_prob(knn_prob, neural_model_logit, lambda_, log_probs)
+  File "/home/ardjano/knn-adaptivechunk/knnbox/combiner/utils.py", line 38, in calculate_combined_prob
+    combined_probs = knn_prob * lambda_ + neural_model_prob * (1 - lambda_)
+KeyboardInterrupt

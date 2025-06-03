@@ -1,0 +1,891 @@
+/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/cuda/__init__.py:843: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+2025-06-03 18:06:46 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2025-06-03 18:06:46 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2025-06-03 18:06:46 | INFO | faiss.loader | Loading faiss.
+2025-06-03 18:06:46 | INFO | faiss.loader | Successfully loaded faiss.
+2025-06-03 18:06:47 | INFO | fairseq_cli.generate | Namespace(activation_dropout=0.0, activation_fn='relu', adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='vanilla_knn_mt@transformer_wmt19_de_en', attention_dropout=0.1, batch_size=None, batch_size_valid=None, beam=4, bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, build_faiss_index_with_cpu=True, checkpoint_shard_count=1, checkpoint_suffix='', constraints=None, cpu=False, criterion='cross_entropy', cross_self_attention=False, curriculum=0, data='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical', data_buffer_size=10, dataset_impl='mmap', ddp_backend='c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=1024, decoding_format=None, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', diverse_beam_groups=-1, diverse_beam_strength=0.5, diversity_rate=-1.0, dropout=0.2, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=8192, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eval_bleu=False, eval_bleu_args=None, eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe=None, eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, gen_subset='test', iter_decode_eos_penalty=0.0, iter_decode_force_max_iter=False, iter_decode_max_iter=10, iter_decode_with_beam=1, iter_decode_with_external_reranker=False, knn_datastore_path='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../datastore/vanilla/test_medical', knn_k=8, knn_lambda=0.7, knn_mode='inference', knn_temperature=10.0, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', lenpen=0.6, lm_path=None, lm_weight=0.0, load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr_scheduler='fixed', lr_shrink=0.1, match_source_len=False, max_len_a=1.2, max_len_b=10, max_source_positions=1024, max_target_positions=1024, max_tokens=2048, max_tokens_valid=2048, memory_efficient_bf16=False, memory_efficient_fp16=False, min_len=1, min_loss_scale=0.0001, model_overrides='{}', model_parallel_size=1, moses_no_dash_splits=False, moses_no_escape=False, moses_source_lang=None, moses_target_lang=None, nbest=1, no_beamable_mm=False, no_cross_attention=False, no_early_stop=False, no_progress_bar=False, no_repeat_ngram_size=0, no_scale_embedding=False, no_seed_provided=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_batch_buckets=0, num_shards=1, num_workers=1, optimizer=None, path='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt', pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, prefix_size=0, print_alignment=False, print_step=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, quiet=False, remove_bpe='@@ ', replace_unk=None, required_batch_size_multiple=8, required_seq_len_multiple=1, results_path=None, retain_dropout=False, retain_dropout_modules=None, retain_iter_history=False, sacrebleu=False, sacrebleu_char_level=False, sacrebleu_lowercase=False, sacrebleu_tokenizer='13a', sampling=False, sampling_topk=-1, sampling_topp=-1.0, score_reference=False, scoring='sacrebleu', seed=1, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='de', target_lang='en', task='translation', temperature=1.0, tensorboard_logdir=None, threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer='moses', tpu=False, train_subset='train', truncate_source=False, unkpen=0, unnormalized=False, upsample_primary=1, user_dir='/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox/models', valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=0, zero_sharding='none')
+2025-06-03 18:06:47 | INFO | fairseq.tasks.translation | [de] dictionary: 42024 types
+2025-06-03 18:06:47 | INFO | fairseq.tasks.translation | [en] dictionary: 42024 types
+2025-06-03 18:06:47 | INFO | fairseq.data.data_utils | loaded 2000 examples from: /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical/test.de-en.de
+2025-06-03 18:06:47 | INFO | fairseq.data.data_utils | loaded 2000 examples from: /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical/test.de-en.en
+2025-06-03 18:06:47 | INFO | fairseq.tasks.translation | /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../data-bin/test_medical test de-en 2000 examples
+2025-06-03 18:06:47 | INFO | fairseq_cli.generate | loading model(s) from /home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt
+[Start Loading Faiss Index]
+  > reading index took 0.8412907123565674 s
+  > the datastore shape is  (44547, 1024)
+[Finish Loading Faiss Index Successfully ^_^]
+/home/ardjano/knn-adaptivechunk/fairseq/checkpoint_utils.py:236: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(
+query dim: torch.Size([96, 1, 1024]), 3
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+query dim: torch.Size([96, 1, 1024]), 3
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+query dim: torch.Size([96, 1, 1024]), 3
+weights size: torch.Size([96, 1, 8])
+distances size: torch.Size([96, 1, 8])
+vals size: torch.Size([96, 1, 8]) 
+
+
+query dim: torch.Size([84, 1, 1024]), 3
+weights size: torch.Size([84, 1, 8])
+distances size: torch.Size([84, 1, 8])
+vals size: torch.Size([84, 1, 8]) 
+
+
+query dim: torch.Size([44, 1, 1024]), 3
+weights size: torch.Size([44, 1, 8])
+distances size: torch.Size([44, 1, 8])
+vals size: torch.Size([44, 1, 8]) 
+
+
+query dim: torch.Size([4, 1, 1024]), 3
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+query dim: torch.Size([4, 1, 1024]), 3
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+S-1298	Teeling
+T-1298	Teeling
+H-1298	-1.4466195106506348	rash
+D-1298	-1.4466195106506348	rash
+P-1298	-2.2550 -0.4886 -0.0529
+S-233	19.
+T-233	8 June 2001 Date of last renewal:
+H-233	-2.13848876953125	19 21 19 .
+D-233	-2.13848876953125	19 21 19.
+P-233	-2.0622 -2.4593 -0.8994 -0.1544 -0.0414
+S-146	120 mg
+T-146	80 mg 80 mg 120 mg 120 mg
+H-146	-1.678604006767273	240 mg
+D-146	-1.678604006767273	240 mg
+P-146	-3.1279 -0.0702 -0.0469
+S-1546	........
+T-1546	Structure of the EMEA
+H-1546	-2.0795469284057617	PCI
+D-1546	-2.0795469284057617	PCI
+P-1546	-3.2540 -0.4997 -0.2664
+S-101	12,8
+T-101	8.4 0.5 8.0
+H-101	-2.1454222202301025	PCI
+D-101	-2.1454222202301025	PCI
+P-101	-3.4111 -0.5022 -0.2342
+S-747	Bauchschmerzen
+T-747	abdominal pain
+H-747	-0.5613307952880859	pain in the abdomen
+D-747	-0.5613307952880859	pain in the abdomen
+P-747	-0.8371 -0.3367 -0.1524 -0.3649 -0.0136 -0.0552 -0.0443
+S-1882	Dosierung
+T-1882	16 Posology
+H-1882	-2.048518657684326	Dose
+D-1882	-2.048518657684326	Dose
+P-1882	-3.3018 -0.5923 -0.0661
+S-1893	-0,5
+T-1893	-0.5
+H-1893	-2.1843645572662354	PCI
+D-1893	-2.1843645572662354	PCI
+P-1893	-3.4997 -0.5020 -0.2211
+S-1833	12%
+T-1833	12%
+H-1833	-2.138033151626587	99.4 %
+D-1833	-2.138033151626587	99.4%
+P-1833	-2.0109 -0.9618 -1.6545 -0.9281 -0.0604
+S-1618	Hans Wagner
+T-1618	Hans Wagner
+H-1618	-1.557799220085144	Lisino
+D-1618	-1.557799220085144	Lisino
+P-1618	-2.2728 -0.5148 -0.2239
+S-1611	80 000
+T-1611	80 000
+H-1611	-2.155886173248291	PCI
+D-1611	-2.155886173248291	PCI
+P-1611	-3.4686 -0.5032 -0.1960
+S-1516	44 6
+T-1516	44 6
+H-1516	-2.2127630710601807	PCI
+D-1516	-2.2127630710601807	PCI
+P-1516	-3.5056 -0.5048 -0.2673
+S-1222	5 19
+T-1222	5 19
+H-1222	-2.1348230838775635	240 1A
+D-1222	-2.1348230838775635	240 1A
+P-1222	-3.4506 -0.7095 -0.5108 -0.2336
+S-1018	350 --
+T-1018	350 --
+H-1018	-2.616809368133545	327
+D-1018	-2.616809368133545	327
+P-1018	-3.4287 -0.6401 -0.9899
+S-923	11 Monate
+T-923	11 months
+H-923	-0.9773908257484436	11 months
+D-923	-0.9773908257484436	11 months
+P-923	-1.6961 -0.1482 -0.0452
+S-779	itte
+T-779	M ed
+H-779	-2.0778751373291016	PCI
+D-779	-2.0778751373291016	PCI
+P-779	-3.3548 -0.5029 -0.1592
+S-736	Portugal:
+T-736	Portugal:
+H-736	-0.05938148871064186	Portugal :
+D-736	-0.05938148871064186	Portugal:
+P-736	-0.0343 -0.0400 -0.0405
+S-665	0,06
+T-665	0.06
+H-665	-1.5704262256622314	0.06
+D-665	-1.5704262256622314	0.06
+P-665	-2.5702 -0.4109 -0.0549
+S-626	- Depression
+T-626	- depression
+H-626	-1.8530399799346924	FASLOW
+D-626	-1.8530399799346924	FASLOW
+P-626	-3.4396 -0.5437 -0.5216 -0.2974 -0.0647
+S-546	46%
+T-546	46%
+H-546	-2.138678789138794	PCI
+D-546	-2.138678789138794	PCI
+P-546	-3.4243 -0.5037 -0.2064
+S-371	0,5 g
+T-371	0.5 g
+H-371	-1.8052716255187988	0.45 ml
+D-371	-1.8052716255187988	0.45 ml
+P-371	-1.9076 -1.5066 -0.6801 -0.0532
+S-287	8.000
+T-287	8,000
+H-287	-2.06443190574646	PCI
+D-287	-2.06443190574646	PCI
+P-287	-3.2557 -0.5026 -0.2327
+S-1459	Versicherungen
+T-1459	Insurance
+H-1459	-2.1303248405456543	PCI
+D-1459	-2.1303248405456543	PCI
+P-1459	-3.3617 -0.4941 -0.2625
+S-1648	39
+T-1648	39 Other side effects which have occurred in the days or weeks after vaccination with ordinary flu vaccines include:
+H-1648	-2.436678647994995	99.4
+D-1648	-2.436678647994995	99.4
+P-1648	-2.5247 -0.9172 -1.7388 -0.4174
+query dim: torch.Size([64, 1, 1024]), 3
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+query dim: torch.Size([64, 1, 1024]), 3
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+query dim: torch.Size([64, 1, 1024]), 3
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+query dim: torch.Size([64, 1, 1024]), 3
+weights size: torch.Size([64, 1, 8])
+distances size: torch.Size([64, 1, 8])
+vals size: torch.Size([64, 1, 8]) 
+
+
+query dim: torch.Size([36, 1, 1024]), 3
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+query dim: torch.Size([4, 1, 1024]), 3
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+S-404	enhance the
+T-404	failure
+H-404	-2.1937577724456787	PCI
+D-404	-2.1937577724456787	PCI
+P-404	-3.4766 -0.4981 -0.2662
+S-1396	N e ue
+T-1396	New
+H-1396	-1.853284239768982	FASLOW
+D-1396	-1.853284239768982	FASLOW
+P-1396	-3.3885 -0.5146 -0.5271 -0.3416 -0.0958
+S-82	Augenschmerzen,
+T-82	Flushing
+H-82	-0.9307734370231628	Ear pain ,
+D-82	-0.9307734370231628	Ear pain,
+P-82	-1.2510 -0.5201 -0.1603 -0.4723 -0.0411
+S-448	Primäre
+T-448	Trial
+H-448	-2.1006505489349365	PCI
+D-448	-2.1006505489349365	PCI
+P-448	-3.4153 -0.4985 -0.1471
+S-722	9 b.
+T-722	b.
+H-722	-1.4570783376693726	9b .
+D-722	-1.4570783376693726	9b.
+P-722	-0.8932 -2.2290 -0.1841 -0.0411
+S-130	0, 0
+T-130	0.21 *
+H-130	-1.9874968528747559	FASLOW
+D-130	-1.9874968528747559	FASLOW
+P-130	-3.4563 -0.5145 -0.5245 -0.5216 -0.2033
+S-263	unter 15 *
+T-263	below 15 *
+H-263	-1.5727362632751465	below 15 *
+D-263	-1.5727362632751465	below 15 *
+P-263	-3.4657 -0.0533 -0.0489 -0.0453
+S-357	16 / 18
+T-357	16 / 18
+H-357	-2.010978937149048	01.08.97
+D-357	-2.010978937149048	01.08.97
+P-357	-3.2210 -0.5123 -0.5432 -0.8784 -0.1270
+S-363	89,3
+T-363	89.3
+H-363	-1.8665610551834106	99.4
+D-363	-1.8665610551834106	99.4
+P-363	-1.8378 -0.4718 -1.5643 -0.4142
+S-408	9 / 69
+T-408	8 / 61
+H-408	-1.5995001792907715	12 / 61
+D-408	-1.5995001792907715	12 / 61
+P-408	-2.2931 -0.0959 -0.7455 -0.5401
+S-500	49 7.
+T-500	42 7.
+H-500	-1.2219318151474	45 1 .
+D-500	-1.2219318151474	45 1.
+P-500	-1.6533 -0.8362 -0.2758 -0.0420
+S-503	95,7
+T-503	95.7
+H-503	-2.2604424953460693	PCI
+D-503	-2.2604424953460693	PCI
+P-503	-3.6511 -0.5028 -0.2159
+S-614	Dezember 1996
+T-614	Adopted by the Management Board on 4 December 1996
+H-614	-1.407874345779419	17 December 1996
+D-614	-1.407874345779419	17 December 1996
+P-614	-0.7113 -0.4682 -2.0116 -0.0433
+S-423	Stürze
+T-423	Injury, poisoning and procedural complications Common: fall
+H-423	-1.5526437759399414	rash
+D-423	-1.5526437759399414	rash
+P-423	-2.5239 -0.3793 -0.0984
+S-137	Möglicherweise wird
+T-137	If your liver or kidneys do not function well speak to your doctor, who may advise that you use lower insulin doses.
+H-137	-2.1389763355255127	PCI
+D-137	-2.1389763355255127	PCI
+P-137	-3.2977 -0.5004 -0.3369
+S-1904	Ziele:
+T-1904	Shire will conduct a Post Authorisation Safety Study (PASS) Study SPD422-401 A non- interventional, post authorisation safety study, to continuously monitor safety and pregnancy outcomes in a cohort of at-risk Essential Thrombocythaemia (ET) subjects exposed to Xagrid compared to other conventional cytoreductive treatments.
+H-1904	-1.1422815322875977	Goals :
+D-1904	-1.1422815322875977	Goals:
+P-1904	-2.3875 -0.1422 -0.0497 -0.0448
+query dim: torch.Size([160, 1, 1024]), 3
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+query dim: torch.Size([160, 1, 1024]), 3
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+query dim: torch.Size([160, 1, 1024]), 3
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+query dim: torch.Size([160, 1, 1024]), 3
+weights size: torch.Size([160, 1, 8])
+distances size: torch.Size([160, 1, 8])
+vals size: torch.Size([160, 1, 8]) 
+
+
+query dim: torch.Size([104, 1, 1024]), 3
+weights size: torch.Size([104, 1, 8])
+distances size: torch.Size([104, 1, 8])
+vals size: torch.Size([104, 1, 8]) 
+
+
+query dim: torch.Size([36, 1, 1024]), 3
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+query dim: torch.Size([4, 1, 1024]), 3
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+S-1362	Schweden 10966
+T-1362	Sweden 10966
+H-1362	-1.7697757482528687	Sweden
+D-1362	-1.7697757482528687	Sweden
+P-1362	-1.8657 -0.8168
+S-1590	Vorsitzende (r)
+T-1590	Chairperson
+H-1590	-1.2281603813171387	EMEA
+D-1590	-1.2281603813171387	EMEA
+P-1590	-1.4981 -0.5146 -0.0227 -0.7862
+S-261	10 Transferadapter
+T-261	Transfer adapter
+H-261	-1.7722299098968506	10 July 1998
+D-261	-1.7722299098968506	10 July 1998
+P-261	-0.5738 -2.1923 -1.2495 -0.0560
+S-710	B. an 118
+T-710	118 Travel
+H-710	-2.2693097591400146	140 B .
+D-710	-2.2693097591400146	140 B.
+P-710	-3.4641 -1.0324 -0.6757 -0.0414
+S-806	5.1 5.2
+T-806	5.1.
+H-806	-2.1548991203308105	240 1A
+D-806	-2.1548991203308105	240 1A
+P-806	-3.4505 -0.7495 -0.5115 -0.2392
+S-1669	• Kältegefühl
+T-1669	• feeling cold
+H-1669	-1.3815088272094727	EMEA
+D-1669	-1.3815088272094727	EMEA
+P-1669	-1.9439 -0.8627 -0.1615 -0.2058
+S-174	43,2%
+T-174	43.2%
+H-174	-1.3418912887573242	93.2 %
+D-174	-1.3418912887573242	93.2%
+P-174	-1.4152 -1.1480 -0.8691 -0.0474 -0.0448
+S-246	400 q12h
+T-246	400 q12h
+H-246	-1.6455018520355225	800 q12h
+D-246	-1.6455018520355225	800 q12h
+P-246	-3.3630 -0.3623 -0.5135 -0.0364 -0.0468
+S-326	RENAGEL
+T-326	RENAGEL
+H-326	-1.7673954963684082	FASLOW
+D-326	-1.7673954963684082	FASLOW
+P-326	-3.0792 -0.5139 -0.5237 -0.4245 -0.1008
+S-341	16 (3)
+T-341	16 (3)
+H-341	-1.4864188432693481	21 ( 1 )
+D-341	-1.4864188432693481	21 (1)
+P-341	-2.4950 -0.1962 -1.1170 -0.0420 -0.0538
+S-629	71.9%
+T-629	71.9%
+H-629	-1.495357871055603	71.9 %
+D-629	-1.495357871055603	71.9%
+P-629	-2.6238 -0.9384 -0.2785 -0.0458 -0.0411
+S-771	50 mg / kg
+T-771	50 mg / kg
+H-771	-0.08641201257705688	50 mg / kg
+D-771	-0.08641201257705688	50 mg / kg
+P-771	-0.1051 -0.0103 -0.0487 -0.0176 -0.0452
+S-1215	SUSTIVA
+T-1215	SUSTIVA
+H-1215	-1.8823060989379883	FASLOW
+D-1215	-1.8823060989379883	FASLOW
+P-1215	-3.4292 -0.5132 -0.5258 -0.3723 -0.1033
+S-1232	7 (7)
+T-1232	7 (7)
+H-1232	-1.669304370880127	14 ( 1 )
+D-1232	-1.669304370880127	14 (1)
+P-1232	-3.1953 -0.2822 -0.7963 -0.0429 -0.0678
+S-1259	35,1%
+T-1259	35.1%
+H-1259	-2.16060471534729	PCI
+D-1259	-2.16060471534729	PCI
+P-1259	-3.4688 -0.4995 -0.2085
+S-1349	Phase III Vc
+T-1349	Phase III Vc
+H-1349	-2.232573986053467	240 1A
+D-1349	-2.232573986053467	240 1A
+P-1349	-3.4592 -0.9299 -0.5057 -0.2344
+S-888	Dermatitits
+T-888	Skin and subcutaneous tissue disorders Rare: rash Very rare: dermatitis
+H-888	-1.593347191810608	Common Syndrome
+D-888	-1.593347191810608	Common Syndrome
+P-888	-3.3131 -0.0505 -0.5337 -0.0499 -0.2378
+S-1072	Am 3.
+T-1072	The Reference Member State for this MRP was Ireland with Austria, Belgium, Denmark, Germany, Greece, Finland, Iceland, Italy, Luxembourg, Norway, Portugal, Spain, and Sweden as Concerned Member States.
+H-1072	-1.9761466979980469	FASLOW
+D-1072	-1.9761466979980469	FASLOW
+P-1072	-3.5465 -0.5150 -0.5294 -0.3401 -0.2593
+S-1405	99%.
+T-1405	Rosiglitazone Absorption Absolute bioavailability of rosiglitazone following both a 4 and an 8 mg oral dose is approximately 99%.
+H-1405	-1.5088605880737305	140 % .
+D-1405	-1.5088605880737305	140%.
+P-1405	-3.0336 -0.3016 -0.0893 -0.0420
+S-891	Weiße Kappe
+T-891	Open the prefilled syringe by breaking the seal of the closure and remove the white cap together with the rubber tip cap inside.
+H-891	-1.7015082836151123	EMEA
+D-891	-1.7015082836151123	EMEA
+P-891	-2.9524 -0.5161 -0.1258 -0.3147
+S-1919	100,6
+T-1919	100.6
+H-1919	-2.1514766216278076	PCI
+D-1919	-2.1514766216278076	PCI
+P-1919	-3.4612 -0.5027 -0.1953
+S-877	65 65 66
+T-877	65 65 66
+H-877	-2.185420274734497	PCI
+D-877	-2.185420274734497	PCI
+P-877	-3.4784 -0.5061 -0.2403
+S-962	1,10 ml
+T-962	1.10 ml
+H-962	-2.1307756900787354	0.12 ml
+D-962	-2.1307756900787354	0.12 ml
+P-962	-2.4695 -2.2842 -0.0900 -0.0515
+S-1081	57 B.
+T-1081	54 B.
+H-1081	-1.5887254476547241	57 A .
+D-1081	-1.5887254476547241	57 A.
+P-1081	-1.8369 -1.3818 -0.3899 -0.0413
+S-1200	für 4 Wochen
+T-1200	for 4 weeks
+H-1200	-0.5314792990684509	for 4 weeks
+D-1200	-0.5314792990684509	for 4 weeks
+P-1200	-1.0757 -0.0555 -0.0402 -0.0495
+S-1429	103 10.
+T-1429	96 10.
+H-1429	-2.118617296218872	140 9 .
+D-1429	-2.118617296218872	140 9.
+P-1429	-3.5152 -0.9787 -0.3311 -0.0422
+S-1457	5.2.
+T-1457	5.2.
+H-1457	-2.1435539722442627	01.08.97
+D-1457	-2.1435539722442627	01.08.97
+P-1457	-3.3459 -0.5107 -0.9126 -0.7434 -0.1175
+S-1758	23 15.
+T-1758	23 15.
+H-1758	-2.044391393661499	Applicant
+D-1758	-2.044391393661499	Applicant
+P-1758	-3.4029 -0.4774 -0.6303 -0.1862
+S-1815	370 58 59
+T-1815	370 58 59
+H-1815	-2.1902711391448975	PCI
+D-1815	-2.1902711391448975	PCI
+P-1815	-3.5001 -0.5009 -0.2332
+S-1910	Emadine
+T-1910	Emadine
+H-1910	-0.6187890768051147	Emadin
+D-1910	-0.6187890768051147	Emadin
+P-1910	-0.6280 -0.0296 -0.7119 -0.0521
+S-816	100 mg:
+T-816	100 mg:
+H-816	-1.2370250225067139	40 mg :
+D-816	-1.2370250225067139	40 mg:
+P-816	-2.6504 -0.0576 -0.0922 -0.0418
+S-365	• Erwachsene:
+T-365	• Adults:
+H-365	-1.751838207244873	-adults :
+D-365	-1.751838207244873	-adults:
+P-365	-3.4828 -0.4199 -0.0783 -0.0437
+S-557	Andreas Pott
+T-557	Dossier assessment
+H-557	-1.8065218925476074	Felcam
+D-557	-1.8065218925476074	Felcam
+P-557	-2.8148 -0.5146 -0.1630
+S-623	- 0,2
+T-623	- 0 .2
+H-623	-1.9776833057403564	0.2
+D-623	-1.9776833057403564	0.2
+P-623	-2.4925 -1.0659 -0.2648
+S-823	260 10.
+T-823	244 10.
+H-823	-1.5913363695144653	140 9 .
+D-823	-1.5913363695144653	140 9.
+P-823	-2.2590 -1.1360 -0.2187 -0.0423
+S-1304	Bereichsleiterin
+T-1304	Head of Sector
+H-1304	-0.910203218460083	Head of Sector
+D-1304	-0.910203218460083	Head of Sector
+P-1304	-1.4981 -0.0418 -0.5567 -0.1401 -0.1541
+S-1592	(Tage)
+T-1592	Haemorrhage
+H-1592	-0.43229007720947266	( days )
+D-1592	-0.43229007720947266	(days)
+P-1592	-0.7617 -0.1439 -0.0442 -0.0432
+S-409	(mg)
+T-409	Valsartan (mg)
+H-409	-1.0107132196426392	( mg )
+D-409	-1.0107132196426392	(mg)
+P-409	-2.2008 -0.0333 -0.0435 -0.0443
+S-714	29.03.2001
+T-714	• 18.07.2000 • 29.03.2001
+H-714	-2.104095697402954	01.08.97
+D-714	-2.104095697402954	01.08.97
+P-714	-3.3261 -0.4753 -0.6324 -0.9686 -0.1240
+S-1561	(2007)
+T-1561	Marcelin et al (2007)
+H-1561	-1.5690953731536865	( 2007 )
+D-1561	-1.5690953731536865	(2007)
+P-1561	-1.8193 -1.6831 -0.0454 -0.0570
+query dim: torch.Size([192, 1, 1024]), 3
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+query dim: torch.Size([192, 1, 1024]), 3
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+query dim: torch.Size([192, 1, 1024]), 3
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+query dim: torch.Size([192, 1, 1024]), 3
+weights size: torch.Size([192, 1, 8])
+distances size: torch.Size([192, 1, 8])
+vals size: torch.Size([192, 1, 8]) 
+
+
+query dim: torch.Size([172, 1, 1024]), 3
+weights size: torch.Size([172, 1, 8])
+distances size: torch.Size([172, 1, 8])
+vals size: torch.Size([172, 1, 8]) 
+
+
+query dim: torch.Size([112, 1, 1024]), 3
+weights size: torch.Size([112, 1, 8])
+distances size: torch.Size([112, 1, 8])
+vals size: torch.Size([112, 1, 8]) 
+
+
+query dim: torch.Size([36, 1, 1024]), 3
+weights size: torch.Size([36, 1, 8])
+distances size: torch.Size([36, 1, 8])
+vals size: torch.Size([36, 1, 8]) 
+
+
+query dim: torch.Size([4, 1, 1024]), 3
+weights size: torch.Size([4, 1, 8])
+distances size: torch.Size([4, 1, 8])
+vals size: torch.Size([4, 1, 8]) 
+
+
+S-627	14 / 21 B.
+T-627	14 / 21 B.
+H-627	-0.9574365019798279	14 / 21 B .
+D-627	-0.9574365019798279	14 / 21 B.
+P-627	-2.0209 -0.0490 -0.0364 -0.1947 -0.4631 -0.0413
+S-1042	1 mg) erhältlich.
+T-1042	1 mg).
+H-1042	-0.21180471777915955	1 mg ) .
+D-1042	-0.21180471777915955	1 mg).
+P-1042	-0.3162 -0.0170 -0.0531 -0.1275 -0.0425
+S-1104	19 Abbildung C:
+T-1104	Figure C:
+H-1104	-0.6278725862503052	19 Table C :
+D-1104	-0.6278725862503052	19 Table C:
+P-1104	-0.5360 -0.5590 -0.0330 -0.4789 -0.0423
+S-1336	- 0, 0 5
+T-1336	INH Washout
+H-1336	-0.89654141664505	- 0 , 0 5
+D-1336	-0.89654141664505	- 0, 0 5
+P-1336	-1.8110 -0.0691 -0.0496 -0.0469 -0.6053 -0.0451
+S-16	Belivon Consta
+T-16	Belivon Consta
+H-16	-2.071817636489868	Belivione Consta
+D-16	-2.071817636489868	Belivione Consta
+P-16	-2.1699 -0.0293 -0.9528 -1.9703 -1.3901 -0.1016 -0.0449
+S-34	Micardis 20 mg
+T-34	Micardis 20 mg
+H-34	-0.479254812002182	Micardis 20 mg
+D-34	-0.479254812002182	Micardis 20 mg
+P-34	-0.0798 -0.0537 -0.0490 -1.1638 -0.0135 -0.0445
+S-228	Vorläufig eingesetzte Mittel
+T-228	Provisional appropriation
+H-228	-1.7785463333129883	Provisional resources
+D-228	-1.7785463333129883	Provisional resources
+P-228	-2.5512 -0.1004 -0.0398 -1.3282 -0.6519
+S-447	n = 170 12%
+T-447	N = 170 12%
+H-447	-0.4916154146194458	n = 170 12 %
+D-447	-0.4916154146194458	n = 170 12%
+P-447	-0.0257 -0.0411 -0.4369 -0.8523 -0.0419 -0.0427
+S-482	Henlutamide
+T-482	Henlutamide
+H-482	-1.7842257022857666	Sanelto
+D-482	-1.7842257022857666	Sanelto
+P-482	-2.9271 -0.5194 -0.5219 -0.1307
+S-527	Was ist Evra?
+T-527	What is Evra?
+H-527	-0.8767833709716797	What is Evra ?
+D-527	-0.8767833709716797	What is Evra?
+P-527	-0.1600 -0.5089 -1.7749 -0.0236 -0.0597 -0.0420
+S-544	Venta-Neb
+T-544	Venta-Neb
+H-544	-1.793142318725586	Preclinical
+D-544	-1.793142318725586	Preclinical
+P-544	-2.9821 -0.5947 -0.5130 -0.0244 -0.5955
+S-547	12 / 02 / 2009
+T-547	12 / 02 / 2009
+H-547	-1.1841349601745605	31 / 01 / 2006
+D-547	-1.1841349601745605	31 / 01 / 2006
+P-547	-1.4303 -0.1536 -1.1568 -0.0551 -0.6298 -0.0441
+S-973	Ch.-B.: ne
+T-973	Lot dic
+H-973	-1.6937505006790161	G03AX
+D-973	-1.6937505006790161	G03AX
+P-973	-2.2166 -0.5176 -0.8516 -0.5321 -0.3308
+S-646	Schweres OHSS
+T-646	Severe OHSS
+H-646	-0.8476636409759521	Severe OHSS
+D-646	-0.8476636409759521	Severe OHSS
+P-646	-1.5593 -0.0357 -0.7698 -0.0334 -0.0392 -0.0463
+S-713	España:
+T-713	España:
+H-713	-0.8388643860816956	España :
+D-713	-0.8388643860816956	España:
+P-713	-2.2420 -0.0577 -0.0228 -0.0423 -0.0507 -0.0424
+S-936	Equibactin vet.
+T-936	Equibactin vet.
+H-936	-2.4203073978424072	QD6 .
+D-936	-2.4203073978424072	QD6.
+P-936	-2.9007 -0.5142 -1.0322 -1.8674 -0.0424
+S-1066	↑ 3-7fach
+T-1066	↑ 3-7 fold
+H-1066	-2.21079421043396	Preclinical
+D-1066	-2.21079421043396	Preclinical
+P-1066	-3.4060 -0.8031 -0.5113 -0.0427 -1.0437
+S-1082	1 (1,3%)
+T-1082	1 (1.3%)
+H-1082	-0.7021721601486206	1 ( 18 % )
+D-1082	-0.7021721601486206	1 (18%)
+P-1082	-0.0468 -0.0429 -1.8224 -0.0537 -0.0440 -0.0475
+S-1243	0,14 mg / ml
+T-1243	0.14 mg / ml
+H-1243	-0.13377724587917328	0.14 mg / ml
+D-1243	-0.13377724587917328	0.14 mg / ml
+P-1243	-0.1294 -0.1322 -0.0116 -0.0464 -0.0270 -0.0454
+S-1398	Was Aclasta enthält
+T-1398	What Aclasta contains
+H-1398	-0.8312418460845947	What GCP contains
+D-1398	-0.8312418460845947	What GCP contains
+P-1398	-0.1596 -0.8898 -0.6643 -0.5134 -0.1561 -0.0526
+S-1528	29% 35 / 120
+T-1528	29% 35 / 120
+H-1528	-2.283503293991089	29 % ( 18 % )
+D-1528	-2.283503293991089	29% (18%)
+P-1528	-2.6862 -0.0809 -1.7125 -1.4280 -1.1965 -0.0471 -0.1883
+S-1587	Feldene Cremadol
+T-1587	Feldene Cremadol
+H-1587	-1.6364293098449707	Busuttil
+D-1587	-1.6364293098449707	Busuttil
+P-1587	-2.4510 -0.5237 -0.5177 -0.2671
+S-1616	10 (2,8)
+T-1616	10 (2.8)
+H-1616	-1.6554131507873535	21 ( 1 )
+D-1616	-1.6554131507873535	21 (1)
+P-1616	-3.0440 -0.1566 -1.0428 -0.0438 -0.0608
+S-1672	36 Ultratard
+T-1672	34 Ultratard
+H-1672	-1.7796183824539185	36 / 61
+D-1672	-1.7796183824539185	36 / 61
+P-1672	-1.8823 -0.7228 -0.7962 -0.6872
+S-1256	Weitere Informationen er 1.
+T-1256	Further Information
+H-1256	-1.8941617012023926	EMEA 1 .
+D-1256	-1.8941617012023926	EMEA 1.
+P-1256	-0.9445 -0.5145 -0.0498 -3.9346 -0.0636 -0.0430
+S-200	3,2 Minuten 6,5 Minuten
+T-200	6.5 min
+H-200	-1.46996009349823	3.2 minutes , 18 minutes
+D-200	-1.46996009349823	3.2 minutes, 18 minutes
+P-200	-1.1813 -0.0700 -0.2862 -0.6157 -1.8506 -0.5182 -0.2026
+S-1472	Konzentrat:
+T-1472	Concentrate:
+H-1472	-0.9731965661048889	Concentrate :
+D-1472	-0.9731965661048889	Concentrate:
+P-1472	-1.9315 -0.3850 -0.1411 -0.0562 -0.0423
+S-1364	96 Systemorgan-
+T-1364	84 System Organ
+H-1364	-2.8243799209594727	51.2 49.79
+D-1364	-2.8243799209594727	51.2 49.79
+P-1364	-3.5243 -0.8749 -1.0257 -0.5172 -1.9699 -0.3639
+S-1490	IMPRIDA
+T-1490	IMPRIDA
+H-1490	-2.0787181854248047	PCI
+D-1490	-2.0787181854248047	PCI
+P-1490	-3.3348 -0.4972 -0.1866
+S-1544	SANDOZ
+T-1544	SANDOZ
+H-1544	-1.347089409828186	Sanelto
+D-1544	-1.347089409828186	Sanelto
+P-1544	-1.9858 -0.5192 -0.5147 -0.0750
+S-1681	2 (1)
+T-1681	15 (7)
+H-1681	-1.5853756666183472	14 ( 1 )
+D-1681	-1.5853756666183472	14 (1)
+P-1681	-3.2243 -0.3177 -0.5077 -0.0421 -0.0722
+S-1745	↔ 1,00 *
+T-1745	↔ 1.00 *
+H-1745	-2.2930731773376465	51.2 *
+D-1745	-2.2930731773376465	51.2 *
+P-1745	-3.5281 -0.6102 -1.0799 -0.0499
+S-1748	REVASC
+T-1748	REVASC
+H-1748	-2.0628416538238525	PCI
+D-1748	-2.0628416538238525	PCI
+P-1748	-3.3092 -0.5027 -0.1759
+S-1755	Teve u.
+T-1755	Teve u.
+H-1755	-1.1384902000427246	EMEA
+D-1755	-1.1384902000427246	EMEA
+P-1755	-1.6006 -0.5149 -0.0698 -0.4303
+S-1762	3 Pipetten
+T-1762	3 pipettes
+H-1762	-2.01408052444458	11 ( 1 )
+D-1762	-2.01408052444458	11 (1)
+P-1762	-2.6002 -1.4443 -0.6857 -0.0501 -0.5097
+S-1788	183 191
+T-1788	183 191
+H-1788	-2.1881253719329834	PCI
+D-1788	-2.1881253719329834	PCI
+P-1788	-3.5059 -0.5017 -0.2225
+S-1917	74,7%
+T-1917	74.7%
+H-1917	-1.5597310066223145	74.7 %
+D-1917	-1.5597310066223145	74.7%
+P-1917	-2.9102 -0.4345 -0.6599 -0.0511 -0.0409
+S-1990	100 mg / g
+T-1990	100 mg / g
+H-1990	-0.880552351474762	100 mg / g
+D-1990	-0.880552351474762	100 mg / g
+P-1990	-2.1635 -0.0106 -0.0480 -0.0449 -0.0458
+S-1991	- Lactose
+T-1991	- Lactose
+H-1991	-0.8193966150283813	- Lactose
+D-1991	-0.8193966150283813	- Lactose
+P-1991	-0.5184 -1.5260 -0.0411 -0.0202 -0.0465
+S-52	Laboratories
+T-52	Glaxo Group UK
+H-52	-1.940075397491455	PCI
+D-52	-1.940075397491455	PCI
+P-52	-3.1366 -0.5048 -0.1091
+S-674	Innerer Karton
+T-674	Inner carton text
+H-674	-1.6556082963943481	rash
+D-674	-1.6556082963943481	rash
+P-674	-2.5023 -0.5007 -0.1975
+S-98	rascher Herzschlag
+T-98	blood pressure dropping heart beating fast
+H-98	-1.3223313093185425	Sudden heart beat
+D-98	-1.3223313093185425	Sudden heart beat
+P-98	-1.4209 -0.2502 -0.5734 -1.1831 -0.0456
+S-1010	Transparenz und Offenheit
+T-1010	Transparency and openness
+H-1010	-1.5816401243209839	Common Syndrome
+D-1010	-1.5816401243209839	Common Syndrome
+P-1010	-2.8858 -0.0358 -0.5220 -0.3336 -0.3770
+S-1343	≥ 1: 8
+T-1343	≥ 1 micrograms / ml
+H-1343	-2.1568830013275146	51.2 49.79
+D-1343	-2.1568830013275146	51.2 49.79
+P-1343	-2.5370 -0.5621 -0.7315 -0.5107 -1.7134 -0.2653
+S-1282	= 5,93 Monate
+T-1282	Median OS = 5.93 months
+H-1282	-0.30144840478897095	= 5.93 months
+D-1282	-0.30144840478897095	= 5.93 months
+P-1282	-0.0345 -0.0698 -0.5046 -0.1377 -0.0451
+S-131	London, 18.
+T-131	London, 18 October 2006 Doc.
+H-131	-1.1184709072113037	London , 18 .
+D-131	-1.1184709072113037	London, 18.
+P-131	-1.8843 -0.0675 -0.7828 -0.1612 -0.0418
+S-30	100 SR80
+T-30	at least 100 SR801 at least 100 SR80 at least 100 SR80 at least 100 SR80 at least 100 SR80
+H-30	-2.339221954345703	250 1A
+D-30	-2.339221954345703	250 1A
+P-30	-3.4745 -1.1840 -0.5116 -0.2040
+S-506	Darüber hinaus sollte die
+T-506	Until additional data become available, Zerit should be given during pregnancy only after special consideration; there is insufficient information to recommend Zerit for prevention of mother-to-child transmission of HIV.
+H-506	-2.0668113231658936	Committee for Medicinal Products
+D-506	-2.0668113231658936	Committee for Medicinal Products
+P-506	-3.2689 -0.5786 -1.8635 -0.2969 -0.1268 -0.0380 -0.4702
+query dim: torch.Size([128, 1, 1024]), 3
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+query dim: torch.Size([128, 1, 1024]), 3
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+query dim: torch.Size([128, 1, 1024]), 3
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+query dim: torch.Size([128, 1, 1024]), 3
+weights size: torch.Size([128, 1, 8])
+distances size: torch.Size([128, 1, 8])
+vals size: torch.Size([128, 1, 8]) 
+
+
+query dim: torch.Size([120, 1, 1024]), 3
+weights size: torch.Size([120, 1, 8])
+distances size: torch.Size([120, 1, 8])
+vals size: torch.Size([120, 1, 8]) 
+
+
+query dim: torch.Size([96, 1, 1024]), 3
+Traceback (most recent call last):
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 403, in <module>
+    cli_main()
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 400, in cli_main
+    main(args, override_args)
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 38, in main
+    return _main(args, override_args, sys.stdout)
+  File "/home/ardjano/knn-adaptivechunk/knnbox-scripts/vanilla-knn-mt/../../knnbox-scripts/common/generate.py", line 194, in _main
+    hypos = task.inference_step(
+  File "/home/ardjano/knn-adaptivechunk/fairseq/tasks/fairseq_task.py", line 433, in inference_step
+    return generator.generate(
+  File "/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 177, in generate
+    return self._generate(sample, **kwargs)
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 312, in _generate
+    lprobs, avg_attn_scores = self.model.forward_decoder(
+  File "/home/ardjano/knn-adaptivechunk/fairseq/sequence_generator.py", line 824, in forward_decoder
+    decoder_out = model.decoder.forward(
+  File "/home/ardjano/knn-adaptivechunk/knnbox/models/vanilla_knn_mt.py", line 129, in forward
+    self.retriever.retrieve(x, return_list=["vals", "distances"])
+  File "/home/ardjano/knn-adaptivechunk/knnbox/retriever/retriever.py", line 25, in retrieve
+    faiss_results = retrieve_k_nearest(query, self.datastore.faiss_index["keys"], k)
+  File "/home/ardjano/knn-adaptivechunk/knnbox/retriever/utils.py", line 11, in retrieve_k_nearest
+    distances, indices = faiss_index.search(
+  File "/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/faiss/class_wrappers.py", line 343, in replacement_search
+    self.search_c(n, swig_ptr(x), k, swig_ptr(D), swig_ptr(I), params)
+  File "/home/ardjano/.pyenv/versions/3.8.20/envs/box/lib/python3.8/site-packages/faiss/swigfaiss.py", line 6322, in search
+    return _swigfaiss.IndexIVF_search(self, n, x, k, distances, labels, params)
+KeyboardInterrupt

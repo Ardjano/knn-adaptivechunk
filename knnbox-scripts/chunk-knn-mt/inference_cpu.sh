@@ -8,8 +8,8 @@ export OMP_WAIT_POLICY=PASSIVE
 
 PROJECT_PATH=$( cd -- "$( dirname -- "$ BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../..
 BASE_MODEL=$PROJECT_PATH/pretrain-models/wmt19.de-en/wmt19.de-en.ffn8192.pt
-DATA_PATH=$PROJECT_PATH/data-bin/it
-DATASTORE_LOAD_PATH=$PROJECT_PATH/datastore/vanilla/it
+DATA_PATH=$PROJECT_PATH/data-bin/test_medical
+DATASTORE_LOAD_PATH=$PROJECT_PATH/datastore/chunk/test_medical
 
 
 python $PROJECT_PATH/knnbox-scripts/common/generate.py $DATA_PATH \

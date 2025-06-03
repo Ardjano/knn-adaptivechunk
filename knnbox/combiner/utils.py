@@ -9,7 +9,21 @@ def calculate_knn_prob(vals, distances, probability_dim, temperature, device, **
     """
     scaled_dists = - distances / temperature
     knn_weights = torch.softmax(scaled_dists, dim=-1)
-    
+    print(f"weights size: {knn_weights.size()}")
+    print(f"distances size: {distances.size()}")
+    print(f"vals size: {vals.size()} \n\n")
+
+    # print(vals)
+    # # ONLY FOR DEBUGGING!
+    # vals = vals[:, :, :, 0]
+
+    # for i in range(vals.size()[0]):
+    #     if (i % 4 == 0):
+    #         print(f"Batch {i // 4}")
+    #     print(f"weights {i}: {knn_weights[i]}")
+    #     print(f"vals: {vals[i]}")
+    #     print(f"distances: {distances[i]} \n\n")
+    # assert False, "Debugged"
     B, S, K = vals.size()
 
     # construct prob
@@ -21,7 +35,7 @@ def calculate_knn_prob(vals, distances, probability_dim, temperature, device, **
 
 
 def calculate_combined_prob(knn_prob, neural_model_logit, lambda_, log_probs):
-    r""" 
+    r"""
     How vanilla knn-mt calculate the combining probability.
     """
     neural_model_prob = F.softmax(neural_model_logit, dim=-1)
@@ -38,14 +52,14 @@ def calculate_combined_prob(knn_prob, neural_model_logit, lambda_, log_probs):
 
 
 def calculate_knn_prob_with_merge_weight(vals, distances, merge_weights, probability_dim, temperature, device, **kwargs):
-    r""" 
+    r"""
     when the key-value pair has a merge weight.
     used by greedy-merge knn-mt
     """
     # consider merge weights here
     scaled_dists = - distances / temperature + torch.log(merge_weights.float())
     knn_weights = torch.softmax(scaled_dists, dim=-1)
-    
+
     B, S, K = vals.size()
 
     # construct prob

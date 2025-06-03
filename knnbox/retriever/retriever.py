@@ -9,10 +9,11 @@ class Retriever:
 
 
     def retrieve(self, query, return_list = ["vals", "distances"], k = None ):
-        r""" 
-        retrieve the datastore, save and return results 
+        r"""
+        retrieve the datastore, save and return results
         if parameter k is provided, it will suppress self.k
         """
+        print(f"query dim: {query.size()}, {query.dim()}")
 
         k = k if k is not None else self.k
         # load the faiss index if haven't loaded
@@ -20,7 +21,7 @@ class Retriever:
                     self.datastore.faiss_index is None or "keys" not in self.datastore.faiss_index:
             self.datastore.load_faiss_index("keys", move_to_gpu=True)
 
-        query = query.detach() 
+        query = query.detach()
         faiss_results = retrieve_k_nearest(query, self.datastore.faiss_index["keys"], k)
 
         ret = {}
@@ -40,8 +41,7 @@ class Retriever:
                 assert data_name in self.datastore.datas, \
                                     "You must load the {} of datastore first".format(data_name)
                 ret[data_name] = torch.tensor(self.datastore[data_name].data[indices], device=query.device)
-        
+
         self.results = ret # save the retrieved results
         return ret
-    
-        
+
