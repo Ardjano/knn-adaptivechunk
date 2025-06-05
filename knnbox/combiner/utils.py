@@ -67,3 +67,8 @@ def calculate_knn_prob_with_merge_weight(vals, distances, merge_weights, probabi
     knn_probs.scatter_add_(dim=-1, index=vals, src=knn_weights)
 
     return knn_probs
+
+def calculate_chunk_knn_prob(active_chunks, probability_dim, temperature, device, **kwargs):
+    # could probably remove this check
+    assert active_chunks, "No active chunks"
+

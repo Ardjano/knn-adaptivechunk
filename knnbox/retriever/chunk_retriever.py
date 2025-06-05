@@ -8,12 +8,12 @@ import torch
 from knnbox.retriever.utils import retrieve_k_nearest
 
 class ChunkRetriever:
-    def __init__(self, datastore, k, max_active_chunks=None):
+    def __init__(self, datastore, k_new, max_active_chunks=None):
         """
-        k here corresponds to the number of *new* chunks to retrieve; the total number of chunks can range up to max_active_chunks
+        k_new here corresponds to the number of *new* chunks to retrieve; the total number of chunks can range up to max_active_chunks
         """
         self.datastore = datastore
-        self.k = k
+        self.k_new = k_new
         self.max_active_chunks = max_active_chunks
 
         # check that we have the correct attributes
@@ -27,46 +27,57 @@ class ChunkRetriever:
             self.datastore.load_array("real_lens")
 
     @torch.no_grad()
-    def retrieve_and_add_chunks(self, query_tensor, batched_active_chunks):
+    def retrieve_and_add_chunks(self, query_tensor,
+            active_slots_tokens,
+            active_slots_distances,
+            active_slots_real_lens,
+            active_slots_positions,
+            active_slots_valid_mask
+            ):
         """"
-        Retrieves k new chunks for a batch of queries and adds them
-        to the corresponding active_chunks lists.
+        Retrieves k_new chunks for a each hypothesis (arranged into batches), added to the first available invalid slots.
 
-        Prunes if max_active_chunks is reached.
+        Chunks become invalid if position >= real_len (handled by decoder)
 
         query tensor should be of shape [B*Beam, 1, D]
         """
-        n_hypotheses = query_tensor.shape[0]
-        assert len(batched_active_chunks) == n_hypotheses, \
-        "Mismatch between number of queries and batched active chunks"
+        device = query_tensor.device
+        n_hypotheses, N_SLOTS, _ = active_slots_tokens.shape
 
         # maybe unnecessary?
-        if self.k <= 0:
-            return batched_active_chunks
+        if self.k_new <= 0:
+            return (active_slots_tokens, active_slots_distances,
+                    active_slots_real_lens, active_slots_positions, active_slots_valid_mask)
 
-        faiss_results = retrieve_k_nearest(query_tensor, self.datastore.faiss_index["keys"], self.k)
+        # batched kNN search
+        faiss_results = retrieve_k_nearest(query_tensor, self.datastore.faiss_index["keys"], self.k_new)
 
-        indices = faiss_results["indices"] # [B*Beam, k]
+        indices = faiss_results["indices"] # [B*Beam, k_new]
         distances = faiss_results["distances"]
 
-        new_vals_padded = torch.tensor(self.datastore["vals"].data[indices.flatten()], device=query_tensor.device).view(n_hypotheses, self.k, -1)
-        new_real_lens = torch.tensor(self.datastore["real_lens"].data[indices.flatten()], device=query_tensor.device).view(n_hypotheses, self.k)
+        new_vals_padded = torch.tensor(self.datastore["vals"].data[indices.flatten()], device=device).view(n_hypotheses, self.k_new, -1)
+        new_real_lens = torch.tensor(self.datastore["real_lens"].data[indices.flatten()], device=device).view(n_hypotheses, self.k_new)
 
+        # vectorizes slot finding & assignment across hypotheses
         for i in range(n_hypotheses):
-            hyp_active_chunks = batched_active_chunks[i]
+            # finds available invalid slots for hyp i
+            invalid_slot_indices_i = (~active_slots_valid_mask[i]).nonzero(as_tuple=True)[0]
 
-            for j in range(self.k):
-                real_len = new_real_lens[i, j].item()
-                if real_len > 0:
-                    chunk_tokens = new_vals_padded[i, j, :real_len]
-                    distance = distances[i, j]
-                    hyp_active_chunks.append((chunk_tokens, distance, new_real_lens[i, j].clone()))
+            n_invalid = invalid_slot_indices_i.size(0)
+            n_new_chunks = self.k_new
+            # if available slots is a concern, add logic here
 
-            if self.max_active_chunks is not None and len(hyp_active_chunks) > self.max_active_chunks:
-                hyp_active_chunks.sort(key=lambda x: x[1].item())
-                hyp_active_chunks[:] = hyp_active_chunks[:self.max_active_chunks]
+            # gets the first n invalid slots
+            slots = invalid_slot_indices_i[:n_new_chunks]
 
-        return batched_active_chunks
+            active_slots_tokens[i, slots] = new_vals_padded[i, :n_new_chunks]
+            active_slots_distances[i, slots] = distances[i, :n_new_chunks]
+            active_slots_real_lens[i, slots] = new_real_lens[i, :n_new_chunks]
+            active_slots_positions[i, slots] = 0
+            active_slots_valid_mask[i, slots] = True
+
+        return (active_slots_tokens, active_slots_distances,
+                active_slots_real_lens, active_slots_positions, active_slots_valid_mask)
 
 
 
