@@ -5,20 +5,22 @@ hypothesis and combines with p_LM.
 """
 import torch
 import torch.nn.functional as F
-from knnbox.combiner.utils import calculate_combined_prob
+from knnbox.combiner import Combiner
+from knnbox.combiner.utils import calculate_chunk_knn_prob
 
-class ChunkCombiner:
-    def  __init__(self, lambda_, temperature, probability_dim):
-        self.lambda_ = lambda_
-        self.temperature = temperature
-        self.probability_dim = probability_dim
+class ChunkCombiner(Combiner):
+    def __init__(self, lambda_, temperature, probability_dim, k_padded=100, pad_idx=-1):
+        super().__init__(lambda_, temperature, probability_dim)
+        self.k_padded = k_padded
+        self.combiner_pad_value = -1
 
-    def get_knn_prob(self, active_chunks, device="cuda:0", **kwargs):
+    def get_knn_prob(self, padded_tokens, padded_distances, device="cuda:0", **kwargs):
         """
-        Calculates p_kNN based on first token of active chunks for
-        a single hypothesis.
+        Calculates p_kNN based on first token of active chunks.
         """
-        assert active_chunks, "No active chunks"
+        # adds S = 1 dimension
+        return calculate_chunk_knn_prob(padded_tokens, padded_distances, self.probability_dim, self.temperature, self.combiner_pad_value, **kwargs).unsqueeze(1)
+
 
 
 

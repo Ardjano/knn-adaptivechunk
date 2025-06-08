@@ -21,9 +21,9 @@ from knnbox.common_utils import (
     enable_module_grad,
 )
 from knnbox.datastore import Datastore, ChunkDatastore
-# need to edit later
-# from knnbox.retriever import Retriever
-# from knnbox.combiner import Combiner, AdaptiveCombiner
+from knnbox.utils.chunk_state_cache import ChunkStateCache
+from knnbox.retriever import Retriever, ChunkRetriever
+from knnbox.combiner import Combiner, AdaptiveCombiner, ChunkCombiner
 
 from .adaptive_knn_mt import AdaptiveKNNMT
 
@@ -45,6 +45,8 @@ class ChunkKNNMT(AdaptiveKNNMT):
                             help="Maximum dynamic chunk size")
         parser.add_argument("--confidence-threshold", type=float, metavar="F", default=0.9,
                             help="Confidence threshold")
+        parser.add_argument("--knn-k-padded", type=int, metavar="N", default=100,
+                            help="Padded k for chunk combiner input, ensuring fixed tensor size for active chunks.")
         parser.add_argument("--max-active-chunks", type=int, default=100, help="Maximum number of active chunks at any point during generation")
 
     @classmethod
@@ -59,6 +61,34 @@ class ChunkKNNMT(AdaptiveKNNMT):
             no_encoder_attn=getattr(args, "no_cross_attention", False),
         )
 
+    @classmethod
+    def build_encoder(cls, args, src_dict, embed_tokens):
+        return ChunkKNNMTEncoder(
+            args,
+            src_dict,
+            embed_tokens
+        )
+
+# using this as a signal for a new batch, to clear cache
+class ChunkKNNMTEncoder(TransformerEncoder):
+    def __init__(self, args, dictionary, embed_tokens):
+        super().__init__(args, dictionary, embed_tokens)
+        self.args = args # review
+
+    def forward(
+            self,
+            src_tokens,
+            src_lengths,
+            return_all_hiddens: bool = False,
+            token_embeddings: Optional[torch.Tensor] = None,
+    ):
+        ret = super().forward(src_tokens, src_lengths, return_all_hiddens, token_embeddings)
+
+        if self.args.knn_mode == "inference":
+            global_vars()["chunk_knn_new_batch"] = True
+
+        return ret
+
 
 class ChunkKNNMTDecoder(TransformerDecoder):
     r"""
@@ -71,6 +101,7 @@ class ChunkKNNMTDecoder(TransformerDecoder):
         In other words, create datastore, retriever and combiner.
         """
         super().__init__(args, dictionary, embed_tokens, no_encoder_attn)
+        self.args = args
 
         if args.knn_mode == "build_datastore":
             if "datastore" not in global_vars():
@@ -85,6 +116,7 @@ class ChunkKNNMTDecoder(TransformerDecoder):
                         # chunk_size=args.chunk_size
                     )
             self.datastore = global_vars()["datastore"]
+            self.chunk_state_cache = None
 
         else:
             self.datastore = ChunkDatastore.load(args.knn_datastore_path, load_list=["vals", "real_lens"], load_network=True)
@@ -93,15 +125,21 @@ class ChunkKNNMTDecoder(TransformerDecoder):
             else:
                 self.datastore.load_faiss_index("keys")
 
-            self.retriever = ChunkRetriever(datastore=self.datastore, k=args.knn_max_k, max_active_chunks=args.max_active_chunks)
+            self.retriever = ChunkRetriever(datastore=self.datastore, k_new=args.knn_k, max_active_chunks=args.max_active_chunks)
             self.combiner = ChunkCombiner(
                 lambda_=args.knn_lambda,
                 temperature=args.knn_temperature,
-                probability_dim=len(dictionary)
+                probability_dim=len(dictionary),
+                k_padded=args.knn_k_padded,
+                max_active_chunks=args.max_active_chunks
             )
-            # if args.knn_mode == "train_metak":
-            # if args.knn_mode == "inference":
-            #     self.combiner = AdaptiveCombiner.load(args.knn_combiner_path)
+
+            self.chunk_state_cache = ChunkStateCache(
+                max_active_chunks=args.max_active_chunks,
+                pad_idx=self.dictionary.pad(),
+                max_chunk_size=args.max_chunk_size
+            )
+
 
     def forward(
         self,
@@ -248,10 +286,29 @@ class ChunkKNNMTDecoder(TransformerDecoder):
                 self.datastore["real_lens"].add(\
                     torch.tensor([real_len], device=x.device, dtype=torch.long))
 
-        elif self.args.knn_mode == "train_metak" or self.args.knn_mode == "inference":
-            ## query with x (x needn't to be half precision),
-            ## save retrieved `vals` and `distances`
-            self.retriever.retrieve(x, return_list=["vals", "distances"])
+        elif self.args.knn_mode == "inference":
+            if self.chunk_state_cache is None:
+                raise RuntimeError("ChunkStateCache not initialized for inference mode")
+
+            if global_vars()["chunk_knn_new_batch"]:
+                self.chunk_state_cache.clear()
+                global_vars()["chunk_knn_new_batch"] = False
+
+            current_bsz = x.size(0)
+
+            if not self.chunk_state_cache.is_initialized(current_bsz, x.device):
+                self.chunk_state_cache.initialize(current_bsz, x.device)
+
+            # advance chunk positions if more than bos
+            if prev_output_tokens.size(1) > 1:
+                self.chunk_state_cache.advance_slots()
+
+            current_states_tuple = self.chunk_state_cache.get_states_tuple()
+            new_states_tuple = self.retriever.retrieve_and_manage_slots(x, *current_states_tuple)
+            self.chunk_state_cache.update_states_tuple(new_states_tuple)
+
+            # pass the state through extra for get_normalized_probs
+            extra["active_slots_state"] = self.chunk_state_cache.get_state_dict_for_combiner()
 
         if not features_only:
             x = self.output_layer(x)
@@ -271,12 +328,19 @@ class ChunkKNNMTDecoder(TransformerDecoder):
         step 2.
             combine the knn probability with NMT's probability
         """
-        if self.args.knn_mode == "inference" or self.args.knn_mode == "train_metak":
-            knn_prob = self.combiner.get_knn_prob(**self.retriever.results, device=net_output[0].device)
-            combined_prob, _ = self.combiner.get_combined_prob(knn_prob, net_output[0], log_probs=log_probs)
+        logits = net_output[0]
+        extra = net_output[1]
+        if self.args.knn_mode == "inference" and extra and "active_slots_state" in extra:
+            padded_tokens, padded_distances = self.chunk_state_cache.prepare_combiner_inputs(self.combiner.k_padded, self.combiner.combiner_pad_value)
+
+            knn_prob = self.combiner.get_knn_prob(padded_tokens, padded_distances)
+
+            combined_prob, _ = self.combiner.get_combined_prob(knn_prob, logits, log_probs)
+
             return combined_prob
-        else:
-            return super().get_normalized_probs(net_output, log_probs, sample)
+
+        print("this aint it chief")
+        return super().get_normalized_probs(net_output, log_probs, sample)
 
 
 r""" Define some pck knn-mt's arch.

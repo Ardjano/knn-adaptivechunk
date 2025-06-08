@@ -12,7 +12,7 @@ def calculate_knn_prob(vals, distances, probability_dim, temperature, device, **
     print(f"weights size: {knn_weights.size()}")
     print(f"distances size: {distances.size()}")
     print(f"vals size: {vals.size()} \n\n")
-
+    print(f"probability dim: {probability_dim}")
     # print(vals)
     # # ONLY FOR DEBUGGING!
     # vals = vals[:, :, :, 0]
@@ -68,7 +68,28 @@ def calculate_knn_prob_with_merge_weight(vals, distances, merge_weights, probabi
 
     return knn_probs
 
-def calculate_chunk_knn_prob(active_chunks, probability_dim, temperature, device, **kwargs):
-    # could probably remove this check
-    assert active_chunks, "No active chunks"
+def calculate_chunk_knn_prob(padded_tokens, padded_distances, probability_dim, temperature, combiner_pad_value=-1, **kwargs):
+    """
+    Calculate p_kNN given padded, batched tensorized active chunks.
+    """
+    device=padded_tokens.device
+
+    # padding with inf distance -> 0
+    scaled_dists = -padded_distances / temperature
+    knn_weights = torch.softmax(scaled_dists, dim=-1)
+
+    # necessary trick to use scatter_add_
+    scatter_indices = padded_tokens.clone()
+    scatter_indices[scatter_indices == combiner_pad_value] = 0
+
+    knn_probs = torch.zeros(
+        padded_tokens.size(0),
+        probability_dim, device=device)
+    knn_probs.scatter_add_(
+        dim=-1,
+        index=scatter_indices,
+        src=knn_weights)
+
+    return knn_probs
+
 

@@ -27,7 +27,7 @@ class ChunkRetriever:
             self.datastore.load_array("real_lens")
 
     @torch.no_grad()
-    def retrieve_and_add_chunks(self, query_tensor,
+    def retrieve_and_manage_slots(self, query_tensor,
             active_slots_tokens,
             active_slots_distances,
             active_slots_real_lens,
@@ -55,8 +55,9 @@ class ChunkRetriever:
         indices = faiss_results["indices"] # [B*Beam, k_new]
         distances = faiss_results["distances"]
 
-        new_vals_padded = torch.tensor(self.datastore["vals"].data[indices.flatten()], device=device).view(n_hypotheses, self.k_new, -1)
-        new_real_lens = torch.tensor(self.datastore["real_lens"].data[indices.flatten()], device=device).view(n_hypotheses, self.k_new)
+        flattened_indices = indices.flatten()
+        new_vals_padded = torch.tensor(self.datastore["vals"].data[flattened_indices], device=device).view(n_hypotheses, self.k_new, -1)
+        new_real_lens = torch.tensor(self.datastore["real_lens"].data[flattened_indices], device=device).view(n_hypotheses, self.k_new)
 
         # vectorizes slot finding & assignment across hypotheses
         for i in range(n_hypotheses):
@@ -64,8 +65,10 @@ class ChunkRetriever:
             invalid_slot_indices_i = (~active_slots_valid_mask[i]).nonzero(as_tuple=True)[0]
 
             n_invalid = invalid_slot_indices_i.size(0)
-            n_new_chunks = self.k_new
-            # if available slots is a concern, add logic here
+            if n_invalid == 0:
+                print("No valid slots, continuing")
+                continue
+            n_new_chunks = min(self.k_new, n_invalid)
 
             # gets the first n invalid slots
             slots = invalid_slot_indices_i[:n_new_chunks]
