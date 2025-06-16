@@ -64,6 +64,10 @@ class Datastore:
         if name in self.datas:
             del self.datas[name]
 
+    def __contains__(self, name):
+        r""" check if inner data `name` exists """
+        return name in self.datas
+
 
     def set_pad_mask(self, mask):
         r"""
@@ -188,6 +192,3 @@ class Datastore:
                     use_gpu=use_gpu,
                     verbose=verbose
                     )
-
-
-

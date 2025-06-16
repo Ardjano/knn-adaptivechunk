@@ -25,11 +25,12 @@ from knnbox.utils.chunk_state_cache import ChunkStateCache
 from knnbox.retriever import Retriever, ChunkRetriever
 from knnbox.combiner import Combiner, AdaptiveCombiner, ChunkCombiner
 
-from .adaptive_knn_mt import AdaptiveKNNMT
+# from .adaptive_knn_mt import AdaptiveKNNMT
+from .vanilla_knn_mt import VanillaKNNMT
 
 
 @register_model("chunk_knn_mt")
-class ChunkKNNMT(AdaptiveKNNMT):
+class ChunkKNNMT(VanillaKNNMT):
     r"""
     The Chunk KNN-MT model, using chunked datastores.
     """
@@ -38,7 +39,7 @@ class ChunkKNNMT(AdaptiveKNNMT):
         r"""
         add chunk knn-mt related args here
         """
-        AdaptiveKNNMT.add_args(parser)
+        VanillaKNNMT.add_args(parser)
         # parser.add_argument("--chunk-size", type=int, metavar="N", default=4,
         #                     help="target chunk size")
         parser.add_argument("--max-chunk-size", type=int, metavar="N", default=10,
@@ -130,14 +131,15 @@ class ChunkKNNMTDecoder(TransformerDecoder):
                 lambda_=args.knn_lambda,
                 temperature=args.knn_temperature,
                 probability_dim=len(dictionary),
-                k_padded=args.knn_k_padded,
-                max_active_chunks=args.max_active_chunks
+                k_padded=args.knn_k_padded
             )
 
             self.chunk_state_cache = ChunkStateCache(
                 max_active_chunks=args.max_active_chunks,
                 pad_idx=self.dictionary.pad(),
-                max_chunk_size=args.max_chunk_size
+                max_chunk_size=self.datastore.max_chunk_size,
+                # for debugging
+                dictionary=self.dictionary
             )
 
 
@@ -297,7 +299,7 @@ class ChunkKNNMTDecoder(TransformerDecoder):
             current_bsz = x.size(0)
 
             if not self.chunk_state_cache.is_initialized(current_bsz, x.device):
-                self.chunk_state_cache.initialize(current_bsz, x.device)
+                self.chunk_state_cache.init_state(current_bsz, x.device)
 
             # advance chunk positions if more than bos
             if prev_output_tokens.size(1) > 1:
@@ -328,20 +330,31 @@ class ChunkKNNMTDecoder(TransformerDecoder):
         step 2.
             combine the knn probability with NMT's probability
         """
-        logits = net_output[0]
         extra = net_output[1]
         if self.args.knn_mode == "inference" and extra and "active_slots_state" in extra:
-            padded_tokens, padded_distances = self.chunk_state_cache.prepare_combiner_inputs(self.combiner.k_padded, self.combiner.combiner_pad_value)
+            # debug
+            current_batch_idxs = global_vars().get("current_batch_idxs", None)
+            print(f"sent ids of batch: {current_batch_idxs} \n length: {len(current_batch_idxs)}")
+
+            # 'padded' here refers to padding the number of active chunks to k_padded, to enable tensorized computation
+            padded_tokens, padded_distances = self.chunk_state_cache.prepare_combiner_inputs(self.combiner.k_padded, self.combiner.combiner_pad_value, self.combiner.temperature, current_batch_idxs)
 
             knn_prob = self.combiner.get_knn_prob(padded_tokens, padded_distances)
 
-            combined_prob, _ = self.combiner.get_combined_prob(knn_prob, logits, log_probs)
+            combined_prob, _ = self.combiner.get_combined_prob(knn_prob, net_output[0], log_probs=log_probs)
 
             return combined_prob
 
-        print("this aint it chief")
         return super().get_normalized_probs(net_output, log_probs, sample)
 
+    def reorder_incremental_state(
+        self,
+        incremental_state: List[Dict[str, Dict[str, Optional[Tensor]]]],
+        new_order,
+    ):
+        super().reorder_incremental_state(incremental_state, new_order)
+        if self.chunk_state_cache is not None:
+            self.chunk_state_cache.reorder_state(new_order)
 
 r""" Define some pck knn-mt's arch.
      arch name format is: chunk_knn_mt@base_model_arch

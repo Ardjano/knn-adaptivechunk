@@ -74,7 +74,7 @@ def calculate_chunk_knn_prob(padded_tokens, padded_distances, probability_dim, t
     """
     device=padded_tokens.device
 
-    # padding with inf distance -> 0
+    # padding with inf distance -> 0 in softmax
     scaled_dists = -padded_distances / temperature
     knn_weights = torch.softmax(scaled_dists, dim=-1)
 

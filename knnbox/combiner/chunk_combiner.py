@@ -9,7 +9,7 @@ from knnbox.combiner import Combiner
 from knnbox.combiner.utils import calculate_chunk_knn_prob
 
 class ChunkCombiner(Combiner):
-    def __init__(self, lambda_, temperature, probability_dim, k_padded=100, pad_idx=-1):
+    def __init__(self, lambda_, temperature, probability_dim, k_padded=100):
         super().__init__(lambda_, temperature, probability_dim)
         self.k_padded = k_padded
         self.combiner_pad_value = -1

@@ -13,6 +13,7 @@ from fairseq.data import data_utils
 from fairseq.models import FairseqIncrementalDecoder
 from fairseq.models.fairseq_encoder import EncoderOut
 from torch import Tensor
+from knnbox.common_utils import global_vars
 
 
 class SequenceGenerator(nn.Module):
@@ -308,6 +309,8 @@ class SequenceGenerator(nn.Module):
                 encoder_outs = self.model.reorder_encoder_out(
                     encoder_outs, reorder_state
                 )
+
+            global_vars()["current_batch_idxs"] = original_batch_idxs # for debugging
 
             lprobs, avg_attn_scores = self.model.forward_decoder(
                 tokens[:, : step + 1],

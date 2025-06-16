@@ -55,7 +55,8 @@ class ChunkRetriever:
         indices = faiss_results["indices"] # [B*Beam, k_new]
         distances = faiss_results["distances"]
 
-        flattened_indices = indices.flatten()
+        # need to put on cpu?
+        flattened_indices = indices.flatten().cpu()
         new_vals_padded = torch.tensor(self.datastore["vals"].data[flattened_indices], device=device).view(n_hypotheses, self.k_new, -1)
         new_real_lens = torch.tensor(self.datastore["real_lens"].data[flattened_indices], device=device).view(n_hypotheses, self.k_new)
 
